@@ -1,2 +1,42 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div style="height: 650px"></div>
+<p class="header m-3 fs-1">UPCOMING SHOWS</p>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<%= image_tag "posters/Globull.jpg", class: "w-100 m-4" %>
+		</div>
+		<div class="col">
+			<%= image_tag "posters/Nouveau_Monde.jpg", class: "w-100 m-4" %>
+		</div>
+	</div>
+</div>
+<a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">PAST SHOWS</a>
+<div class="collapse" id="collapseExample">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<%= image_tag "posters/Globull.jpg", class: "w-100 m-4" %>
+			</div>
+			<div class="col">
+				<%= image_tag "posters/Nouveau_Monde.jpg", class: "w-100 m-4" %>
+			</div>
+		</div>
+	</div>
+</div>
+<p class="header m-3 fs-1">VIDEOS</p>
+<div class="container-fluid px-3">
+	<div class="row">
+		<div class="col">
+			<div class="embed-responsive embed-responsive-16by9">
+				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/iQOOQ7KFmdE?si=MztkAcw3KF377-3T" allowfullscreen></iframe>
+			</div>
+		</div>
+		<div class="col">
+			<iframe src="https://www.youtube.com/embed/IOUMo9eb5gw?si=nfyRtDWbEBnBclSi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
+		<div class="col">
+			<iframe src="https://www.youtube.com/embed/iQOOQ7KFmdE?si=MztkAcw3KF377-3T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
+	</div>
+</div>
+<div style="height: 650px"></div>

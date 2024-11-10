@@ -1,3 +1,14 @@
+$theme-colors: (
+  "primary":    #fff,
+  "secondary":  #bbb,
+  "opposite":   #000,
+  "info":       #fff,
+  "warning":    #fff,
+  "danger":     #fff,
+  "light":      #fff,
+  "dark":       #fff
+	);
+
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import 'music.bootstrap';
@@ -36,6 +47,17 @@ body {
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
+.header {
+	// position: relative;
+	color: white;
+	/* background: black; */
+	font-family: "Electrolize", sans-serif;
+	// font-size: 2rem;
+	// font-weight: 100;
+	// text-align: center;
+	// margin: 3rem 0 2rem 0;
+}
+
 .band_member img {
 	width: 100%;
 	cursor: pointer;
@@ -62,8 +84,8 @@ body {
 }
 
 #band_picture {
-	border: 3px solid white;
-	border-radius: 1rem;
+	// border: 3px solid white;
+	// border-radius: 1rem;
 	box-shadow: 0 0 10px white,
 	-5px -5px 25px -5px rgba(0, 0, 255, .7),
 	5px 5px 25px -5px rgba(255, 0, 0, .7);
