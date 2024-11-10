@@ -10,7 +10,7 @@ window.addEventListener('scroll', function() {
 	let num = (window.scrollY/window.innerHeight)*16;
 
 	if (num < 10) {
-		document.getElementById('neon-logo').style.transform = 'scale(' + (1 - num / 100) + ')'
+		document.getElementById('floating-logo').style.transform = 'scale(' + (1 - num / 100) + ')'
 		document.getElementById('bg_image').style.transform = 'translateX(-50%) scale(' + (1 - num / 100) + ')'
 		document.getElementById('bg_image').style.webkitFilter = 'blur(' + num + 'px) brightness(' + (1 - (num / 15)) + ')'
 	}

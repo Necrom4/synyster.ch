@@ -29,13 +29,13 @@
 	</head>
 
 	<body>
-		<div class="wrapper">
+		<main class="wrapper">
 			<%= render 'shared/header' %>
-			<main class="content">
+			<div class="content">
 				<%= yield %>
-			</main>
+			</div>
 			<%= render 'shared/footer' %>
-		</div>
+		</main>
 		<script>
 			Fancybox.bind("[data-fancybox]", {
 				Toolbar: {
