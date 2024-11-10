@@ -1,0 +1,19 @@
+.navbar {
+	// z-index: 24;
+	// position: fixed;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(34,34,34,0.4), rgba(0, 0, 0, 0.5));
+	backdrop-filter: blur(7px);
+  border-bottom: solid 2px rgba(255, 255, 255, 0.8);
+  box-shadow:  0px -30px 50px 20px #000000;
+}
+
+.navbar a {
+  color: #aaa;
+	font-family: "Arial";
+	// font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: white;
+}
