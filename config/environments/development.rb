@@ -74,4 +74,6 @@ Rails.application.configure do
 	config.hotwire_livereload.force_reload_paths << Rails.root.join("app/javascript")
 	config.hotwire_livereload.reload_method = :turbo_stream
 	config.hotwire_livereload.debounce_delay_ms = 300 # in milliseconds
+
+	config.hosts << "dev-pc:3000"
 end
