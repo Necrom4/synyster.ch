@@ -22,11 +22,30 @@
 		<%= javascript_importmap_tags %>
 		<%= stylesheet_link_tag "application", "data-turbo-track": Rails.env.production? ? "reload" : "" %>
 		<%= hotwire_livereload_tags if Rails.env.development? %>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Electrolize">
+		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+		<%# <%= javascript_include_tag("utils.js") %1> %>
 	</head>
 
 	<body>
-		<%= render 'shared/header' %>
-		<%= yield %>
-		<%= render 'shared/footer' %>
+		<div class="wrapper">
+			<%= render 'shared/header' %>
+			<main class="content">
+				<%= yield %>
+			</main>
+			<%= render 'shared/footer' %>
+		</div>
+		<script>
+			Fancybox.bind("[data-fancybox]", {
+				Toolbar: {
+					display: {
+						left: [],
+						middle: [],
+						right: ["close"],
+					},
+				},
+			});
+		</script>
 	</body>
 </html>
