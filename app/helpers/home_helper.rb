@@ -16,7 +16,7 @@ module HomeHelper
 		end
 
 		# Wrap each container in a div with `photos_container` class and concatenate into final HTML
-		html = containers.map { |content| content_tag(:div, content.html_safe, class: "col") }.join
+		html = containers.map { |content| content_tag(:div, content.html_safe, class: "col px-1") }.join
 
 		html.html_safe
 

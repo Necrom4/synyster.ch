@@ -2,6 +2,9 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import * as bootstrap from "bootstrap"
+// import { Fancybox } from "@fancyapps/ui";
+// import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }

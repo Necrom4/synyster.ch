@@ -90,7 +90,7 @@ body {
 	transition: .1s ease-out;
 }
 
-.poster_gallery container:hover img {
+.poster_gallery .container:hover img {
 	filter: invert(1) sepia(1) hue-rotate(315deg) saturate(2) contrast(2);
 	// opacity: .3;
 	transform: scale(1.05);
