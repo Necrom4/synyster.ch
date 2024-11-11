@@ -18,9 +18,10 @@
 		<link rel="apple-touch-icon" href="/icon.png">
 
 		<%# Includes all stylesheet files in app/assets/stylesheets %>
-		<%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+		<%# <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %1> %>
 		<%= javascript_importmap_tags %>
 		<%= stylesheet_link_tag "application", "data-turbo-track": Rails.env.production? ? "reload" : "" %>
+		<%= stylesheet_link_tag params[:controller], "data-turbo-track": Rails.env.production? ? "reload" : "" %>
 		<%= hotwire_livereload_tags if Rails.env.development? %>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Electrolize">
 		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>

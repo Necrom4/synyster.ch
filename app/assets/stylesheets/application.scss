@@ -7,11 +7,11 @@ $theme-colors: (
   "darkish":		#353535
 	);
 
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
-@import 'music.bootstrap';
-@import 'header.bootstrap';
-@import 'footer.bootstrap';
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '../../../node_modules/bootstrap-icons/font/bootstrap-icons';
+// @import 'music';
+@import 'header';
+@import 'footer';
 
 body {
 	background: #000;

@@ -65,3 +65,5 @@ group :test do
   gem "selenium-webdriver"
 end
 gem "redis"
+
+gem "dartsass-rails", "~> 0.5.1"
