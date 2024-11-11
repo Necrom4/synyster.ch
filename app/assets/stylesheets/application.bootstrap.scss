@@ -1,12 +1,10 @@
 $theme-colors: (
-  "primary":    #fff,
-  "secondary":  #bbb,
-  "opposite":   #000,
-  "info":       #fff,
-  "warning":    #fff,
-  "danger":     #fff,
-  "light":      #fff,
-  "dark":       #fff
+  "primary":    #ffffff,
+  "secondary":  #dbdbdb,
+	"mid-1":			#afafaf,
+	"mid-2":			#7c7c7c,
+  "dark":				#000,
+  "darkish":		#353535
 	);
 
 @import 'bootstrap/scss/bootstrap';
@@ -33,7 +31,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	flex: 1;
-	// max-width: 1000px;
+	max-width: 1000px;
 }
 
 #bg_image {
@@ -56,6 +54,57 @@ body {
 	// font-weight: 100;
 	// text-align: center;
 	// margin: 3rem 0 2rem 0;
+}
+
+.gallery_collapse {
+	font-family: "Electrolize", sans-serif;
+}
+
+.poster_gallery .container {
+	position: relative;
+}
+
+.poster_gallery a {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	font-family: "Electrolize", sans-serif;
+	border: 1px solid white;
+	box-shadow: 0 0 10px black;
+	transition: .1s ease-out;
+}
+
+.poster_gallery .container:hover a {
+	opacity: 1;
+}
+
+.poster_gallery a:hover {
+	background: rgba(255, 255, 255, .5);
+	color: black;
+}
+
+.poster_gallery img {
+	// cursor: pointer;
+	transition: .1s ease-out;
+}
+
+.poster_gallery container:hover img {
+	filter: invert(1) sepia(1) hue-rotate(315deg) saturate(2) contrast(2);
+	// opacity: .3;
+	transform: scale(1.05);
+}
+
+.pictures_gallery img {
+	// cursor: pointer;
+	transition: .1s ease-out;
+}
+
+.pictures_gallery img:hover {
+	// opacity: .3;
+	box-shadow: 0 0 10px var(--hover-shadow-color);
+	transform: scale(1.05);
 }
 
 .band_member img {

@@ -1,42 +1,53 @@
 <div style="height: 650px"></div>
-<p class="header m-3 fs-1">UPCOMING SHOWS</p>
-<div class="container">
+<p class="header m-3 mt-5 fs-1">UPCOMING SHOWS</p>
+<div class="container.fluid mx-3 mx-sm-5 poster_gallery">
 	<div class="row">
-		<div class="col">
-			<%= image_tag "posters/Globull.jpg", class: "w-100 m-4" %>
+		<div class="col p-0">
+			<div class="container">
+				<%= image_tag "posters/Globull.jpg", class: "w-100" %>
+				<a href="https://www.amongvultures.com/" class="btn btn-dark">LINK</a>
+			</div>
 		</div>
-		<div class="col">
-			<%= image_tag "posters/Nouveau_Monde.jpg", class: "w-100 m-4" %>
+		<div class="col p-0">
+			<div class="container">
+				<%= image_tag "posters/Nouveau_Monde.jpg", class: "w-100" %>
+				<a href="https://www.amongvultures.com/" class="btn btn-dark">LINK</a>
+			</div>
 		</div>
 	</div>
 </div>
-<a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">PAST SHOWS</a>
-<div class="collapse" id="collapseExample">
-	<div class="container">
+<a class="btn btn-outline-primary m-3 gallery_collapse" data-bs-toggle="collapse" href="#pastShows" role="button" aria-expanded="false" aria-controls="pastShows">PAST SHOWS</a>
+<div class="collapse" id="pastShows">
+	<div class="container.fluid m-3 m-sm-5">
 		<div class="row">
 			<div class="col">
-				<%= image_tag "posters/Globull.jpg", class: "w-100 m-4" %>
+				<%= image_tag "posters/Globull.jpg", class: "w-100" %>
 			</div>
 			<div class="col">
-				<%= image_tag "posters/Nouveau_Monde.jpg", class: "w-100 m-4" %>
+				<%= image_tag "posters/Nouveau_Monde.jpg", class: "w-100" %>
 			</div>
 		</div>
 	</div>
 </div>
-<p class="header m-3 fs-1">VIDEOS</p>
-<div class="container-fluid px-3">
+<p class="header m-3 mt-5 fs-1">VIDEOS</p>
+<div class="container">
 	<div class="row">
-		<div class="col">
-			<div class="embed-responsive embed-responsive-16by9">
-				<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/iQOOQ7KFmdE?si=MztkAcw3KF377-3T" allowfullscreen></iframe>
+		<div class="col-12 col-sm-6">
+			<div class="ratio ratio-16x9 mb-2">
+				<iframe src="https://www.youtube.com/embed/iQOOQ7KFmdE?si=MztkAcw3KF377-3T" allowfullscreen></iframe>
 			</div>
 		</div>
-		<div class="col">
-			<iframe src="https://www.youtube.com/embed/IOUMo9eb5gw?si=nfyRtDWbEBnBclSi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-		</div>
-		<div class="col">
-			<iframe src="https://www.youtube.com/embed/iQOOQ7KFmdE?si=MztkAcw3KF377-3T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		<div class="col-12 col-sm-6">
+			<div class="ratio ratio-16x9 mb-2">
+				<iframe src="https://www.youtube.com/embed/IOUMo9eb5gw?si=nfyRtDWbEBnBclSi" allowfullscreen></iframe>
+			</div>
 		</div>
 	</div>
 </div>
-<div style="height: 650px"></div>
+<p class="header m-3 mt-5 fs-1">PICTURES</p>
+<div class="container pictures_gallery">
+	<div class="row">
+		<%= photos_gallery("photos") %>
+	</div>
+</div>
+<%# <div style="height: 650px"></div> %>
