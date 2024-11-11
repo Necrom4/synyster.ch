@@ -1,6 +1,8 @@
-<div style="height: 650px"></div>
+<%= image_tag "templates/SplitBG3.jpg", id: "bg_image", class: "mt-5 mt-sm-0" %>
+<div id="spacer" style="height: 65vw"></div>
+<%= image_tag "templates/Neon_Logo2.png", id: "floating-logo" %>
 <p class="header m-3 mt-5 fs-1">UPCOMING SHOWS</p>
-<div class="container.fluid mx-3 mx-sm-5 poster_gallery">
+<div class="container.fluid mx-3 mx-sm-5 poster_gallery pictures_gallery">
 	<div class="row">
 		<div class="col p-0">
 			<div class="container">
@@ -16,7 +18,7 @@
 		</div>
 	</div>
 </div>
-<a class="btn btn-outline-primary m-3 gallery_collapse" data-bs-toggle="collapse" href="#pastShows" role="button" aria-expanded="false" aria-controls="pastShows">PAST SHOWS</a>
+<a class="btn btn-outline-primary m-3 mt-5 gallery_collapse" data-bs-toggle="collapse" href="#pastShows" role="button" aria-expanded="false" aria-controls="pastShows">PAST SHOWS</a>
 <div class="collapse" id="pastShows">
 	<div class="container.fluid m-3 m-sm-5">
 		<div class="row">
@@ -45,7 +47,7 @@
 	</div>
 </div>
 <p class="header m-3 mt-5 fs-1">PICTURES</p>
-<div class="row mx-2 mx-sm-4 photos_gallery">
-	<%= photos_gallery("photos") %>
+<div class="row mx-2 mx-sm-4 pictures_gallery">
+	<%= photos_gallery("pictures") %>
 </div>
 <%# <div style="height: 650px"></div> %>

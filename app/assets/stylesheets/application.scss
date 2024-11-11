@@ -36,6 +36,7 @@ body {
 
 #bg_image {
 	position: fixed;
+	width: 100%;
 	max-width: 1000px;
 	top: 0;
 	left: 50%;
@@ -43,6 +44,13 @@ body {
 	z-index: -1;
 	mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+#floating-logo {
+	width: 90%;
+	// margin-bottom: 50px;
+	filter: drop-shadow(0 0 10px black);
+	/* z-index: 24; */
 }
 
 .header {
@@ -56,46 +64,6 @@ body {
 	// margin: 3rem 0 2rem 0;
 }
 
-.gallery_collapse {
-	font-family: "Electrolize", sans-serif;
-}
-
-.poster_gallery .container {
-	position: relative;
-}
-
-.poster_gallery a {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	opacity: 0;
-	font-family: "Electrolize", sans-serif;
-	border: 1px solid white;
-	box-shadow: 0 0 10px black;
-	transition: .1s ease-out;
-}
-
-.poster_gallery .container:hover a {
-	opacity: 1;
-}
-
-.poster_gallery a:hover {
-	background: rgba(255, 255, 255, .5);
-	color: black;
-}
-
-.poster_gallery img {
-	// cursor: pointer;
-	transition: .1s ease-out;
-}
-
-.poster_gallery .container:hover img {
-	filter: invert(1) sepia(1) hue-rotate(315deg) saturate(2) contrast(2);
-	// opacity: .3;
-	transform: scale(1.05);
-}
-
 .pictures_gallery img {
 	// cursor: pointer;
 	transition: .1s ease-out;
@@ -106,52 +74,3 @@ body {
 	box-shadow: 0 0 10px var(--hover-shadow-color);
 	transform: scale(1.05);
 }
-
-.band_member img {
-	width: 100%;
-	cursor: pointer;
-	transition: .1s ease-out;
-}
-
-.band_member img:hover {
-	transform: scale(1.05);
-}
-
-.band_member a {
-	color: white;
-	font-family: "Electrolize", sans-serif;
-	text-decoration: none;
-}
-
-.band_member a:hover {
-	text-decoration: underline;
-}
-
-.band_member p {
-	color: #bbb;
-	font-family: "Electrolize", sans-serif;
-}
-
-#band_picture {
-	// border: 3px solid white;
-	// border-radius: 1rem;
-	box-shadow: 0 0 10px white,
-	-5px -5px 25px -5px rgba(0, 0, 255, .7),
-	5px 5px 25px -5px rgba(255, 0, 0, .7);
-}
-
-#band_description {
-	font-family: "Electrolize", sans-serif;
-	text-align: justify;
-	text-align-last: center;
-	color: white;
-	// width: 60%;
-	// margin: 3rem 0 4rem 0;
-}
-
-// #neon-logo {
-// 	width: 90%;
-// 	margin-bottom: 50px;
-// 	filter: drop-shadow(0 0 10px black);
-// 	/* z-index: 24; */
-// }

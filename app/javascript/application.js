@@ -23,38 +23,49 @@ window.addEventListener('scroll', function() {
 })
 
 document.addEventListener("DOMContentLoaded", () => {
-    const images = document.querySelectorAll('.gallery_image');
+	const images = document.querySelectorAll('.pictures_gallery img');
 
-    images.forEach((img) => {
-        img.addEventListener("load", () => {
-            const color = getAverageColor(img);
-            img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);
-        });
-    });
+	images.forEach((img) => {
+		const color = getAverageColor(img);
+		img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);
+	});
 });
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   const images = document.querySelectorAll('.pictures_gallery img');
+
+//   Promise.all(Array.from(images).map(img => new Promise(resolve => {
+//     img.addEventListener('load', resolve);
+//   }))).then(() => {
+//     images.forEach(img => {
+//       const color = getAverageColor(img);
+//       img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);
+//     });
+//   });
+// });
+
 function getAverageColor(img) {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
+	const canvas = document.createElement('canvas');
+	const context = canvas.getContext('2d');
 
-    canvas.width = img.width;
-    canvas.height = img.height;
-    context.drawImage(img, 0, 0, img.width, img.height);
+	canvas.width = img.width;
+	canvas.height = img.height;
+	context.drawImage(img, 0, 0, img.width, img.height);
 
-    const imageData = context.getImageData(0, 0, img.width, img.height);
-    const data = imageData.data;
-    let r = 0, g = 0, b = 0;
+	const imageData = context.getImageData(0, 0, img.width, img.height);
+	const data = imageData.data;
+	let r = 0, g = 0, b = 0;
 
-    for (let i = 0; i < data.length; i += 4) {
-        r += data[i];
-        g += data[i + 1];
-        b += data[i + 2];
-    }
+	for (let i = 0; i < data.length; i += 4) {
+		r += data[i];
+		g += data[i + 1];
+		b += data[i + 2];
+	}
 
-    const pixelCount = data.length / 4;
-    r = Math.floor(r / pixelCount);
-    g = Math.floor(g / pixelCount);
-    b = Math.floor(b / pixelCount);
+	const pixelCount = data.length / 4;
+	r = Math.floor(r / pixelCount);
+	g = Math.floor(g / pixelCount);
+	b = Math.floor(b / pixelCount);
 
-    return { r, g, b };
+	return { r, g, b };
 }

@@ -1,0 +1,42 @@
+.band_member img {
+	width: 100%;
+	cursor: pointer;
+	transition: .1s ease-out;
+}
+
+.band_member img:hover {
+	transform: scale(1.05);
+}
+
+.band_member a {
+	color: white;
+	font-family: "Electrolize", sans-serif;
+	text-decoration: none;
+}
+
+.band_member a:hover {
+	text-decoration: underline;
+}
+
+.band_member p {
+	color: #bbb;
+	font-family: "Electrolize", sans-serif;
+}
+
+#band_picture {
+	// border: 3px solid white;
+	// border-radius: 1rem;
+	box-shadow: 0 0 10px white,
+	-5px -5px 25px -5px rgba(0, 0, 255, .7),
+	5px 5px 25px -5px rgba(255, 0, 0, .7);
+}
+
+#band_description {
+	font-family: "Electrolize", sans-serif;
+	text-align: justify;
+	text-align-last: center;
+	color: white;
+	// width: 60%;
+	// margin: 3rem 0 4rem 0;
+}
+

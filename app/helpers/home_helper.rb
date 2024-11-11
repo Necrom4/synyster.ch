@@ -1,5 +1,5 @@
 module HomeHelper
-	def photos_gallery(directory = "photos")
+	def photos_gallery(directory = "pictures")
 		containers = ["", "", ""]  # Initialize three containers as empty strings
 		image_paths = Dir.glob(Rails.root.join("app/assets/images/#{directory}/*.{JPG,jpg,jpeg,png,gif}"))
 
