@@ -22,16 +22,35 @@ window.addEventListener('scroll', function() {
 	// }
 })
 
-document.addEventListener("DOMContentLoaded", () => {
-	const images = document.querySelectorAll('.pictures_gallery img');
+document.addEventListener("turbo:load", updateSpacerHeight);
+document.addEventListener("DOMContentLoaded", updateSpacerHeight);
+window.addEventListener("resize", updateSpacerHeight);
+function updateSpacerHeight() {
+	const image = document.getElementById("bg_image");
+	const spacer = document.getElementById("spacer");
+	spacer.style.height = `${image.offsetHeight * 0.75}px`;
+}
 
-	images.forEach((img) => {
-		const color = getAverageColor(img);
-		img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);
+document.addEventListener("turbo:load", () => {
+	document.querySelectorAll(".pictures_gallery img").forEach((img) => {
+		img.addEventListener("mouseover", () => {
+			const color = getAverageColor(img);
+			img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);
+		});
 	});
 });
 
 // document.addEventListener("DOMContentLoaded", () => {
+// 	const images = document.querySelectorAll('.pictures_gallery img');
+
+// 	images.forEach((img) => {
+// 		const color = getAverageColor(img);
+// 		img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);
+// 	});
+// });
+
+
+// document.addEventListener("turbo:load", () => {
 //   const images = document.querySelectorAll('.pictures_gallery img');
 
 //   Promise.all(Array.from(images).map(img => new Promise(resolve => {
