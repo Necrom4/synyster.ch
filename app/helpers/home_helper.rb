@@ -12,6 +12,16 @@ module HomeHelper
 		]
 	end
 
+	def past_shows
+		[
+			{ image_path: "posters/Francos.jpg", },
+			{ image_path: "posters/Rockies.jpg", },
+			{ image_path: "posters/Qwertz.jpg", },
+			{ image_path: "posters/Abyss.png", },
+			{ image_path: "posters/MoB.jpg", }
+		]
+	end
+
 	def photos_gallery(directory = "pictures")
 		containers = ["", "", ""]  # Initialize three containers as empty strings
 		image_paths = Dir.glob(Rails.root.join("app/assets/images/#{directory}/*.{JPG,jpg,jpeg,png,gif}"))
