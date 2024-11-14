@@ -3,19 +3,8 @@
 <%= image_tag "templates/Neon_Logo2.png", id: "floating-logo", class: "mt-5 mt-sm-0" %>
 <p class="header m-3 mt-3 mt-sm-5 fs-1">UPCOMING SHOWS</p>
 <div class="container.fluid mx-3 mx-sm-5 poster_gallery pictures_gallery">
-	<div class="row">
-		<div class="col p-0">
-			<div class="container">
-				<%= image_tag "posters/Globull.jpg", class: "w-100" %>
-				<a href="https://www.amongvultures.com/" class="btn btn-dark">LINK</a>
-			</div>
-		</div>
-		<div class="col p-0">
-			<div class="container">
-				<%= image_tag "posters/Nouveau_Monde.jpg", class: "w-100" %>
-				<a href="https://www.amongvultures.com/" class="btn btn-dark">LINK</a>
-			</div>
-		</div>
+	<div class="row row-cols-2">
+		<%= render partial: 'upcoming_show', collection: upcoming_shows, as: :show %>
 	</div>
 </div>
 <a class="btn btn-outline-primary m-3 mt-5 gallery_collapse" data-bs-toggle="collapse" href="#pastShows" role="button" aria-expanded="false" aria-controls="pastShows">PAST SHOWS</a>

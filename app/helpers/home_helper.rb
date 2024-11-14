@@ -1,4 +1,17 @@
 module HomeHelper
+	def upcoming_shows
+		[
+			{
+				image_path: "posters/Globull.jpg",
+				web_url: "https://www.instagram.com/necrom_dp",
+			},
+			{
+				image_path: "posters/Nouveau_Monde.jpg",
+				web_url: "https://www.instagram.com/remi.castella",
+			}
+		]
+	end
+
 	def photos_gallery(directory = "pictures")
 		containers = ["", "", ""]  # Initialize three containers as empty strings
 		image_paths = Dir.glob(Rails.root.join("app/assets/images/#{directory}/*.{JPG,jpg,jpeg,png,gif}"))
