@@ -3,31 +3,22 @@
 <%= image_tag "templates/Neon_Logo2.png", id: "floating-logo", class: "mt-5 mt-sm-0" %>
 <p class="header m-3 mt-3 mt-sm-5 fs-1">UPCOMING SHOWS</p>
 <div class="container.fluid mx-3 mx-sm-5 poster_gallery pictures_gallery">
-	<div class="row row-cols-2 g-0">
+	<div class="row row-cols-2 g-3">
 		<%= render partial: 'upcoming_show', collection: upcoming_shows, as: :show %>
 	</div>
 </div>
-<a class="btn btn-outline-primary m-3 mt-5 gallery_collapse" data-bs-toggle="collapse" href="#pastShows" role="button" aria-expanded="false" aria-controls="pastShows">PAST SHOWS</a>
+<a class="btn btn-outline-primary m-5 mb-4 gallery_collapse" data-bs-toggle="collapse" href="#pastShows" role="button" aria-expanded="false" aria-controls="pastShows">PAST SHOWS</a>
 <div class="collapse" id="pastShows">
-	<div class="container.fluid m-3 m-sm-5">
-		<div class="row row-cols-2 g-0">
+	<div class="container.fluid mx-3 mx-sm-5">
+		<div class="row row-cols-2 g-3">
 			<%= render partial: 'past_show', collection: past_shows, as: :show %>
 		</div>
 	</div>
 </div>
-<p class="header m-3 mt-5 fs-1">VIDEOS</p>
-<div class="container">
-	<div class="row">
-		<div class="col-12 col-sm-6">
-			<div class="ratio ratio-16x9 mb-2">
-				<iframe src="https://www.youtube.com/embed/iQOOQ7KFmdE?si=MztkAcw3KF377-3T" allowfullscreen></iframe>
-			</div>
-		</div>
-		<div class="col-12 col-sm-6">
-			<div class="ratio ratio-16x9 mb-2">
-				<iframe src="https://www.youtube.com/embed/IOUMo9eb5gw?si=nfyRtDWbEBnBclSi" allowfullscreen></iframe>
-			</div>
-		</div>
+<p class="header m-4 fs-1">VIDEOS</p>
+<div class="container mx-3 mx-sm-5">
+	<div class="row row-cols-1 row-cols-sm-2 g-3">
+		<%= render partial: 'video', collection: videos, as: :video %>
 	</div>
 </div>
 <p class="header m-3 mt-5 fs-1">PICTURES</p>

@@ -14,11 +14,18 @@ module HomeHelper
 
 	def past_shows
 		[
-			{ image_path: "posters/Francos.jpg", },
-			{ image_path: "posters/Rockies.jpg", },
-			{ image_path: "posters/Qwertz.jpg", },
-			{ image_path: "posters/Abyss.png", },
-			{ image_path: "posters/MoB.jpg", }
+			{ image_path: "posters/Francos.jpg" },
+			{ image_path: "posters/Rockies.jpg" },
+			{ image_path: "posters/Qwertz.jpg" },
+			{ image_path: "posters/Abyss.png" },
+			{ image_path: "posters/MoB.jpg" }
+		]
+	end
+
+	def videos
+		[
+			{ web_url: "https://www.youtube.com/embed/iQOOQ7KFmdE?si=MztkAcw3KF377-3T" },
+			{ web_url: "https://www.youtube.com/embed/IOUMo9eb5gw?si=nfyRtDWbEBnBclSi" }
 		]
 	end
 
