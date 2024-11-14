@@ -1,0 +1,6 @@
+<div class="pictures_gallery band_member col text-center p-1">
+	<a href="<%= member[:web_url] %>">
+		<%= image_tag member[:image_path], class: "w-100" %>
+	</a>
+	<a href="<%= member[:web_url] %>" class="text-nowrap"><%= first_name(member[:name]) %> <span class="fw-bold d-none d-sm-inline"><%= last_name(member[:name]) %></span></a><p><%= member[:role] %></p>
+</div>

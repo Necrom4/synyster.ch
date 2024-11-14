@@ -28,7 +28,10 @@ window.addEventListener("resize", updateSpacerHeight);
 function updateSpacerHeight() {
 	const image = document.getElementById("bg_image");
 	const spacer = document.getElementById("spacer");
-	spacer.style.height = `${image.offsetHeight * 0.75}px`;
+	if (image.offsetHeight === 0)
+		spacer.style.height = `65vw`;
+	else
+		spacer.style.height = `${image.offsetHeight * 0.75}px`;
 }
 
 document.addEventListener("turbo:load", () => {

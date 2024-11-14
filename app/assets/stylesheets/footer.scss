@@ -23,7 +23,12 @@
 	// margin: 10px;
 }
 
+.footer a {
+	color: white;
+}
+
 .footer a:hover {
-	text-shadow: 0 0 3px white;
+	opacity: .5;
+	// text-shadow: 0 0 3px white;
 	transform: scale(1.1);
 }
