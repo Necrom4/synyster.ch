@@ -1,49 +1,15 @@
 <%# <button aria-pressed="false" onClick="this.setAttribute('aria-pressed',this.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');">Pause Animation</button> %>
 
-<body id="body-music">
-	<div class='marquees'>
-		<section class='marquee' style='--char-count: 28'>
-			<div class='marquee--inner'>
-				<p>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-			</div>
-		</section>
-
-		<div class='marquee' style='--char-count: 30'>
-			<div class='marquee--inner'>
-				<p>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-			</div>
-		</div>
-
-		<section class='marquee' style='--char-count: 22'>
-			<div class='marquee--inner'>
-				<p>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-			</div>
-		</section>
-
-		<section class='marquee' style='--char-count: 24'>
-			<div class='marquee--inner'>
-				<p>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-				<p aria-hidden='true'>Work in progress</p>
-			</div>
-		</section>
-	</div>
-	</div>
+<%= tag.body id: "body-music" %>
+  <% char_counts = [28, 30, 22, 24] %>
+  <%= tag.div class: 'marquees' do %>
+    <% char_counts.each do |char_count| %>
+      <%= tag.section class: 'marquee', style: "--char-count: #{char_count}" do %>
+        <%= tag.div class: 'marquee--inner' do %>
+          <% 6.times do |index| %>
+            <%= tag.p t('music.work_in_progress').html_safe, aria: (index.zero? ? {} : { hidden: 'true' }) %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>

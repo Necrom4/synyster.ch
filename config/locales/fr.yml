@@ -1,3 +1,24 @@
 fr:
+  header:
+    home: "accueil"
+    music: "musique"
+    about: "à propos"
+  footer:
+    copyright: "© 2023-2024 Synyster - Tous droits réservés."
+  home:
+    header:
+      upcoming_shows: "concerts à venir"
+      past_shows: "concerts passés"
+      videos: "vidéos"
+      pictures: "images"
+    poster:
+      link: "lien"
+  music:
+    work_in_progress: "en cours"
   about:
-    band_description: "Salut."
+    role:
+      bass: "basse"
+      drums: "batterie"
+      guitar: "guitarre"
+      vocals: "chant"
+    band_description: "Né à une époque de musique surtraitée et d'art dénué de sens, Synyster aborde les enjeux sociétaux et les luttes du quotidien au rythme de rythmes lourds et de solos mélodiques, apportant un vent de fraîcheur à la scène Metal suisse.<br><br>Les cinq amis d'abord foule la scène en juin 2023 à FM Bulle. Bientôt, ils commenceront à accumuler de l'expérience, à écrire des chansons plus complexes et plus lourdes et à se produire devant des scènes plus puissantes et plus grandes, aux côtés de groupes régionaux emblématiques."

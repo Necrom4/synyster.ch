@@ -5,7 +5,7 @@
 	<%= link_to member[:web_url], class: "text-nowrap" do %>
 		<%= first_name(member[:name]) %> 
 		<%= tag.span last_name(member[:name]), class: %w[fw-bold d-none d-md-inline] %>
-		<%= tag.span shortened_last_name(member[:name]), class: %w[fw-bold d-inline d-md-none] %>
+		<%# <%= tag.span shortened_last_name(member[:name]), class: %w[fw-bold d-inline d-md-none] %1> %>
 	<% end %>
-	<%= tag.p member[:role] %>
+	<%= tag.p t("about.role.#{member[:role].downcase}").html_safe.capitalize %>
 <% end %>
