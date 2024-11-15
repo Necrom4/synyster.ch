@@ -1,12 +1,4 @@
 module AboutHelper
-	def first_name(n)
-		n.split(" ").first
-	end
-
-	def last_name(n)
-		n.split(" ")[1..].join(" ").upcase
-	end
-
 	def band_members
 		[
 			{
@@ -40,5 +32,13 @@ module AboutHelper
 				role: "Guitar"
 			}
 		]
+	end
+
+	def first_name(n)
+		n.split(" ").first
+	end
+
+	def last_name(n)
+		n.split(" ")[1..].join(" ").upcase
 	end
 end

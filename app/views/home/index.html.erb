@@ -22,7 +22,12 @@
 	</div>
 </div>
 <p class="header m-3 mt-5 fs-1">PICTURES</p>
-<div class="row mb-5 mx-2 mx-sm-4 pictures_gallery">
-	<%= photos_gallery("pictures") %>
+<div class="container.fluid mx-3 mx-sm-5 pictures_gallery">
+	<div class="row row-cols-2 row-cols-sm-3 g-3">
+		<%= render partial: 'picture', collection: pictures, as: :picture %>
+	</div>
 </div>
+<%# <div class="row mb-5 mx-2 mx-sm-4 pictures_gallery"> %>
+<%# 	<%= photos_gallery("pictures") %1> %>
+<%# </div> %>
 <%# <div style="height: 650px"></div> %>
