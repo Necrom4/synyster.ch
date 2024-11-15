@@ -23,7 +23,7 @@ window.addEventListener('scroll', function() {
 })
 
 document.addEventListener("turbo:load", updateSpacerHeight);
-document.addEventListener("DOMContentLoaded", updateSpacerHeight);
+document.addEventListener("load", updateSpacerHeight);
 window.addEventListener("resize", updateSpacerHeight);
 function updateSpacerHeight() {
 	const image = document.getElementById("bg_image");
