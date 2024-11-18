@@ -13,6 +13,7 @@
     "sass": "^1.80.6"
   },
   "scripts": {
+		"assets:precompile": "bin/rails dartsass:build"
   },
   "browserslist": [
     "defaults"
