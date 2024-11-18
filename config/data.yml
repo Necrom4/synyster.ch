@@ -36,6 +36,7 @@ media:
   about:
     logo: "https://res.cloudinary.com/dlgrvwzkz/image/upload/v1731952358/Synyster%20Website/about/logo.webp"
     background: "https://res.cloudinary.com/dlgrvwzkz/image/upload/v1731952358/Synyster%20Website/about/background.webp"
+    band: "https://res.cloudinary.com/dlgrvwzkz/image/upload/v1731952357/Synyster%20Website/about/band.webp"
     band_members:
       - name: "Diogo Pombeiro"
         web_url: "https://www.instagram.com/necrom_dp"
