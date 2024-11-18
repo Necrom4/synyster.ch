@@ -1,2 +1,2 @@
-web: env RUBY_DEBUG_OPEN=true bin/rails server -b 0.0.0.0
+web: env RUBY_DEBUG_OPEN=true bin/rails server -b "ssl://0.0.0.0?key=config/environments/development/ssl/localhost.key&cert=config/environments/development/ssl/localhost.crt"
 css: bin/rails dartsass:watch
