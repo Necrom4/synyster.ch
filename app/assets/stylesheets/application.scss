@@ -64,6 +64,11 @@ body {
 	// margin: 3rem 0 2rem 0;
 }
 
+.pictures_gallery {
+	@include media-breakpoint-up(sm) { width: 90%; }
+	width: 100%;
+}
+
 .pictures_gallery img {
 	// cursor: pointer;
 	transition: .1s ease-out;
