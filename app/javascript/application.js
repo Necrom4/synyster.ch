@@ -35,7 +35,6 @@ window.addEventListener('scroll', function() {
 // }
 
 document.addEventListener("turbo:load", () => {
-	console.log("hey");
 	document.querySelectorAll(".gallery img").forEach((img) => {
 		img.addEventListener("mouseover", () => {
 			const color = getAverageColor(img);
