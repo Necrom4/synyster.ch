@@ -2,11 +2,11 @@
 	font-family: "Electrolize", sans-serif;
 }
 
-.poster_gallery .container {
+.invert_hover .container {
 	position: relative;
 }
 
-.poster_gallery a {
+.invert_hover .btn {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -18,21 +18,21 @@
 	transition: .1s ease-out;
 }
 
-.poster_gallery .container:hover a {
+.invert_hover .container:hover .btn {
 	opacity: 1;
 }
 
-.poster_gallery a:hover {
+.invert_hover .btn:hover {
 	background: rgba(255, 255, 255, .5);
 	color: black;
 }
 
-.poster_gallery img {
+.invert_hover img {
 	// cursor: pointer;
 	transition: .1s ease-out;
 }
 
-.poster_gallery .container:hover img {
+.invert_hover .container:hover img {
 	filter: invert(1) sepia(1) hue-rotate(315deg) saturate(2) contrast(2);
 	// opacity: .3;
 	transform: scale(1.05);

@@ -22,20 +22,21 @@ window.addEventListener('scroll', function() {
 	// }
 })
 
-document.addEventListener("turbo:load", updateSpacerHeight);
-document.addEventListener("load", updateSpacerHeight);
-window.addEventListener("resize", updateSpacerHeight);
-function updateSpacerHeight() {
-	const image = document.getElementById("bg_image");
-	const spacer = document.getElementById("spacer");
-	if (image.offsetHeight === 0)
-		spacer.style.height = `65vw`;
-	else
-		spacer.style.height = `${image.offsetHeight * 0.75}px`;
-}
+// document.addEventListener("turbo:load", updateSpacerHeight);
+// document.addEventListener("load", updateSpacerHeight);
+// window.addEventListener("resize", updateSpacerHeight);
+// function updateSpacerHeight() {
+// 	const image = document.getElementById("bg_image");
+// 	const spacer = document.getElementById("dynamic_spacer");
+// 	if (image.offsetHeight === 0)
+// 		spacer.style.height = `65vw`;
+// 	else
+// 		spacer.style.height = `${image.offsetHeight * 0.75}px`;
+// }
 
 document.addEventListener("turbo:load", () => {
-	document.querySelectorAll(".pictures_gallery img").forEach((img) => {
+	console.log("hey");
+	document.querySelectorAll(".gallery img").forEach((img) => {
 		img.addEventListener("mouseover", () => {
 			const color = getAverageColor(img);
 			img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);

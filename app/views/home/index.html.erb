@@ -1,14 +1,14 @@
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
 <%= image_tag @background, id: "bg_image", class: "mt-5 mt-sm-0" %>
-<div id="spacer", style="height: 650px;"></div>
+<div id="dynamic_spacer" style="height: 65vw; max-height: 650px;"></div>
 <%= image_tag @logo, id: "floating-logo", class: "mt-5 mt-sm-0" %>
 <%= tag.p t('home.header.upcoming_shows').html_safe.upcase, class: %w[header m-3 mt-3 mt-sm-5 fs-1] %>
-<div class="row row-cols-2 mx-3 mx-sm-5 g-3 poster_gallery pictures_gallery">
+<%# <div class="row row-cols-2 mx-3 mx-sm-5 g-3 gallery"> %>
+<div class="row row-cols-2 g-3 gallery" data-masonry='{"percentPosition": true }'>
 	<%= render partial: 'upcoming_show', collection: @upcoming_shows, as: :show %>
 </div>
 <%= link_to t('home.header.past_shows').html_safe.upcase, '#pastShows', class: %w[btn btn-outline-primary m-5 mb-4 gallery_collapse], data: {bs_toggle: "collapse" }, role: "button", aria: {expanded: "false", controls: "pastShows"} %>
 <div class="collapse" id="pastShows">
-	<div class="row row-cols-2 mx-3 mx-sm-5 g-3">
+	<div class="row row-cols-2 mx-3 mx-sm-5 g-3 gallery">
 		<%= render partial: 'past_show', collection: @past_shows, as: :show %>
 	</div>
 </div>
@@ -19,6 +19,6 @@
 	</div>
 </div>
 <%= tag.p t('home.header.pictures').html_safe.upcase, class: %w[header m-3 mt-5 fs-1] %>
-<div class="row row-cols-2 row-cols-sm-3 g-3 pictures_gallery" data-masonry='{"percentPosition": true }'>
+<div class="row row-cols-2 row-cols-sm-3 g-3 gallery" data-masonry='{"percentPosition": true }'>
 	<%= render partial: 'picture', collection: @pictures, as: :picture %>
 </div>

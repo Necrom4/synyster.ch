@@ -9,10 +9,15 @@ media:
         web_url: "https://www.instagram.com/remi.castella"
     past_shows:
       - image_path: "https://res.cloudinary.com/dlgrvwzkz/image/upload/v1731952386/Synyster%20Website/posters/Francos.webp"
+        web_url: "https://www.instagram.com/remi.castella"
       - image_path: "https://res.cloudinary.com/dlgrvwzkz/image/upload/v1731952386/Synyster%20Website/posters/Rockies.webp"
+        web_url: "https://www.instagram.com/remi.castella"
       - image_path: "https://res.cloudinary.com/dlgrvwzkz/image/upload/v1731952386/Synyster%20Website/posters/Qwertz.webp"
+        web_url: "https://www.instagram.com/remi.castella"
       - image_path: "https://res.cloudinary.com/dlgrvwzkz/image/upload/v1731952386/Synyster%20Website/posters/Abyss.webp"
+        web_url: "https://www.instagram.com/remi.castella"
       - image_path: "https://res.cloudinary.com/dlgrvwzkz/image/upload/v1731952386/Synyster%20Website/posters/MoB.webp"
+        web_url: "https://www.instagram.com/remi.castella"
   videos:
     - web_url: "https://www.youtube.com/embed/iQOOQ7KFmdE?si=MztkAcw3KF377-3T"
     - web_url: "https://www.youtube.com/embed/IOUMo9eb5gw?si=nfyRtDWbEBnBclSi"
