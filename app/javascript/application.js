@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import * as bootstrap from "bootstrap"
+
 // import { Fancybox } from "@fancyapps/ui";
 // import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
@@ -34,14 +35,14 @@ window.addEventListener('scroll', function() {
 // 		spacer.style.height = `${image.offsetHeight * 0.75}px`;
 // }
 
-document.addEventListener("turbo:load", () => {
-	document.querySelectorAll(".gallery img").forEach((img) => {
-		img.addEventListener("mouseover", () => {
-			const color = getAverageColor(img);
-			img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);
-		});
-	});
-});
+// document.addEventListener("turbo:load", () => {
+// 	document.querySelectorAll(".gallery img").forEach((img) => {
+// 		img.addEventListener("mouseover", () => {
+// 			const color = getAverageColor(img);
+// 			img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);
+// 		});
+// 	});
+// });
 
 // document.addEventListener("DOMContentLoaded", () => {
 // 	const images = document.querySelectorAll('.pictures_gallery img');
@@ -91,3 +92,35 @@ function getAverageColor(img) {
 
 	return { r, g, b };
 }
+
+document.addEventListener("turbo:load", initMasonry);
+// document.getElementById("pastShows").addEventListener('shown.bs.collapse', () => {
+// 	// Trigger a resize event when the collapse is opened
+// 	initMasonry();
+// });
+
+function initMasonry() {
+	const galleries = document.querySelectorAll('.masonry'); // Adjust the selector to your image gallery container
+
+	galleries.forEach((gallery) => {
+		// Wait for all images to load
+		imagesLoaded(gallery, () => {
+			new Masonry(gallery, {
+				itemSelector: '.col',  // Adjust for your specific item class
+				// columnWidth: '.masonry-sizer',  // Optional, if using a sizer element
+				percentPosition: true
+			});
+		});
+	});
+};
+
+document.addEventListener('turbo:load', () => {
+	const collapseElement = document.getElementById('pastShows'); // The collapse element
+	if (!collapseElement) return;
+
+  // Listen for the collapse 'shown.bs.collapse' event
+  collapseElement.addEventListener('shown.bs.collapse', () => {
+    // Trigger a resize event when the collapse is opened
+    initMasonry();
+  });
+});

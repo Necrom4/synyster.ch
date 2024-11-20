@@ -3,22 +3,22 @@
 <%= image_tag @logo, id: "floating-logo", class: "mt-5 mt-sm-0" %>
 <%= tag.p t('home.header.upcoming_shows').html_safe.upcase, class: %w[header m-3 mt-3 mt-sm-5 fs-1] %>
 <%# <div class="row row-cols-2 mx-3 mx-sm-5 g-3 gallery"> %>
-<div class="row row-cols-2 g-3 gallery" data-masonry='{"percentPosition": true }'>
+<div class="row row-cols-2 g-3 gallery masonry">
 	<%= render partial: 'upcoming_show', collection: @upcoming_shows, as: :show %>
 </div>
-<%= link_to t('home.header.past_shows').html_safe.upcase, '#pastShows', class: %w[btn btn-outline-primary m-5 mb-4 gallery_collapse], data: {bs_toggle: "collapse" }, role: "button", aria: {expanded: "false", controls: "pastShows"} %>
-<div class="collapse" id="pastShows">
-	<div class="row row-cols-2 mx-3 mx-sm-5 g-3 gallery">
+<%= link_to t('home.header.past_shows').html_safe.upcase, '#pastShows', id: "pastShowsButton", class: %w[btn btn-outline-primary m-5 mb-4 gallery_collapse], data: {bs_toggle: "collapse" }, role: "button", aria: {expanded: "false", controls: "pastShows"} %>
+<%# <div class="w-100 d-flex align-items-center collapse" id="pastShows"> %>
+	<div class="row row-cols-2 g-3 gallery masonry collapse" id="pastShows">
 		<%= render partial: 'past_show', collection: @past_shows, as: :show %>
 	</div>
-</div>
-<%= tag.p t('home.header.videos').html_safe.upcase, class: %w[header m-4 fs-1] %>
-<div class="container mx-3 mx-sm-5">
-	<div class="row row-cols-1 row-cols-sm-2 g-3">
-		<%= render partial: 'video', collection: @videos, as: :video %>
-	</div>
-</div>
+<%# </div> %>
+<%# <%= tag.p t('home.header.videos').html_safe.upcase, class: %w[header m-4 fs-1] %1> %>
+<%# <div class="container mx-3 mx-sm-5"> %>
+<%# 	<div class="row row-cols-1 row-cols-sm-2 g-3"> %>
+<%# 		<%= render partial: 'video', collection: @videos, as: :video %1> %>
+<%# 	</div> %>
+<%# </div> %>
 <%= tag.p t('home.header.pictures').html_safe.upcase, class: %w[header m-3 mt-5 fs-1] %>
-<div class="row row-cols-2 row-cols-sm-3 g-3 gallery" data-masonry='{"percentPosition": true }'>
+<div class="row row-cols-2 row-cols-sm-3 g-3 gallery masonry">
 	<%= render partial: 'picture', collection: @pictures, as: :picture %>
 </div>
