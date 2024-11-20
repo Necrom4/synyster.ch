@@ -93,34 +93,23 @@ function getAverageColor(img) {
 	return { r, g, b };
 }
 
-document.addEventListener("turbo:load", initMasonry);
-// document.getElementById("pastShows").addEventListener('shown.bs.collapse', () => {
-// 	// Trigger a resize event when the collapse is opened
-// 	initMasonry();
-// });
+document.addEventListener("turbo:load", () => {
+	const galleries = document.querySelectorAll('.masonry');
+	initMasonry(galleries);
+	const collapseGalleries = document.querySelectorAll('.masonry.collapse');
 
-function initMasonry() {
-	const galleries = document.querySelectorAll('.masonry'); // Adjust the selector to your image gallery container
+	collapseGalleries.forEach((gallery) => {
+		gallery.addEventListener('shown.bs.collapse', () => { initMasonry([gallery]); });
+	});
+});
 
+function initMasonry(galleries) {
 	galleries.forEach((gallery) => {
-		// Wait for all images to load
 		imagesLoaded(gallery, () => {
 			new Masonry(gallery, {
-				itemSelector: '.col',  // Adjust for your specific item class
-				// columnWidth: '.masonry-sizer',  // Optional, if using a sizer element
+				itemSelector: '.col',
 				percentPosition: true
 			});
 		});
 	});
 };
-
-document.addEventListener('turbo:load', () => {
-	const collapseElement = document.getElementById('pastShows'); // The collapse element
-	if (!collapseElement) return;
-
-  // Listen for the collapse 'shown.bs.collapse' event
-  collapseElement.addEventListener('shown.bs.collapse', () => {
-    // Trigger a resize event when the collapse is opened
-    initMasonry();
-  });
-});
