@@ -8,6 +8,7 @@ fr:
   home:
     header:
       upcoming_shows: "concerts à venir"
+      announcing_soon: "annonce prochainement"
       past_shows: "concerts passés"
       videos: "vidéos"
       pictures: "images"

@@ -37,6 +37,7 @@ en:
   home:
     header:
       upcoming_shows: "upcoming shows"
+      announcing_soon: "announcing soon"
       past_shows: "past shows"
       videos: "videos"
       pictures: "pictures"
