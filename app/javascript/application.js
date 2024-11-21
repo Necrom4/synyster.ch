@@ -10,7 +10,9 @@ function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', updateSplitImages);
+
+function updateSplitImages() {
 	let num = (window.scrollY/window.innerHeight)*16;
 
 	if (num < 10) {
@@ -18,10 +20,7 @@ window.addEventListener('scroll', function() {
 		document.getElementById('bg_image').style.transform = 'translateX(-50%) scale(' + (1 - num / 100) + ')'
 		document.getElementById('bg_image').style.webkitFilter = 'blur(' + num + 'px) brightness(' + (1 - (num / 15)) + ')'
 	}
-	// if (num > 8 && num < 10) {
-	// 	document.getElementById('neon-logo').style.background = `rgba(0, 0, 0, ${1 / num * 10})`
-	// }
-})
+}
 
 // document.addEventListener("turbo:load", updateSpacerHeight);
 // document.addEventListener("load", updateSpacerHeight);

@@ -1,7 +1,7 @@
 <%= image_tag @background, id: "bg_image", class: "mt-5 mt-sm-0" %>
 <div id="dynamic_spacer" style="height: 65vw; max-height: 650px;"></div>
 <%= image_tag @logo, id: "floating-logo", class: "mt-5 mt-sm-0" %>
-<%= tag.p t('home.header.upcoming_shows').html_safe.upcase, class: %w[header m-3 mt-5 mt-sm-5 fs-1] %>
+<%= tag.p t('home.header.upcoming_shows').html_safe.upcase, class: %w[header m-3 mt-sm-5 fs-1] %>
 <% if @upcoming_shows.any? %>
 	<div class="row row-cols-2 g-3 gallery masonry">
 		<%= render partial: 'upcoming_show', collection: @upcoming_shows, as: :show %>
