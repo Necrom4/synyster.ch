@@ -1,6 +1,6 @@
 <%= image_tag @background, id: "bg_image" %>
 <div id="spacer", style="height: 6rem;"></div>
-<%= image_tag @logo, id: "floating-logo", class: %w[w-75], style: "mix-blend-mode: lighten;" %>
+<%= image_tag @logo, id: "floating-logo", class: %w[w-75] %>
 <%= tag.div class: %w[row row-cols-5 g-2 my-4 gallery] do %>
 	<%= render partial: 'band_member', collection: @band_members, as: :member %>
 <% end %>

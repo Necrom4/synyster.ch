@@ -1,5 +1,5 @@
 <div class="col">
-	<a href="<%= image_path picture[:image_path] %>" data-fancybox="pictures">
+	<a href="<%= image_path picture[:image_path] %>" data-fancybox="pictures" data-caption="<%= picture[:caption] %>">
 		<%= image_tag picture[:image_path] %>
 	</a>
 </div>
