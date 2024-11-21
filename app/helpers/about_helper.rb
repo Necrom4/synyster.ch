@@ -8,6 +8,9 @@ module AboutHelper
 	end
 
 	def shortened_last_name(n)
-		n.split[1..]&.map { |word| "#{word.first.upcase}." }&.join
+    n.split.last.first.upcase + '.'
 	end
+	# def shortened_last_name(n)
+	# 	n.split[1..]&.map { |word| "#{word.first.upcase}." }&.join
+	# end
 end
