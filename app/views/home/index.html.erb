@@ -20,6 +20,6 @@
 	</div>
 </div>
 <%= tag.p t('home.header.pictures').html_safe.upcase, class: %w[header m-3 mt-5 fs-1] %>
-<div class="row row-cols-2 row-cols-sm-3 g-3 gallery masonry">
+<div class="row row-cols-2 row-cols-sm-3 g-3 mb-5 gallery masonry">
 	<%= render partial: 'picture', collection: @pictures, as: :picture %>
 </div>
