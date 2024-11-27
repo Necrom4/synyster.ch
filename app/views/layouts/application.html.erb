@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<head>
+  <head>
 		<title><%= content_for(:title) || "Synyster Offical" %></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,7 +48,15 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
 		<%# <%= javascript_include_tag("utils.js") %1> %>
 	</head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV5QDJMBXP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-SV5QDJMBXP');
+  </script>
 	<body>
 		<main class="wrapper">
 			<%= render 'shared/header' %>
