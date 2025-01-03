@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @upcoming_shows, @past_shows = @@data.dig(*%i[media posters])
       .map { |show| { **show, date: Date.parse(show[:date]) } }
       .sort_by { |show| show[:date] }
-      .partition { |show| show[:date].future? }
+      .partition { |show| show[:date] >= Date.today }
     @past_shows.reverse!
 
 		@videos = @@data.dig(*%i[media videos])
