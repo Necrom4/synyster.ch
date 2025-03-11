@@ -22,49 +22,17 @@ function updateSplitImages() {
 	}
 }
 
-// document.addEventListener("turbo:load", updateSpacerHeight);
-// document.addEventListener("load", updateSpacerHeight);
-// window.addEventListener("resize", updateSpacerHeight);
-// function updateSpacerHeight() {
-// 	const image = document.getElementById("bg_image");
-// 	const spacer = document.getElementById("dynamic_spacer");
-// 	if (image.offsetHeight === 0)
-// 		spacer.style.height = `65vw`;
-// 	else
-// 		spacer.style.height = `${image.offsetHeight * 0.75}px`;
-// }
-
-// document.addEventListener("turbo:load", () => {
-// 	document.querySelectorAll(".gallery img").forEach((img) => {
-// 		img.addEventListener("mouseover", () => {
-// 			const color = getAverageColor(img);
-// 			img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);
-// 		});
-// 	});
-// });
-
-// document.addEventListener("DOMContentLoaded", () => {
-// 	const images = document.querySelectorAll('.pictures_gallery img');
-
-// 	images.forEach((img) => {
-// 		const color = getAverageColor(img);
-// 		img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);
-// 	});
-// });
-
-
-// document.addEventListener("turbo:load", () => {
-//   const images = document.querySelectorAll('.pictures_gallery img');
-
-//   Promise.all(Array.from(images).map(img => new Promise(resolve => {
-//     img.addEventListener('load', resolve);
-//   }))).then(() => {
-//     images.forEach(img => {
-//       const color = getAverageColor(img);
-//       img.style.setProperty('--hover-shadow-color', `rgba(${color.r}, ${color.g}, ${color.b}, 0.7)`);
-//     });
-//   });
-// });
+//document.addEventListener("turbo:load", updateSpacerHeight);
+//document.addEventListener("load", updateSpacerHeight);
+//window.addEventListener("resize", updateSpacerHeight);
+//function updateSpacerHeight() {
+//  const image = document.getElementById("bg_image");
+//  const spacer = document.getElementById("dynamic_spacer");
+//  if (image.offsetHeight === 0)
+//    spacer.style.height = `65vw`;
+//    else
+//    spacer.style.height = `${image.offsetHeight * 0.75}px`;
+//}
 
 function getAverageColor(img) {
 	const canvas = document.createElement('canvas');

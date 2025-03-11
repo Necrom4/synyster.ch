@@ -77,6 +77,6 @@ body {
 
 .gallery img:hover {
 	// opacity: .3;
-	box-shadow: 0 0 10px var(--hover-shadow-color);
+	box-shadow: 0 0 10px #3f3f3f;
 	transform: scale(1.05);
 }
