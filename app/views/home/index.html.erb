@@ -3,9 +3,15 @@
 <%= image_tag @logo, id: "floating-logo", class: "mt-5 mt-sm-0" %>
 <%= tag.p t('home.header.upcoming_shows').html_safe.upcase, class: %w[header m-3 mt-sm-5 fs-1] %>
 <% if @upcoming_shows.any? %>
-	<div class="row row-cols-2 g-3 gallery masonry">
-		<%= render partial: 'upcoming_show', collection: @upcoming_shows, as: :show %>
-	</div>
+  <% if @upcoming_shows.one? %>
+    <div class="row row-cols-1 w-50 g-3 gallery masonry">
+      <%= render partial: 'upcoming_show', collection: @upcoming_shows, as: :show %>
+    </div>
+  <% else %>
+    <div class="row row-cols-2 g-3 gallery masonry">
+      <%= render partial: 'upcoming_show', collection: @upcoming_shows, as: :show %>
+    </div>
+  <% end %>
 <% else %>
 	<%= tag.p t('home.header.announcing_soon').html_safe.upcase, class: %w[text-center text-mid-1 fs-4 m-0], style: %w[font-family: 'Electrolize', sans-serif;] %>
 <% end %>
