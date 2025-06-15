@@ -1,24 +1,24 @@
-# README
+<center>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Synyster Website
 
-Things you may want to cover:
+[<img src="https://img.shields.io/badge/website-link-blue">](https://synyster.ch)
 
-* Ruby version
+Small personal project intended to teach myself the structure of a simple website and train my front-end skills.
 
-* System dependencies
+</center>
 
-* Configuration
+## TODO
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [ ] Finish translation
+- [ ] Use larger background picture with lateral gradient in `about/`
+- [ ] Add mail list
+- [ ] (?) Reflect on feature addition
+  - [ ] Add web push notifications
+  - [ ] Add website visit count
+- [X] `Upcoming Shows` controller
+- [X] Cloud pictures
+- [X] Add videos
+- [X] Add dynamic picture grid
+- [X] interactive background-foreground welcome picture
+- [X] Integrate with Bootstrap and Hotwire
