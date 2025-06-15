@@ -8,6 +8,9 @@ Small personal project intended to teach myself the structure of a simple websit
 
 </center>
 
+![ezgif com-resize](https://github.com/user-attachments/assets/39635fcb-da16-4492-af24-33c463312141)
+
+
 ## TODO
 
 - [ ] Finish translation
