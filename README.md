@@ -10,7 +10,6 @@ Small personal project intended to teach myself the structure of a simple websit
 
 ![ezgif com-resize](https://github.com/user-attachments/assets/39635fcb-da16-4492-af24-33c463312141)
 
-
 ## TODO
 
 - [ ] Finish translation
@@ -18,7 +17,7 @@ Small personal project intended to teach myself the structure of a simple websit
 - [ ] Add mail list
 - [ ] (?) Reflect on feature addition
   - [ ] Add web push notifications
-  - [ ] Add website visit count
+- [X] Add website visit count
 - [X] `Upcoming Shows` controller
 - [X] Cloud pictures
 - [X] Add videos
