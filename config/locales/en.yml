@@ -31,6 +31,7 @@ en:
   header:
     home: "home"
     music: "music"
+    visitors: "visitors"
     about: "about"
   footer:
     copyright: "© 2023-2024 Synyster - All Rights Reserved."
