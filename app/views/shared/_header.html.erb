@@ -11,6 +11,7 @@
 				</div>
 			</div>
 		</div>
+    <%= tag.span "#{t('header.visitors').camelcase}: #{@visit.count}", class: %w[visitor-count] %>
 		<div class="d-flex flex-row">
 			<div class="px-3 border-2 border-end border-mid-1">
 				<% if I18n.locale == :en %>
