@@ -2,7 +2,7 @@ fr:
   header:
     home: "accueil"
     music: "musique"
-    visitors: "visiteurs"
+    visitor-count: "Nb de visiteurs"
     about: "à propos"
   footer:
     copyright: "© 2023-2024 Synyster - Tous droits réservés."

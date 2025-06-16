@@ -10,8 +10,12 @@
 					<%= link_to t('header.music').html_safe.upcase, music_path, class: 'px-3' %>
 				</div>
 			</div>
-		</div>
-    <%= tag.span "#{t('header.visitors').camelcase}: #{@visit.count}", class: %w[visitor-count] %>
+    </div>
+    <%= tag.div class: %w[d-flex visitor-count] do %>
+      <%= tag.span "#{t('header.visitor-count').camelcase}:", class: %w[d-none d-sm-inline mx-1] %>
+      <%= tag.i(class: 'bi bi-person-raised-hand') %>
+      <%= tag.span "#{@visit.count}" %>
+    <% end %>
 		<div class="d-flex flex-row">
 			<div class="px-3 border-2 border-end border-mid-1">
 				<% if I18n.locale == :en %>
