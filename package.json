@@ -2,7 +2,7 @@
   "name": "app",
   "private": "true",
   "dependencies": {
-    "@fancyapps/ui": "^5.0.36",
+    "@fancyapps/ui": "^6.0.1",
     "@popperjs/core": "^2.11.8",
     "autoprefixer": "^10.4.20",
     "bootstrap": "^5.3.3",
@@ -13,7 +13,7 @@
     "sass": "^1.80.6"
   },
   "scripts": {
-		"assets:precompile": "bin/rails dartsass:build",
+    "assets:precompile": "bin/rails dartsass:build",
     "build:css:compile": "sass ./app/assets/stylesheets/application.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
     "build:css:prefix": "postcss ./app/assets/builds/application.css --use=autoprefixer --output=./app/assets/builds/application.css",
     "build:css": "yarn build:css:compile && yarn build:css:prefix"
