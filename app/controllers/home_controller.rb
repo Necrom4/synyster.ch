@@ -12,8 +12,8 @@ class HomeController < ApplicationController
     @background = @@data.dig(*%i[media home background])
 
     @visit = Visit.first_or_create
-
-    unless cookies[:visited]
+    user_agent = request.user_agent.to_s.downcase
+    unless cookies[:visited] || user_agent.include?("cron-job.org")
       @visit.increment!(:count)
       cookies[:visited] = { value: true, expires: 10.minutes.from_now }
     end
