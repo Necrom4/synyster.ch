@@ -7,6 +7,6 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Visit.find_or_create_by(id: 1) do |visit|
-  visit.count = 200
+VisitOffset.find_or_create_by(id: 1) do |offset|
+  offset.base_count = 220
 end

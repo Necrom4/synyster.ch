@@ -1,0 +1,2 @@
+class VisitOffset < ApplicationRecord
+end
