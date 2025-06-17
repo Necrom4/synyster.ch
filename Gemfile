@@ -67,3 +67,5 @@ end
 gem "redis"
 
 gem "dartsass-rails", "~> 0.5.1"
+
+gem 'ahoy_matey'
