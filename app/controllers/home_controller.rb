@@ -10,10 +10,5 @@ class HomeController < ApplicationController
     @pictures = @@data.dig(*%i[media pictures])
     @logo = @@data.dig(*%i[media home logo])
     @background = @@data.dig(*%i[media home background])
-
-    ahoy.track "Viewed home"
-    visit_count = Ahoy::Visit.count
-    base_count = VisitOffset.first&.base_count || 0
-    @visit_count = base_count + visit_count
   end
 end

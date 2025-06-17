@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
 	before_action :set_locale
 	before_action :set_data
+	before_action :set_visit_count
 
 	private
 
@@ -16,4 +17,11 @@ class ApplicationController < ActionController::Base
 	def set_data
 		@footer_logo = @@data.dig(*%i[media templates footer_logo])
 	end
+
+  def set_visit_count
+    ahoy.track "Viewed home"
+    visit_count = Ahoy::Visit.count
+    base_count = VisitOffset.first&.base_count || 0
+    @visit_count = base_count + visit_count
+  end
 end
