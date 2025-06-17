@@ -11,11 +11,9 @@ class HomeController < ApplicationController
     @logo = @@data.dig(*%i[media home logo])
     @background = @@data.dig(*%i[media home background])
 
-    @visit = Visit.first_or_create
-    user_agent = request.user_agent.to_s.downcase
-    unless cookies[:visited] || user_agent.include?("cron-job.org")
-      @visit.increment!(:count)
-      cookies[:visited] = { value: true, expires: 10.minutes.from_now }
-    end
+    ahoy.track "Viewed home"
+    visit_count = Ahoy::Visit.count
+    base_count = VisitOffset.first&.base_count || 0
+    @visit_count = base_count + visit_count
   end
 end
