@@ -8,3 +8,14 @@ Ahoy.api = false
 # we recommend configuring local geocoding as well
 # see https://github.com/ankane/ahoy#geocoding
 Ahoy.geocode = false
+
+Ahoy.exclude_method = lambda do |controller, request|
+  user_agent = request.user_agent.to_s.downcase
+  user_agent.include?("cron-job.org") ||
+  user_agent.include?("uptime") ||           # add more as needed
+  user_agent.include?("bot") ||              # generic bot filter
+  user_agent.include?("monitor") ||          # Pingdom, etc.
+  request.ip == "::1"                        # localhost
+end
+
+Ahoy.track_bots = false  # optional: uses browser gem to detect bots
