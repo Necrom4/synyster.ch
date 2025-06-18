@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_visit_count
-    ahoy.track "Viewed home"
+    ahoy.track "Viewed #{request.path}"
     visit_count = Ahoy::Visit.count
     base_count = VisitOffset.first&.base_count || 0
     @visit_count = base_count + visit_count

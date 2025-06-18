@@ -17,5 +17,8 @@ Rails.application.routes.draw do
     get "about", to: "about#index"
     resources :posts
     # other routes
+    if Rails.env.production?
+      get "/admin/db-check", to: "admin#db_check"
+    end
   end
 end
