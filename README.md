@@ -14,9 +14,10 @@ Small personal project intended to teach myself the structure of a simple websit
 
 - [ ] Finish translation
 - [ ] Use larger background picture with lateral gradient in `about/`
+- [ ] Move data to db
 - [ ] Add mail list
-- [ ] (?) Reflect on feature addition
-  - [ ] Add web push notifications
+- [ ] Add web push notifications
+- [X] Update hotwire and sass
 - [X] Add website visit count
 - [X] `Upcoming Shows` controller
 - [X] Cloud pictures
