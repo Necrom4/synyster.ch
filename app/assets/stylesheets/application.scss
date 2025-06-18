@@ -1,17 +1,17 @@
-$theme-colors: (
-  "primary":    #ffffff,
-  "secondary":  #dbdbdb,
-	"mid-1":			#afafaf,
-	"mid-2":			#7c7c7c,
-  "dark":				#000,
-  "darkish":		#353535
-	);
-
-@import '../../../node_modules/bootstrap/scss/bootstrap';
-@import '../../../node_modules/bootstrap-icons/font/bootstrap-icons';
+@use '../../../node_modules/bootstrap/scss/bootstrap' with (
+  $theme-colors: (
+    "primary":    #ffffff,
+    "secondary":  #dbdbdb,
+    "mid-1":			#afafaf,
+    "mid-2":			#7c7c7c,
+    "dark":				#000,
+    "darkish":		#353535
+    )
+);
+@use '../../../node_modules/bootstrap-icons/font/bootstrap-icons';
 // @import 'music';
-@import 'header';
-@import 'footer';
+@use 'header';
+@use 'footer';
 
 body {
 	background: #000;
@@ -65,7 +65,7 @@ body {
 }
 
 .gallery {
-	@include media-breakpoint-up(sm) { width: 90%; }
+  @include bootstrap.media-breakpoint-up(sm);
 	width: 100%;
 }
 

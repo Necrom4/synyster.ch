@@ -435,7 +435,7 @@ DEPENDENCIES
   brakeman
   capybara
   cssbundling-rails
-  dartsass-rails (~> 0.5.1)
+  dartsass-rails
   debug
   hotwire-livereload (~> 1.4)
   importmap-rails

@@ -66,6 +66,6 @@ group :test do
 end
 gem "redis"
 
-gem "dartsass-rails", "~> 0.5.1"
+gem "dartsass-rails"
 
 gem "ahoy_matey"
