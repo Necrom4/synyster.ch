@@ -69,3 +69,5 @@ gem "redis"
 gem "dartsass-rails"
 
 gem "ahoy_matey"
+
+gem "browser"
