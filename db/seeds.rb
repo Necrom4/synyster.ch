@@ -8,5 +8,5 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 VisitOffset.find_or_create_by!(id: 1) do |offset|
-  offset.base_count = 220
+  offset.base_count = ENV.fetch("VISIT_COUNT_BEFORE_RESET", 0).to_i
 end
