@@ -21,7 +21,7 @@ Small personal project intended to teach myself the structure of a simple websit
   - [ ] Uppercase option
   - [ ] Style
   - [ ] Fade and move in/out
-  - [ ] Server-side
+  - [X] Server-side
   - [X] Client-side
     - [ ] Use t() dictionary for text in Javascript
 - [X] Update hotwire and sass
