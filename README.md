@@ -14,7 +14,6 @@ Small personal project intended to teach myself the structure of a simple websit
 
 - [ ] Finish translation
 - [ ] Use larger background picture with lateral gradient in `about/`
-- [ ] Move data to db
 - [ ] Add mail list
 - [ ] Add web push notifications
 - [ ] Add files (logos, tech rider)
