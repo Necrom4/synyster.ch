@@ -81,23 +81,40 @@ function initMasonry(galleries) {
 	});
 };
 
-function notify(type = "notice", message = "") {
+window.notify = function(type = "notice", message, duration = 5000) {
+  let container = document.getElementById("notification-container");
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "notification-container";
+    const wrapper = document.querySelector("main.wrapper");
+    if (wrapper) {
+      wrapper.insertBefore(container, wrapper.firstChild);
+    } else {
+      document.body.appendChild(container);
+    }
+  }
+
   const notification = document.createElement("div");
   notification.className = `notification ${type}`;
-  notification.innerText = message;
-  document.body.appendChild(notification);
+  notification.textContent = message;
+  container.appendChild(notification);
 
-  // Trigger fade-in
+  // Trigger fade-in on next animation frame
   requestAnimationFrame(() => {
     notification.classList.add("visible");
   });
 
-  // Fade-out after 3s
+  // After duration, fade out
   setTimeout(() => {
     notification.classList.remove("visible");
     notification.classList.add("fade-out");
 
-    // Remove after transition
-    notification.addEventListener("transitionend", () => notification.remove(), { once: true });
-  }, 5000);
-}
+    // Wait for transition to finish before removing element
+    notification.addEventListener("transitionend", () => {
+      notification.remove();
+      if (container.children.length === 0) {
+        container.remove();
+      }
+    }, { once: true });
+  }, duration);
+};

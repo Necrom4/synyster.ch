@@ -20,6 +20,7 @@ Small personal project intended to teach myself the structure of a simple websit
 - [ ] Add notifications
   - [ ] Uppercase option
   - [ ] Style
+  - [X] Stack notifications
   - [X] Fade and move in/out
   - [X] Server-side
   - [X] Client-side

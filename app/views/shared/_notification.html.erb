@@ -1,31 +1,7 @@
-<%# Client-side notification %>
-
-<div id="notification" class="notification hidden">
-  <span id="notification-message"></span>
-</div>
-
-<%# Server-side notification %>
-
-<% flash.each do |type, message| %>
-  <div class="notification <%= type %>">
-    <span><%= message %></span>
-  </div>
-<% end %>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const flash = document.querySelectorAll(".notification");
-    flash.forEach(el => {
-      // Trigger fade-in
-      requestAnimationFrame(() => {
-        el.classList.add("visible");
-      });
-
-      // Fade-out after 3s
-      setTimeout(() => {
-        el.classList.remove("visible");
-        el.classList.add("fade-out");
-        el.addEventListener("transitionend", () => el.remove(), { once: true });
-      }, 5000);
-    });
+    <% flash.each do |type, message| %>
+      notify("<%= type %>", "<%= j message %>");
+    <% end %>
   });
 </script>
