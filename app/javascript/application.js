@@ -82,18 +82,22 @@ function initMasonry(galleries) {
 };
 
 function notify(type = "notice", message = "") {
-  const box = document.getElementById("notification");
-  const msgSpan = document.getElementById("notification-message");
-  if (!box || !msgSpan) return;
+  const notification = document.createElement("div");
+  notification.className = `notification ${type}`;
+  notification.innerText = message;
+  document.body.appendChild(notification);
 
-  // Reset previous state
-  box.className = "notification"; // clear classes
-  box.classList.add(type);        // add type class
-  box.classList.remove("hidden"); // show
+  // Trigger fade-in
+  requestAnimationFrame(() => {
+    notification.classList.add("visible");
+  });
 
-  msgSpan.textContent = message;
-
+  // Fade-out after 3s
   setTimeout(() => {
-    box.classList.add("hidden");
-  }, 3000);
+    notification.classList.remove("visible");
+    notification.classList.add("fade-out");
+
+    // Remove after transition
+    notification.addEventListener("transitionend", () => notification.remove(), { once: true });
+  }, 5000);
 }

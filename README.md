@@ -20,7 +20,7 @@ Small personal project intended to teach myself the structure of a simple websit
 - [ ] Add notifications
   - [ ] Uppercase option
   - [ ] Style
-  - [ ] Fade and move in/out
+  - [X] Fade and move in/out
   - [X] Server-side
   - [X] Client-side
     - [ ] Use t() dictionary for text in Javascript

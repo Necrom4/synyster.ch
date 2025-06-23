@@ -1,4 +1,6 @@
 .notification {
+  opacity: 0;
+  transform: translateX(20px);
   position: fixed;
   top: 5rem;
   right: 1rem;
@@ -10,7 +12,7 @@
   background-color: rgba(0,0,0,0.3);
   z-index: 9999;
   box-shadow: 0 0 10px rgba(255,255,255,0.3);
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .notification.notice {
@@ -23,6 +25,16 @@
 
 .notification.success {
   border-color: #0f0;
+}
+
+.notification.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.notification.fade-out {
+  opacity: 0;
+  transform: translateX(20px);
 }
 
 .hidden {
