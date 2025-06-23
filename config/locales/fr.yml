@@ -5,7 +5,7 @@ fr:
     visitor-count: "Nb de visiteurs"
     about: "à propos"
   footer:
-    copyright: "© 2023-2024 Synyster - Tous droits réservés."
+    copyright: "© 2023-%{year} Synyster - Site web par Diogo Pombeiro"
   home:
     header:
       upcoming_shows: "concerts à venir"

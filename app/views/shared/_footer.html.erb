@@ -1,13 +1,22 @@
 <footer class="footer w-100 translate-end">
-	<div class="d-flex justify-content-between align-items-center m-2 fw-bold">
-		<%# <p class="px-2 text-start fw-bold fs-4 m-0">SOCIAL</p> %>
-		<%= image_tag @footer_logo, class: "m-2" %>
-		<%= tag.p t('footer.copyright').html_safe, class: "d-none d-sm-block text-center fw-normal fs-6 m-0" %>
-		<div class="">
-			<%= mail_to "synyster.theband@gmail.com", tag.i(class: "bi bi-envelope mx-2"), class: "fs-3 d-inline-block" %>
-			<a href="https://instagram.com/synyster_theband" class="fs-3 d-inline-block"><i class="bi bi-instagram mx-2"></i></a>
-			<a href="https://www.facebook.com/people/Synyster/61556183954648/?sfnsn=wa&mibextid=RUbZ1f" class="fs-3 d-inline-block"><i class="bi bi-facebook mx-2"></i></a>
-			<a href="https://www.youtube.com/@Synyster_theband?sub_confirmation=1" class="fs-3 d-inline-block"><i class="bi bi-youtube mx-2"></i></a>
-		</div>
-	</div>
+  <div class="d-flex justify-content-between align-items-center m-2 fw-bold">
+    <%# <p class="px-2 text-start fw-bold fs-4 m-0">SOCIAL</p> %>
+    <%= image_tag @footer_logo, class: "m-2" %>
+    <%= tag.p t("footer.copyright", year: Time.current.year).html_safe,
+          class: "d-none d-sm-block text-center fw-normal fs-6 m-0" %>
+    <div class="">
+      <%= mail_to "synyster.theband@gmail.com",
+      tag.i(class: "bi bi-envelope mx-2"),
+      class: "fs-3 d-inline-block" %>
+      <a href="https://instagram.com/synyster_theband" class="fs-3 d-inline-block"><i class="bi bi-instagram mx-2"></i></a>
+      <a
+        href="https://www.facebook.com/people/Synyster/61556183954648/?sfnsn=wa&mibextid=RUbZ1f"
+        class="fs-3 d-inline-block"
+      ><i class="bi bi-facebook mx-2"></i></a>
+      <a
+        href="https://www.youtube.com/@Synyster_theband?sub_confirmation=1"
+        class="fs-3 d-inline-block"
+      ><i class="bi bi-youtube mx-2"></i></a>
+    </div>
+  </div>
 </footer>

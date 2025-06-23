@@ -34,7 +34,7 @@ en:
     visitor-count: "visitor count"
     about: "about"
   footer:
-    copyright: "© 2023-2024 Synyster - All Rights Reserved."
+    copyright: "© 2023-%{year} Synyster - Website by Diogo Pombeiro"
   home:
     header:
       upcoming_shows: "upcoming shows"
