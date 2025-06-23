@@ -80,3 +80,20 @@ function initMasonry(galleries) {
 		});
 	});
 };
+
+function notify(type = "notice", message = "") {
+  const box = document.getElementById("notification");
+  const msgSpan = document.getElementById("notification-message");
+  if (!box || !msgSpan) return;
+
+  // Reset previous state
+  box.className = "notification"; // clear classes
+  box.classList.add(type);        // add type class
+  box.classList.remove("hidden"); // show
+
+  msgSpan.textContent = message;
+
+  setTimeout(() => {
+    box.classList.add("hidden");
+  }, 3000);
+}

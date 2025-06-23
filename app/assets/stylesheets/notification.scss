@@ -1,0 +1,30 @@
+.notification {
+  position: fixed;
+  top: 5rem;
+  right: 1rem;
+  color: #fff;
+	font-family: "Electrolize", sans-serif;
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+  transition: opacity 1s ease;
+}
+
+.notification.notice {
+  border-color: #fff;
+}
+
+.notification.alert {
+  border-color: #f00;
+}
+
+.notification.success {
+  border-color: #0f0;
+}
+
+.hidden {
+  display: none;
+}
