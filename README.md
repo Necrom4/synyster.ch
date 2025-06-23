@@ -17,6 +17,14 @@ Small personal project intended to teach myself the structure of a simple websit
 - [ ] Add mail list
 - [ ] Add web push notifications
 - [ ] Add files (logos, tech rider)
+- [ ] Add notifications
+  - [ ] Uppercase option
+  - [ ] Style
+  - [X] Stack notifications
+  - [X] Fade and move in/out
+  - [X] Server-side
+  - [X] Client-side
+    - [ ] Use t() dictionary for text in Javascript
 - [X] Update hotwire and sass
 - [X] Add website visit count
 - [X] `Upcoming Shows` controller

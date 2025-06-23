@@ -24,4 +24,8 @@ class ApplicationController < ActionController::Base
     base_count = VisitOffset.first&.base_count || 0
     @visit_count = base_count + visit_count
   end
+
+  def notify(type, message)
+    flash[type] = message
+  end
 end
