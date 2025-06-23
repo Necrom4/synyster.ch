@@ -17,6 +17,7 @@ Small personal project intended to teach myself the structure of a simple websit
 - [ ] Move data to db
 - [ ] Add mail list
 - [ ] Add web push notifications
+- [ ] Add files (logos, tech rider)
 - [X] Update hotwire and sass
 - [X] Add website visit count
 - [X] `Upcoming Shows` controller
