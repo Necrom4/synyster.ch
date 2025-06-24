@@ -51,5 +51,14 @@ en:
       videos: "videos"
     poster:
       link: "link"
+  meta:
+    title:
+      about: "about"
+      home: "official"
+      music: "music"
+    description:
+      about: "Learn more about us"
+      home: "Synyster's official website"
+      music: "Synyster music releases"
   music:
     work_in_progress: "work in progress"
