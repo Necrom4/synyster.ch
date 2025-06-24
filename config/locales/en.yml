@@ -28,24 +28,6 @@
 #       enabled: "ON"
 
 en:
-  header:
-    home: "home"
-    music: "music"
-    visitor-count: "visitor count"
-    about: "about"
-  footer:
-    copyright: "© 2023-%{year} Synyster - Website by Diogo Pombeiro"
-  home:
-    header:
-      upcoming_shows: "upcoming shows"
-      announcing_soon: "announcing soon"
-      past_shows: "past shows"
-      videos: "videos"
-      pictures: "pictures"
-    poster:
-      link: "link"
-  music:
-    work_in_progress: "work in progress"
   about:
     role:
       bass: "bass"
@@ -53,3 +35,21 @@ en:
       guitar: "guitar"
       vocals: "vocals"
     band_description: "Born in an era of overprocessed music and meaningless art, Synyster tackles societal issues and everyday struggles to the tune of heavy rhythms and melodic solos, bringing a breath of fresh air to the Swiss Metal scene.<br><br>The five friends first set foot on stage in June 2023 at FM Bulle. Soon enough they'd start accumulating experience, writing more complex and heavier songs and performing in front of mightier and bigger stages, aside iconic regional bands."
+  footer:
+    copyright: "© 2023-%{year} Synyster - Website by Diogo Pombeiro"
+  header:
+    about: "about"
+    home: "home"
+    music: "music"
+    visitor-count: "visitor count"
+  home:
+    header:
+      announcing_soon: "announcing soon"
+      past_shows: "past shows"
+      pictures: "pictures"
+      upcoming_shows: "upcoming shows"
+      videos: "videos"
+    poster:
+      link: "link"
+  music:
+    work_in_progress: "work in progress"

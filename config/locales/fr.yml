@@ -1,26 +1,26 @@
 fr:
-  header:
-    home: "accueil"
-    music: "musique"
-    visitor-count: "Nb de visiteurs"
-    about: "à propos"
-  footer:
-    copyright: "© 2023-%{year} Synyster - Site web par Diogo Pombeiro"
-  home:
-    header:
-      upcoming_shows: "concerts à venir"
-      announcing_soon: "annonce prochainement"
-      past_shows: "concerts passés"
-      videos: "vidéos"
-      pictures: "images"
-    poster:
-      link: "lien"
-  music:
-    work_in_progress: "en cours"
   about:
+    band_description: "Né à une époque de musique surproduite et d'art dénué de sens, Synyster aborde les enjeux sociétaux et les luttes quotidiennes au rythme de riffs puissants et de solos mélodiques, insufflant un vent de fraîcheur à la scène Metal suisse.<br><br>Ces cinq amis ont fait leurs premiers pas sur scène en juin 2023, à FM Bulle. Rapidement, ils ont accumulé de l’expérience, composé des morceaux plus complexes et plus lourds, tout en se produisant sur des scènes de plus en plus prestigieuses aux côtés de groupes régionaux emblématiques."
     role:
       bass: "basse"
       drums: "batterie"
       guitar: "guitarre"
       vocals: "chant"
-    band_description: "Né à une époque de musique surproduite et d'art dénué de sens, Synyster aborde les enjeux sociétaux et les luttes quotidiennes au rythme de riffs puissants et de solos mélodiques, insufflant un vent de fraîcheur à la scène Metal suisse.<br><br>Ces cinq amis ont fait leurs premiers pas sur scène en juin 2023, à FM Bulle. Rapidement, ils ont accumulé de l’expérience, composé des morceaux plus complexes et plus lourds, tout en se produisant sur des scènes de plus en plus prestigieuses aux côtés de groupes régionaux emblématiques."
+  footer:
+    copyright: "© 2023-%{year} Synyster - Site web par Diogo Pombeiro"
+  header:
+    about: "à propos"
+    home: "accueil"
+    music: "musique"
+    visitor-count: "Nb de visiteurs"
+  home:
+    header:
+      announcing_soon: "annonce prochainement"
+      past_shows: "concerts passés"
+      pictures: "images"
+      upcoming_shows: "concerts à venir"
+      videos: "vidéos"
+    poster:
+      link: "lien"
+  music:
+    work_in_progress: "en cours"
