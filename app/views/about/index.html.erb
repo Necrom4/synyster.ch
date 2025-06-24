@@ -1,5 +1,6 @@
 <% content_for :title, "Synyster - #{t('meta.title.about').camelcase}" %>
 <% content_for :description, "#{t('meta.description.about')}" %>
+<%= tag.h1 t('header.about').html_safe, class: %w[visually-hidden] %>
 <%= image_tag @background, id: "bg_image" %>
 <div id="spacer", style="height: 6rem;"></div>
 <%= image_tag @logo, id: "floating-logo", class: %w[w-75] %>

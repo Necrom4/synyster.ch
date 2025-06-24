@@ -1,5 +1,6 @@
 <% content_for :title, "Synyster - #{t('meta.title.music').camelcase}" %>
 <% content_for :description, "#{t('meta.description.music')}" %>
+<%= tag.h1 t('header.music').html_safe, class: %w[visually-hidden] %>
 
 <%# <button aria-pressed="false" onClick="this.setAttribute('aria-pressed',this.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');">Pause Animation</button> %>
 <%= tag.body id: "body-music" %>
