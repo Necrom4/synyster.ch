@@ -3,9 +3,23 @@
   <head>
 		<title><%= content_for(:title) || "Synyster - Official" %></title>
     <meta name="description" content="<%= content_for(:description) || "Synyster's official wesite" %>">
+    <meta name="keywords" content="Synyster, music, band, official, suisse">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
+    <meta name="author" content="Diogo Pombeiro">
+    <meta charset="UTF-8">
+    <!-- Open Graph (used by Facebook, Discord, etc.) -->
+    <meta property="og:title" content="<%= content_for(:title) || 'Synyster - Official' %>">
+    <meta property="og:description" content="<%= content_for(:description) || "Synyster's official website" %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <%# <meta property="og:image" content="<%= asset_url('synyster-og.png') %>"> %>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= content_for(:title) || 'Synyster - Official' %>">
+    <meta name="twitter:description" content="<%= content_for(:description) || "Synyster's official website" %>">
+    <%# <meta name="twitter:image" content="<%= asset_url('synyster-og.png') %>"> %>
 		<%= csrf_meta_tags %>
 		<%= csp_meta_tag %>
 
