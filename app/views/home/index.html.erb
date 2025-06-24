@@ -4,7 +4,7 @@
 <%= image_tag @background, id: "bg_image", class: "mt-5 mt-sm-0" %>
 <div id="dynamic_spacer" style="height: 65vw; max-height: 650px;"></div>
 <%= image_tag @logo, id: "floating-logo", class: "mt-5 mt-sm-0" %>
-<%= tag.p t('home.header.upcoming_shows').html_safe.upcase, class: %w[header m-3 mt-sm-5 fs-1] %>
+<%= tag.h2 t('home.header.upcoming_shows').html_safe.upcase, class: %w[header m-3 mt-sm-5 fs-1] %>
 <% if @upcoming_shows.any? %>
   <% if @upcoming_shows.one? %>
     <div class="row row-cols-1 w-75 g-3 gallery masonry">
@@ -22,13 +22,13 @@
 	<div class="row row-cols-2 g-3 gallery masonry collapse" id="pastShows">
 		<%= render partial: 'past_show', collection: @past_shows, as: :show %>
 	</div>
-<%= tag.p t('home.header.videos').html_safe.upcase, class: %w[header m-4 fs-1] %>
+<%= tag.h2 t('home.header.videos').html_safe.upcase, class: %w[header m-4 fs-1] %>
 <div class="container mx-3 mx-sm-5">
 	<div class="row row-cols-1 row-cols-sm-2 g-3">
 		<%= render partial: 'video', collection: @videos, as: :video %>
 	</div>
 </div>
-<%= tag.p t('home.header.pictures').html_safe.upcase, class: %w[header m-3 mt-5 fs-1] %>
+<%= tag.h2 t('home.header.pictures').html_safe.upcase, class: %w[header m-3 mt-5 fs-1] %>
 <div class="row row-cols-2 row-cols-sm-3 g-3 mb-5 gallery masonry">
 	<%= render partial: 'picture', collection: @pictures, as: :picture %>
 </div>
