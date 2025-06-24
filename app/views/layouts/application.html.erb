@@ -20,6 +20,7 @@
     <meta name="twitter:title" content="<%= content_for(:title) || 'Synyster - Official' %>">
     <meta name="twitter:description" content="<%= content_for(:description) || "Synyster's official website" %>">
     <%# <meta name="twitter:image" content="<%= asset_url('synyster-og.png') %>"> %>
+    <link rel="canonical" href="<%= request.original_url %>" />
 		<%= csrf_meta_tags %>
 		<%= csp_meta_tag %>
 
