@@ -12,8 +12,6 @@ Small personal project intended to teach myself the structure of a simple websit
 
 ## TODO
 
-- [ ] Finish translation
-- [X] Use larger background picture with lateral gradient in `about/`
 - [ ] Add mail list
 - [ ] Add web push notifications
 - [ ] Add files (logos, tech rider)
@@ -25,6 +23,8 @@ Small personal project intended to teach myself the structure of a simple websit
   - [X] Server-side
   - [X] Client-side
     - [ ] Use t() dictionary for text in Javascript
+- [X] Finish translation
+- [X] Use larger background picture with lateral gradient in `about/`
 - [X] Update hotwire and sass
 - [X] Add website visit count
 - [X] `Upcoming Shows` controller
