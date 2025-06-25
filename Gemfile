@@ -42,7 +42,7 @@ gem "thruster", require: false
 
 group :production do
   # Use pg as the database for Active Record
-  gem 'pg', '~> 1.5', '>= 1.5.9'
+  gem "pg", "~> 1.5", ">= 1.5.9"
 
   # or :staging or :beta or whatever environments you are using cloudflare in.
   # you probably don't want this for :test or :development

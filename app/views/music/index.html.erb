@@ -1,18 +1,19 @@
-<% content_for :title, "Synyster - #{t('meta.title.music').camelcase}" %>
-<% content_for :description, "#{t('meta.description.music')}" %>
-<%= tag.h1 t('header.music').html_safe, class: %w[visually-hidden] %>
+<% content_for :title, "Synyster - #{t("meta.title.music").capitalize}" %>
+<% content_for :description, "#{t("meta.description.music")}" %>
+<%= tag.h1 t("header.music").html_safe, class: %w[visually-hidden] %>
 
 <%# <button aria-pressed="false" onClick="this.setAttribute('aria-pressed',this.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');">Pause Animation</button> %>
 <%= tag.body id: "body-music" %>
-  <% char_counts = [28, 30, 22, 24] %>
-  <%= tag.div class: 'marquees' do %>
-    <% char_counts.each do |char_count| %>
-      <%= tag.section class: 'marquee', style: "--char-count: #{char_count}" do %>
-        <%= tag.div class: 'marquee--inner' do %>
-          <% 6.times do |index| %>
-            <%= tag.p t('music.work_in_progress').html_safe, aria: (index.zero? ? {} : { hidden: 'true' }) %>
-          <% end %>
+<% char_counts = [28, 30, 22, 24] %>
+<%= tag.div class: 'marquees' do %>
+  <% char_counts.each do |char_count| %>
+    <%= tag.section class: 'marquee', style: "--char-count: #{char_count}" do %>
+      <%= tag.div class: 'marquee--inner' do %>
+        <% 6.times do |index| %>
+          <%= tag.p t("music.work_in_progress").html_safe,
+                aria: (index.zero? ? {} : { hidden: "true" }) %>
         <% end %>
       <% end %>
     <% end %>
   <% end %>
+<% end %>
