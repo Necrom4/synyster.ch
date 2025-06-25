@@ -12,6 +12,7 @@ Small personal project intended to teach myself the structure of a simple websit
 
 ## TODO
 
+- [ ] Add contact form
 - [ ] Add mail list
 - [ ] Add web push notifications
 - [ ] Add files (logos, tech rider)
