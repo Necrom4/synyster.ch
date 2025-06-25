@@ -1,133 +1,127 @@
 .marquee {
-	--marquee--colour: #f3bb0b;
-	--marquee--repeat-count: 6;
-	--marquee--base-duration: 1s;
-	--marquee--repeat-size: calc(100% / var(--marquee--repeat-count));
-	--marquee--double-size: calc(var(--marquee--repeat-size) * 2);
-	--marquee--duration: calc(
-		var(--marquee--base-duration) * var(--char-count, 20)
-	);
+  --marquee--colour: #f3bb0b;
+  --marquee--repeat-count: 6;
+  --marquee--base-duration: 1s;
+  --marquee--repeat-size: calc(100% / var(--marquee--repeat-count));
+  --marquee--double-size: calc(var(--marquee--repeat-size) * 2);
+  --marquee--duration: calc(
+    var(--marquee--base-duration) * var(--char-count, 20)
+    );
 
-	overflow: hidden;
-	width: 110%;
-	margin-left: -5%;
+  overflow: hidden;
+  width: 110%;
+  margin-left: -5%;
 
-	mix-blend-mode: screen;
-	transform: rotate(-5deg);
-	
-	background: var(--marquee--colour);
-	color: #000;
+  mix-blend-mode: screen;
+  transform: rotate(-5deg);
 
-	&:nth-child(even) {
-		--marquee--direction: -1;
-		transform: rotate(5deg);
-		background: #000;
-			color: var(--marquee--colour);
-		p {
-			
-		}
-	}
+  background: var(--marquee--colour);
+  color: #000;
 
-	p {
-		
-		transform: translateY(0.07em);
-		font-weight: bold;
-		margin: 0;
-		display: flex;
-		gap: 0.5em;
-		line-height: 1.1;
-		font-size: clamp(2.5rem, 12vw, 6.2rem);
-		font-family: "Bebas Neue", sans-serif;
-		&::after {
-			content: "*";
-			transform: translateY(0.175em); // visually centers with rest of text
-		}
-		/* An empty psuedo element creates a gap after the last element */
-		&::before {
-			content: "";
-		}
-	}
+  &:nth-child(even) {
+    --marquee--direction: -1;
+    transform: rotate(5deg);
+    background: #000;
+    color: var(--marquee--colour);
+    p {
+
+    }
+  }
+
+  p {
+
+    transform: translateY(0.07em);
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    gap: 0.5em;
+    line-height: 1.1;
+    font-size: clamp(2.5rem, 12vw, 6.2rem);
+    font-family: "Bebas Neue", sans-serif;
+    &::after {
+      content: "*";
+      transform: translateY(0.175em); // visually centers with rest of text
+    }
+    /* An empty psuedo element creates a gap after the last element */
+    &::before {
+      content: "";
+    }
+  }
 }
 
 .marquee--inner {
-	width: max-content;
-	display: flex;
-	text-transform: uppercase;
-	@media (prefers-reduced-motion: no-preference) {
-		animation: marquee var(--marquee--duration) infinite linear,
-			reduce-marquee var(--marquee--duration) infinite linear paused;
-		animation-composition: add;
-		&:hover {
-			animation-play-state: running;
-		}
-	}	
+  width: max-content;
+  display: flex;
+  text-transform: uppercase;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: marquee var(--marquee--duration) infinite linear,
+      reduce-marquee var(--marquee--duration) infinite linear paused;
+    animation-composition: add;
+    &:hover {
+      animation-play-state: running;
+    }
+  }	
 }
 
 $to: translateX(calc(var(--marquee--double-size) * -1));
 $from: translateX(
-	calc(
-		(-1 * var(--marquee--double-size)) -
-			(var(--marquee--double-size) * var(--marquee--direction, 1))
-	)
-);
+  calc(
+  (-1 * var(--marquee--double-size)) -
+  (var(--marquee--double-size) * var(--marquee--direction, 1))
+  )
+  );
 $reduce-from: translateX(
-	calc(var(--marquee--repeat-size) * var(--marquee--direction, 1))
-);
+  calc(var(--marquee--repeat-size) * var(--marquee--direction, 1))
+  );
 
 @keyframes marquee {
-	from {
-		transform: $from;
-	}
-	to {
-		transform: $to;
-	}
+from {
+  transform: $from;
+}
+to {
+  transform: $to;
+}
 }
 
 @keyframes reduce-marquee {
-	from {
-		transform: $reduce-from;
-	}
-	to {
-		transfrom: $to;
-	}
+from {
+  transform: $reduce-from;
+}
+to {
+  transfrom: $to;
+}
 }
 
 #body-music {
-	&::before {
-		content: "";
-		position: fixed;
-		inset: 0;
-		background-image: url(https://images.unsplash.com/photo-1505356822725-08ad25f3ffe4?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-		background-size: cover;
-		background-position: center;
-		filter: brightness(0.25);
-	}
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url(https://images.unsplash.com/photo-1505356822725-08ad25f3ffe4?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.25);
+  }
 }
 
-// body,
-// html {
-// 	height: 100%;
-// 	margin: 0;
-// }
-
 .marquees {
-	align-content: center;
-	height: 100%;
-	display: grid;
-	gap: 5vw;
-	overflow: hidden;
+  align-content: center;
+  height: 100%;
+  display: grid;
+  gap: 5vw;
+  overflow: hidden;
 }
 
 button {
-	position: absolute;
-	top: 20px;
-	left: 20px;
-	
-	&[aria-pressed='true'] {
-		filter: invert(1);
-	}
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  &[aria-pressed='true'] {
+    filter: invert(1);
+  }
 }
 
 [aria-pressed='true'] + * .marquee--inner {
-	animation-play-state: paused !important;
+  animation-play-state: paused !important;
 }
