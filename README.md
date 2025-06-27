@@ -12,6 +12,9 @@ Small personal project intended to teach myself the structure of a simple websit
 
 ## TODO
 
+- [ ] Add `geocoder` without `SolidQueue` (synchronous)
+- [ ] Find out why `SolidQueue` is not creating with `queue_scheme` and then remove migration that creates table manually
+- [ ] Fix `ssas` deprecated warning
 - [ ] Add contact form
 - [ ] Add mail list
 - [ ] Add web push notifications
