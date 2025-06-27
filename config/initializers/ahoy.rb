@@ -8,6 +8,7 @@ Ahoy.api = false
 # we recommend configuring local geocoding as well
 # see https://github.com/ankane/ahoy#geocoding
 Ahoy.geocode = true
+Ahoy.job_queue = nil
 
 Ahoy.exclude_method = lambda do |controller, request|
   user_agent = request.user_agent.to_s.downcase
