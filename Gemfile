@@ -47,6 +47,7 @@ group :production do
   # or :staging or :beta or whatever environments you are using cloudflare in.
   # you probably don't want this for :test or :development
   gem "cloudflare-rails"
+  gem "rack-attack"
 end
 
 group :development, :test do
