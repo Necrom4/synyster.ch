@@ -74,4 +74,25 @@ class Rack::Attack
   #    {},   # headers
   #    ['']] # body
   # end
+
+  # Block requests to suspicious paths often probed by bots and scanners
+  BLOCKED_PATHS = [
+    "/.DS_Store",
+    "/.env",
+    "/.git",
+    "/.git/config",
+    "/.gitignore",
+    "/.well-known",
+    "/wp-admin",
+    "/wp-login.php"
+  ]
+
+  Rack::Attack.blocklist("block suspicious paths") do |req|
+    BLOCKED_PATHS.any? { |path| req.path.start_with?(path) }
+  end
+
+  ActiveSupport::Notifications.subscribe("rack.attack") do |name, start, finish, request_id, payload|
+    req = payload[:request]
+    Rails.logger.info("Rack::Attack blocked request: method=#{req.request_method} path=#{req.path} ip=#{req.ip}")
+  end
 end
