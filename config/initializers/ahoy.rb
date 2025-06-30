@@ -12,11 +12,20 @@ Ahoy.geocode = false
 Ahoy.exclude_method = lambda do |controller, request|
   user_agent = request.user_agent.to_s.downcase
   browser = Browser.new(user_agent)
+  geocoded_result = Geocoder.search(request.remote_ip)
+  user_country = geocoded_result.first&.country_code
+  blocked_countries = [
+    "IN",
+    "RO",
+    "RU",
+    "US"
+  ]
 
   browser.bot? ||
   user_agent.include?("cron-job.org") ||
-  user_agent.include?("headless") ||  # covers HeadlessChrome, etc.
-  request.remote_ip == "::1"          # localhost
+  user_agent.include?("headless") ||
+  request.remote_ip == "::1" ||
+  blocked_countries.include?(user_country)
 end
 
-Ahoy.track_bots = false  # optional: uses browser gem to detect bots
+Ahoy.track_bots = false
