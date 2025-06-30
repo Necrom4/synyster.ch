@@ -1,5 +1,21 @@
 class Ahoy::Store < Ahoy::DatabaseStore
+  def track_visit(data)
+    results = Geocoder.search(data[:ip])
+    result = results.first
+
+    if result
+      data[:country] = result.country
+      data[:region] = result.state || result.region
+      data[:city] = result.city
+      data[:latitude] = result.latitude
+      data[:longitude] = result.longitude
+    end
+
+    super(data) # call the original DatabaseStore method to save
+  end
 end
+
+Ahoy.server_side_visits = :immediate
 
 # set to true for JavaScript tracking
 Ahoy.api = false
