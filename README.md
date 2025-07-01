@@ -31,3 +31,13 @@ Small personal project intended to teach myself the structure of a simple websit
     - [ ] Use t() dictionary for text in Javascript
 - [X] Move filtering to count instead of Ahoy::Visit
 - [X] Add `geocoder` without `SolidQueue` (synchronous)
+- [X] Finish translation
+- [X] Use larger background picture with lateral gradient in `about/`
+- [X] Update hotwire and sass
+- [X] Add website visit count
+- [X] `Upcoming Shows` controller
+- [X] Cloud pictures
+- [X] Add videos
+- [X] Add dynamic picture grid
+- [X] interactive background-foreground welcome picture
+- [X] Integrate with Bootstrap and Hotwire
