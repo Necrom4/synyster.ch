@@ -15,10 +15,7 @@ Rails.application.routes.draw do
     root "home#index"
     get "music", to: "music#index"
     get "about", to: "about#index"
+    get "/admin/db-check", to: "admin#db_check"
     resources :posts
-    # other routes
-    if Rails.env.production?
-      get "/admin/db-check", to: "admin#db_check"
-    end
   end
 end
