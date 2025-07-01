@@ -13,10 +13,8 @@ Small personal project intended to teach myself the structure of a simple websit
 ## TODO
 
 - [ ] Add hostname to Ahoy visits
-- [ ] Move filtering to count instead of visits
 - [ ] Move Visitor Count to random notification
 - [ ] Movement Event tracking
-- [X] Add `geocoder` without `SolidQueue` (synchronous)
 - [ ] Find out why `SolidQueue` is not creating with `queue_scheme` and then remove migration that creates table manually
 - [ ] Fix `sass` deprecated warning
 - [ ] Add contact form
@@ -31,3 +29,5 @@ Small personal project intended to teach myself the structure of a simple websit
   - [X] Server-side
   - [X] Client-side
     - [ ] Use t() dictionary for text in Javascript
+- [X] Move filtering to count instead of Ahoy::Visit
+- [X] Add `geocoder` without `SolidQueue` (synchronous)
