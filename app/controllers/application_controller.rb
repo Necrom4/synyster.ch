@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :set_data
   before_action :set_visit_count
+  before_action :track_event
 
   private
 
@@ -19,10 +20,27 @@ class ApplicationController < ActionController::Base
   end
 
   def set_visit_count
+    filtered_visits_count = Ahoy::Visit.all.select do |visit|
+      !bot_visit?(visit) && !blocked_country?(visit.country)
+    end.size
+
+    base_count = ENV["VISIT_COUNT_BEFORE_RESET"].to_i
+
+    @visit_count = base_count + filtered_visits_count
+  end
+
+  def bot_visit?(visit)
+    user_agent = visit.user_agent.to_s.downcase
+    browser = Browser.new(user_agent)
+    browser.bot? || user_agent.include?("headless") || visit.ip == "::1"
+  end
+
+  def blocked_country?(country)
+    %w[IN RO RU US].include?(country)
+  end
+
+  def track_event
     ahoy.track "Viewed #{request.path}"
-    visit_count = Ahoy::Visit.count
-    base_count = VisitOffset.first&.base_count || 0
-    @visit_count = base_count + visit_count
   end
 
   def notify(type, message)

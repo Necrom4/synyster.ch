@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_17_090104) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_01_094042) do
   create_table "ahoy_events", force: :cascade do |t|
     t.integer "visit_id"
     t.integer "user_id"
@@ -51,11 +51,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_17_090104) do
     t.index ["user_id"], name: "index_ahoy_visits_on_user_id"
     t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
     t.index ["visitor_token", "started_at"], name: "index_ahoy_visits_on_visitor_token_and_started_at"
-  end
-
-  create_table "visit_offsets", force: :cascade do |t|
-    t.integer "base_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 end

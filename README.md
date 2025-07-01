@@ -14,6 +14,7 @@ Small personal project intended to teach myself the structure of a simple websit
 
 - [ ] Add hostname to Ahoy visits
 - [ ] Move filtering to count instead of visits
+- [ ] Move Visitor Count to random notification
 - [ ] Movement Event tracking
 - [X] Add `geocoder` without `SolidQueue` (synchronous)
 - [ ] Find out why `SolidQueue` is not creating with `queue_scheme` and then remove migration that creates table manually
