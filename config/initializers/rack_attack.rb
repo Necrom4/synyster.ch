@@ -84,6 +84,7 @@ if Rails.env.production?
       "/.git/config",
       "/.gitignore",
       "/.well-known",
+      "/about.php",
       "/wp-admin",
       "/wp-login.php"
     ]
