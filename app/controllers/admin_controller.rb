@@ -6,13 +6,13 @@ class AdminController < ApplicationController
     all_data = ActiveRecord::Base.descendants.each_with_object({}) do |model, hash|
       next if model.abstract_class? || !model.table_exists?
       begin
-        hash[model.name] = model.all.limit(100)
+        hash[model.name] = model.order(id: :desc).limit(100)
       rescue
         next
       end
     end
 
-    filtered_visit = filter_visits.first(100)
+    filtered_visit = filter_visits.sort_by { |visit| -visit.id }.first(100)
 
     all_data["Ahoy::Visit (filtered)"] = filtered_visit
 
