@@ -85,6 +85,7 @@ if Rails.env.production?
       "/.gitignore",
       "/.well-known",
       "/about.php",
+      "/about.PHP",
       "/wp-admin",
       "/wp-login.php"
     ]
@@ -96,6 +97,27 @@ if Rails.env.production?
     ActiveSupport::Notifications.subscribe("rack.attack") do |name, start, finish, request_id, payload|
       req = payload[:request]
       Rails.logger.info("Rack::Attack blocked request: method=#{req.request_method} path=#{req.path} ip=#{req.ip}")
+    end
+
+    # Block requests by bots containing suspicious User Agents
+    SUSPICIOUS_UAS = [
+      "acunetix",
+      "dirbuster",
+      "dnsscanner",
+      "libwww-perl",
+      "masscan",
+      "nessus",
+      "nikto",
+      "nmap",
+      "python-requests",
+      "rapef.info",
+      "sqlmap",
+      "wpscan",
+      "zgrab"
+    ]
+    Rack::Attack.blocklist("block known bad bots by UA") do |req|
+      ua = req.user_agent.to_s.downcase
+      SUSPICIOUS_UAS.any? { |bad| ua.include?(bad) }
     end
   end
 end
