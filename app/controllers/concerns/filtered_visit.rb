@@ -5,7 +5,7 @@ module FilteredVisit
 
   def filter_visits
     Ahoy::Visit.all.reject do |visit|
-      bot_visit?(visit) || blocked_country?(visit.country)
+      bot_visit?(visit) || ignored_country?(visit.country)
     end
   end
 
@@ -15,10 +15,10 @@ module FilteredVisit
     browser.bot? || user_agent.include?("headless") || visit.ip == "::1"
   end
 
-  BLOCKED_COUNTRIES = %w[
+  IGNORED_COUNTRIES = %w[
     CA
+    FI
     IN
-    IR
     NL
     RO
     RU
@@ -26,7 +26,7 @@ module FilteredVisit
     US
   ]
 
-  def blocked_country?(country)
-    BLOCKED_COUNTRIES.include?(country)
+  def ignored_country?(country)
+    IGNORED_COUNTRIES.include?(country)
   end
 end
