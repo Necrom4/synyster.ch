@@ -12,7 +12,7 @@ module FilteredVisit
   def bot_visit?(visit)
     user_agent = visit.user_agent.to_s.downcase
     browser = Browser.new(user_agent)
-    browser.bot? || user_agent.include?("headless") || visit.ip == "::1"
+    browser.bot? || user_agent.include?("http")
   end
 
   IGNORED_COUNTRIES = %w[
