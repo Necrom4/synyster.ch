@@ -1,3 +1,5 @@
+require "resolv"
+
 class Ahoy::Store < Ahoy::DatabaseStore
   def track_visit(data)
     results = Geocoder.search(data[:ip])
@@ -10,6 +12,15 @@ class Ahoy::Store < Ahoy::DatabaseStore
       data[:latitude] = result.latitude
       data[:longitude] = result.longitude
     end
+
+    # Store hostname in "platform"
+    begin
+      hostname = Resolv.getname(data[:ip])
+      data[:platform] = hostname
+    rescue Resolv::ResolvError, Resolv::ResolvTimeout
+      data[:platform] = nil
+    end
+
 
     super(data) # call the original DatabaseStore method to save
   end
