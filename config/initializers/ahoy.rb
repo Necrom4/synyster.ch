@@ -11,6 +11,7 @@ class Ahoy::Store < Ahoy::DatabaseStore
       data[:city] = result.city
       data[:latitude] = result.latitude
       data[:longitude] = result.longitude
+      data[:utm_campaign] = result.data["org"]
     end
 
     # Store hostname in "platform"
