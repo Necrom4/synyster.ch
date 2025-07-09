@@ -12,7 +12,6 @@ Small personal project intended to teach myself the structure of a simple websit
 
 ## TODO
 
-- [ ] Add hostname to Ahoy visits
 - [ ] Move Visitor Count to random notification
 - [ ] Movement Event tracking
 - [ ] Find out why `SolidQueue` is not creating with `queue_scheme` and then remove migration that creates table manually
@@ -29,6 +28,7 @@ Small personal project intended to teach myself the structure of a simple websit
   - [X] Server-side
   - [X] Client-side
     - [ ] Use t() dictionary for text in Javascript
+- [X] Add Hostname and Organization name to Ahoy visits and filter common bot host/org names
 - [X] Move filtering to count instead of Ahoy::Visit
 - [X] Add `geocoder` without `SolidQueue` (synchronous)
 - [X] Finish translation
