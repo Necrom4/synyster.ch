@@ -5,34 +5,81 @@ module FilteredVisit
 
   def filter_visits
     Ahoy::Visit.all.reject do |visit|
-      bot_visit?(visit) || ignored_country?(visit.country)
+      bot_visit?(visit)
     end
   end
 
   def bot_visit?(visit)
     user_agent = visit.user_agent.to_s.downcase
     hostname = visit.platform.to_s.downcase
-    organization = visit.utm_campaign.to_s.downcase
-    browser = Browser.new(user_agent)
+    organization_name = visit.utm_campaign.to_s.downcase
+    country = visit.country.to_s
 
-    browser.bot? ||
-    user_agent.include?("http") ||
-    hostname.include?("amazon") ||
-    organization.include?("digitalocean")
+    Browser.new(visit.user_agent).bot? ||
+    IGNORED_COUNTRIES.include?(country) ||
+    IGNORED_HOSTNAME_KEYWORDS.any? { |keyword| hostname.include?(keyword) } ||
+    IGNORED_ORGANIZATION_KEYWORDS.any? { |keyword| organization_name.include?(keyword) } ||
+    IGNORED_USER_AGENT_KEYWORDS.any? { |keyword| user_agent.include?(keyword) }
   end
 
   IGNORED_COUNTRIES = %w[
+    AU
     CA
     FI
+    HK
     IN
     NL
+    PL
     RO
     RU
+    SE
     SG
     US
-  ]
+  ].freeze
 
-  def ignored_country?(country)
-    IGNORED_COUNTRIES.include?(country)
-  end
+  IGNORED_HOSTNAME_KEYWORDS = %w[
+    amazonaws
+    cloudwaysstagingapps
+    compute
+    ec2
+    fastwebserver
+    hostingww
+    megasrv
+    server
+    speakwrightspeechpathology
+    vps
+  ].freeze
+
+  IGNORED_ORGANIZATION_KEYWORDS = [
+    "amazon",
+    "digitalocean",
+    "glesys",
+    "globalconnect",
+    "google",
+    "hydra communications",
+    "instra corporation",
+    "internet vikings",
+    "m247",
+    "mass response service",
+    "medialink global mandiri",
+    "mevspace",
+    "microsoft",
+    "musarubra",
+    "netcup",
+    "redheberg",
+    "ucloud",
+    "wiit"
+  ].freeze
+
+  IGNORED_USER_AGENT_KEYWORDS = [
+    "chrome/105",
+    "chrome/82",
+    "chrome/91",
+    "headlesschrome",
+    "http",
+    "mac os x 8_0",
+    "phantomjs",
+    "puppeteer",
+    "python-requests"
+  ].freeze
 end
