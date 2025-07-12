@@ -39,5 +39,5 @@ Small personal project intended to teach myself the structure of a simple websit
 - [X] Cloud pictures
 - [X] Add videos
 - [X] Add dynamic picture grid
-- [X] interactive background-foreground welcome picture
+- [X] Interactive background-foreground welcome picture
 - [X] Integrate with Bootstrap and Hotwire
