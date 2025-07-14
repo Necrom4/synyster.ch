@@ -4,7 +4,7 @@
       <div class="d-flex align-items-center">
         <%= link_to tag.i(class: "bi bi-list"),
         "#navbarCollapse",
-        class: %w[navbar-toggler border-0 py-0 px-2 fs-1],
+        class: "navbar-toggler border-0 py-0 px-2 fs-1",
         data: {
           bs_toggle: "collapse",
         } %>
@@ -16,12 +16,12 @@
         </div>
       </div>
     </div>
-    <%= tag.div class: %w[d-flex visitor-count] do %>
+    <div class="d-flex visitor-count">
       <%= tag.span "#{t("header.visitor-count").capitalize}:",
-               class: %w[d-none d-sm-inline mx-1] %>
+               class: "d-none d-sm-inline mx-1" %>
       <%= tag.i(class: "bi bi-person-raised-hand") %>
       <%= tag.span "#{@filtered_visits_count}" %>
-    <% end %>
+    </div>
     <div class="d-flex flex-row">
       <div class="px-3 border-2 border-end border-mid-1">
         <% if I18n.locale == :en %>
@@ -30,7 +30,7 @@
           <%= link_to "EN", url_for(locale: "en") %>
         <% end %>
       </div>
-      <%= link_to t("header.about").html_safe.upcase, about_path, class: %w[px-3] %>
+      <%= link_to t("header.about").html_safe.upcase, about_path, class: "px-3" %>
     </div>
   </div>
 </nav>

@@ -1,12 +1,11 @@
-<%= tag.div class: %w[band_member col text-center] do %>
-  <%= link_to member[:web_url], target: %w[_blank] do %>
+<div class="band_member col text-center">
+  <%= link_to member[:web_url], target: "_blank" do %>
     <%= image_tag member[:image_path], class: "w-100" %>
   <% end %>
-  <%= link_to member[:web_url], class: "text-nowrap", target: %w[_blank] do %>
+  <%= link_to member[:web_url], class: "text-nowrap", target: "_blank" do %>
     <%= first_name(member[:name]) %>
-    <%= tag.span last_name(member[:name]), class: %w[fw-bold d-none d-md-inline] %>
-    <%= tag.span shortened_last_name(member[:name]),
-             class: %w[fw-bold d-inline d-md-none] %>
+    <%= tag.span last_name(member[:name]), class: "fw-bold d-none d-md-inline" %>
+    <%= tag.span shortened_last_name(member[:name]), class: "fw-bold d-inline d-md-none" %>
   <% end %>
   <%= tag.p t("about.role.#{member[:role].downcase}").html_safe.capitalize %>
-<% end %>
+</div>
