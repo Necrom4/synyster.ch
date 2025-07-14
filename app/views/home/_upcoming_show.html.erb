@@ -1,3 +1,6 @@
 <div class="col">
-	<%= link_to image_tag(show[:image_path]), show[:web_url], class: %w[w-100] %>
+  <%= link_to image_tag(show[:image_path]),
+  show[:web_url],
+  class: %w[w-100],
+  target: %w[_blank] %>
 </div>
