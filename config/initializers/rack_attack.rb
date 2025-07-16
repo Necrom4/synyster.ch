@@ -28,6 +28,10 @@ if Rails.env.production?
       req.ip # unless req.path.start_with?('/assets')
     end
 
+    throttle("req/ip", limit: 4, period: 5.seconds) do |req|
+      req.ip # unless req.path.start_with?('/assets')
+    end
+
     ### Prevent Brute-Force Login Attacks ###
 
     # The most common brute-force login attack is a brute-force password
