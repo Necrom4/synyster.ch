@@ -43,22 +43,26 @@ module FilteredVisit
     compute
     ec2
     fastwebserver
-    hostingww
+    hosting
     megasrv
     server
     speakwrightspeechpathology
+    startdedicated
     vps
   ].freeze
 
   IGNORED_ORGANIZATION_KEYWORDS = [
     "amazon",
+    "cloud hosting solutions",
     "digitalocean",
     "glesys",
     "globalconnect",
     "google",
+    "hosting",
     "hydra communications",
     "instra corporation",
     "internet vikings",
+    "internetdienste",
     "m247",
     "mass response service",
     "medialink global mandiri",
@@ -68,6 +72,7 @@ module FilteredVisit
     "netcup",
     "redheberg",
     "ucloud",
+    "velia.net",
     "wiit"
   ].freeze
 
