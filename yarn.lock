@@ -3,9 +3,9 @@
 
 
 "@fancyapps/ui@^6.0.1":
-  version "6.0.11"
-  resolved "https://registry.yarnpkg.com/@fancyapps/ui/-/ui-6.0.11.tgz#427ef896866c5e7697fd23f875b77453491c77a4"
-  integrity sha512-2nAW69sQeo/S5nEP1+YdrKBJulZdG30tHItetutDhCF71rUjSfRm/hOwQC83Wmya9QXfvMyn5XmFvwBMWPm+Pg==
+  version "6.0.13"
+  resolved "https://registry.yarnpkg.com/@fancyapps/ui/-/ui-6.0.13.tgz#8ac2d6366bfe3783f91f2f66383801fba3eef1f3"
+  integrity sha512-um3iY91parFuzKankWIhxpzmkY9t/0rRmHKqp+0dOGqInflgTjUnFbHRDJwFXOgFgGe7RsNmMuGlzivvSDlWYA==
 
 "@parcel/watcher-android-arm64@2.5.1":
   version "2.5.1"
@@ -249,9 +249,9 @@ detect-libc@^1.0.3:
   integrity sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==
 
 electron-to-chromium@^1.5.173:
-  version "1.5.182"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.182.tgz#4ab73104f893938acb3ab9c28d7bec170c116b3e"
-  integrity sha512-Lv65Btwv9W4J9pyODI6EWpdnhfvrve/us5h1WspW8B2Fb0366REPtY3hX7ounk1CkV/TBjWCEvCBBbYbmV0qCA==
+  version "1.5.185"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.185.tgz#b4f9189c4ef652ddf9f1bb37529e2b79f865e912"
+  integrity sha512-dYOZfUk57hSMPePoIQ1fZWl1Fkj+OshhEVuPacNKWzC1efe56OsHY3l/jCfiAgIICOU3VgOIdoq7ahg7r7n6MQ==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -441,9 +441,9 @@ picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.3.1:
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
 picomatch@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.2.tgz#77c742931e8f3b8820946c76cd0c1f13730d1dab"
-  integrity sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg==
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.3.tgz#796c76136d1eead715db1e7bad785dedd695a042"
+  integrity sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==
 
 pify@^2.3.0:
   version "2.3.0"
