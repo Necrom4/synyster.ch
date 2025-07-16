@@ -80,48 +80,51 @@ if Rails.env.production?
     #    ['']] # body
     # end
 
-    # Block requests to suspicious paths often probed by bots and scanners
-    BLOCKED_PATHS = [
-      "/.DS_Store",
-      "/.env",
-      "/.git",
-      "/.git/config",
-      "/.gitignore",
-      "/.well-known",
-      "/about.php",
-      "/about.PHP",
-      "/wp-admin",
-      "/wp-login.php"
+    BLOCKED_PATHS = %w[
+      /.DS_Store
+      /.env
+      /.git
+      /.git/config
+      /.gitignore
+      /.tmb
+      /.well-known
+      /.wp-cli
+      /about.php
+      /about.PHP
+      /wp-admin
+      /wp-login.php
     ]
 
-    Rack::Attack.blocklist("block suspicious paths") do |req|
-      BLOCKED_PATHS.any? { |path| req.path.start_with?(path) }
+    BLOCKED_COUNTRIES = %w[
+      RU
+    ].freeze
+
+    BLOCKED_HOSTNAME_KEYWORDS = %w[
+      hosting
+    ].freeze
+
+    BLOCKED_ORGANIZATION_KEYWORDS = [
+      "cloud hosting solutions",
+      "hosting"
+    ].freeze
+
+    BLOCKED_USER_AGENT_KEYWORDS = [].freeze
+
+    Rack::Attack.blocklist("block by match in suspicious lists") do |req|
+      user_agent = req.user_agent.to_s.downcase
+      hostname = req.platform.to_s.downcase
+      organization_name = req.utm_campaign.to_s.downcase
+      country = req.country.to_s
+      BLOCKED_COUNTRIES.include?(country) ||
+      BLOCKED_HOSTNAME_KEYWORDS.any? { |keyword| hostname.include?(keyword) } ||
+      BLOCKED_ORGANIZATION_KEYWORDS.any? { |keyword| organization_name.include?(keyword) } ||
+      BLOCKED_PATHS.any? { |path| req.path.start_with?(path) } ||
+      BLOCKED_USER_AGENT_KEYWORDS.any? { |keyword| user_agent.include?(keyword) }
     end
 
     ActiveSupport::Notifications.subscribe("rack.attack") do |name, start, finish, request_id, payload|
       req = payload[:request]
       Rails.logger.info("Rack::Attack blocked request: method=#{req.request_method} path=#{req.path} ip=#{req.ip}")
-    end
-
-    # Block requests by bots containing suspicious User Agents
-    SUSPICIOUS_UAS = [
-      "acunetix",
-      "dirbuster",
-      "dnsscanner",
-      "libwww-perl",
-      "masscan",
-      "nessus",
-      "nikto",
-      "nmap",
-      "python-requests",
-      "rapef.info",
-      "sqlmap",
-      "wpscan",
-      "zgrab"
-    ]
-    Rack::Attack.blocklist("block known bad bots by UA") do |req|
-      ua = req.user_agent.to_s.downcase
-      SUSPICIOUS_UAS.any? { |bad| ua.include?(bad) }
     end
   end
 end
