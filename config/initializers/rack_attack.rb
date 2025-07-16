@@ -95,6 +95,10 @@ if Rails.env.production?
       /wp-login.php
     ]
 
+    BLOCKED_IPS = %w[
+      87.251.78.138
+    ]
+
     BLOCKED_COUNTRIES = %w[
       RU
     ].freeze
@@ -111,15 +115,12 @@ if Rails.env.production?
     BLOCKED_USER_AGENT_KEYWORDS = [].freeze
 
     Rack::Attack.blocklist("block by match in suspicious lists") do |req|
-      # result = Geocoder.search(req.ip).first
+      ip = req.ip
       user_agent = req.user_agent.to_s.downcase
       hostname = req.host.to_s.downcase
-      # organization_name = result.data["org"].to_s.downcase
-      # country = result.country.to_s
-      # BLOCKED_COUNTRIES.include?(country) ||
-      BLOCKED_HOSTNAME_KEYWORDS.any? { |keyword| hostname.include?(keyword) } ||
-      # BLOCKED_ORGANIZATION_KEYWORDS.any? { |keyword| organization_name.include?(keyword) } ||
       BLOCKED_PATHS.any? { |path| req.path.start_with?(path) } ||
+      BLOCKED_IPS.any? { |bad| ip.include?(bad) } ||
+      BLOCKED_HOSTNAME_KEYWORDS.any? { |keyword| hostname.include?(keyword) } ||
       BLOCKED_USER_AGENT_KEYWORDS.any? { |keyword| user_agent.include?(keyword) }
     end
 
