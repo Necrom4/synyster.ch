@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV5QDJMBXP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-SV5QDJMBXP');
+    </script>
+
 		<title><%= content_for(:title) || "Synyster - Official" %></title>
     <meta name="description" content="<%= content_for(:description) || "Discover the Swiss Metal band's story, music and upcoming shows" %>">
     <meta name="keywords" content="Synyster, music, band, official, concert, metal, suisse">
@@ -63,15 +73,6 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
 		<%# <%= javascript_include_tag("utils.js") %1> %>
 	</head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SV5QDJMBXP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-SV5QDJMBXP');
-  </script>
 	<body>
 		<main class="wrapper">
 			<%= render 'shared/notification' %>
