@@ -1,3 +1,6 @@
+require "geocoder"
+require "resolv"
+
 if Rails.env.production?
   class Rack::Attack
     ### Configure Cache ###
@@ -111,10 +114,11 @@ if Rails.env.production?
     BLOCKED_USER_AGENT_KEYWORDS = [].freeze
 
     Rack::Attack.blocklist("block by match in suspicious lists") do |req|
+      result = Geocoder.search(req.ip).first
       user_agent = req.user_agent.to_s.downcase
-      hostname = req.platform.to_s.downcase
-      organization_name = req.utm_campaign.to_s.downcase
-      country = req.country.to_s
+      hostname = req.host.to_s.downcase
+      organization_name = result.data["org"].to_s.downcase
+      country = result.country.to_s
       BLOCKED_COUNTRIES.include?(country) ||
       BLOCKED_HOSTNAME_KEYWORDS.any? { |keyword| hostname.include?(keyword) } ||
       BLOCKED_ORGANIZATION_KEYWORDS.any? { |keyword| organization_name.include?(keyword) } ||
