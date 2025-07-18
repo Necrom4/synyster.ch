@@ -100,16 +100,17 @@ if Rails.env.production?
     ]
 
     BLOCKED_COUNTRIES = %w[
+      CN
       RU
     ].freeze
 
     BLOCKED_HOSTNAME_KEYWORDS = %w[
-      hosting
+      host
     ].freeze
 
     BLOCKED_ORGANIZATION_KEYWORDS = [
       "cloud hosting solutions",
-      "hosting"
+      "host"
     ].freeze
 
     BLOCKED_USER_AGENT_KEYWORDS = [].freeze

@@ -25,6 +25,7 @@ module FilteredVisit
   IGNORED_COUNTRIES = %w[
     AU
     CA
+    CN
     FI
     HK
     IN
@@ -43,7 +44,7 @@ module FilteredVisit
     compute
     ec2
     fastwebserver
-    hosting
+    host
     megasrv
     server
     speakwrightspeechpathology
@@ -58,11 +59,12 @@ module FilteredVisit
     "glesys",
     "globalconnect",
     "google",
-    "hosting",
+    "host",
     "hydra communications",
     "instra corporation",
     "internet vikings",
     "internetdienste",
+    "ionos",
     "m247",
     "mass response service",
     "medialink global mandiri",
