@@ -4,27 +4,22 @@ module FilteredTraffic
   private
 
   def filter_visits
-    adapter = ActiveRecord::Base.connection.adapter_name.downcase.to_sym
+    sql_filtered = Ahoy::Visit
+      .where.not(country: IGNORED_COUNTRIES)
+      .where.not(
+        IGNORED_HOSTNAME_KEYWORDS.map { |keyword| "LOWER(platform) LIKE ?" }.join(" OR "),
+        *IGNORED_HOSTNAME_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
+      )
+      .where.not(
+        IGNORED_ORGANIZATION_KEYWORDS.map { |keyword| "LOWER(utm_campaign) LIKE ?" }.join(" OR "),
+        *IGNORED_ORGANIZATION_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
+      )
+      .where.not(
+        IGNORED_USER_AGENT_KEYWORDS.map { |keyword| "LOWER(user_agent) LIKE ?" }.join(" OR "),
+        *IGNORED_USER_AGENT_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
+      )
 
-    ilike_operator = adapter == :postgresql ? "ILIKE" : "LIKE"
-
-    base_query = Ahoy::Visit.where.not(country: IGNORED_COUNTRIES)
-
-    filters = [
-      [ "platform", IGNORED_HOSTNAME_KEYWORDS ],
-      [ "utm_campaign", IGNORED_ORGANIZATION_KEYWORDS ],
-      [ "user_agent", IGNORED_USER_AGENT_KEYWORDS ]
-    ]
-
-    filters.each do |field, keywords|
-      clauses = keywords.map { |kw| "#{field} #{ilike_operator} ?" }.join(" OR ")
-      values = keywords.map { |kw| "%#{kw}%" }
-      sql = ActiveRecord::Base.send(:sanitize_sql_array, [ clauses, *values ])
-
-      base_query = base_query.where.not(Arel.sql(sql))
-    end
-
-    base_query.reject { |visit| Browser.new(visit.user_agent).bot? }
+    sql_filtered.reject { |visit| Browser.new(visit.user_agent).bot? }
   end
 
   def filter_events
