@@ -4,9 +4,14 @@ module FilteredTraffic
   private
 
   def filter_visits
-    Ahoy::Visit.all.reject do |visit|
-      bot_visit?(visit)
-    end
+    sql_filtered = Ahoy::Visit
+      .where.not(country: IGNORED_COUNTRIES)
+      .where.not(platform: IGNORED_HOSTNAME_KEYWORDS)
+      .where.not(utm_campaign: IGNORED_ORGANIZATION_KEYWORDS)
+      .where.not(user_agent: nil)
+      .where.not(user_agent: IGNORED_USER_AGENT_KEYWORDS)
+
+    sql_filtered.reject { |visit| bot_visit?(visit) }
   end
 
   def filter_events
