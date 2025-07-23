@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include FilteredVisit
+  include FilteredTraffic
 
   before_action :set_locale
   before_action :set_data

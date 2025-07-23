@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  include FilteredVisit
+  include FilteredTraffic
   before_action :require_secret_key
 
   def db_check
@@ -17,8 +17,8 @@ class AdminController < ApplicationController
     end
 
     output_data = {
-      "Ahoy::Visit (filtered)" => filtered_visit,
-      "Ahoy::Event (filtered)" => filtered_event
+      "Filtered Visits" => filtered_visit,
+      "Filtered Events" => filtered_event
     }.merge(all_data)
 
     render json: output_data

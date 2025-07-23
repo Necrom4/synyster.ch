@@ -1,4 +1,4 @@
-module FilteredVisit
+module FilteredTraffic
   extend ActiveSupport::Concern
 
   private
