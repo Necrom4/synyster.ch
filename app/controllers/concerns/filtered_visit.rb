@@ -36,6 +36,7 @@ module FilteredVisit
     SE
     SG
     US
+    VN
   ].freeze
 
   IGNORED_HOSTNAME_KEYWORDS = %w[
@@ -46,6 +47,7 @@ module FilteredVisit
     fastwebserver
     host
     megasrv
+    onyphe
     server
     speakwrightspeechpathology
     startdedicated
@@ -54,6 +56,7 @@ module FilteredVisit
 
   IGNORED_ORGANIZATION_KEYWORDS = [
     "amazon",
+    "bucklog",
     "cloud hosting solutions",
     "digitalocean",
     "glesys",
@@ -72,6 +75,7 @@ module FilteredVisit
     "microsoft",
     "musarubra",
     "netcup",
+    "onyphe",
     "redheberg",
     "ucloud",
     "velia.net",

@@ -96,12 +96,14 @@ if Rails.env.production?
     ]
 
     BLOCKED_IPS = %w[
+      45.252.251.4
       87.251.78.138
     ]
 
     BLOCKED_COUNTRIES = %w[
       CN
       RU
+      VN
     ].freeze
 
     BLOCKED_HOSTNAME_KEYWORDS = %w[
