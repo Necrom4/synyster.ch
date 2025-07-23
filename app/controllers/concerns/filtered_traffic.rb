@@ -4,14 +4,27 @@ module FilteredTraffic
   private
 
   def filter_visits
-    sql_filtered = Ahoy::Visit
-      .where.not(country: IGNORED_COUNTRIES)
-      .where.not(platform: IGNORED_HOSTNAME_KEYWORDS)
-      .where.not(utm_campaign: IGNORED_ORGANIZATION_KEYWORDS)
-      .where.not(user_agent: nil)
-      .where.not(user_agent: IGNORED_USER_AGENT_KEYWORDS)
+    adapter = ActiveRecord::Base.connection.adapter_name.downcase.to_sym
 
-    sql_filtered.reject { |visit| bot_visit?(visit) }
+    ilike_operator = adapter == :postgresql ? "ILIKE" : "LIKE"
+
+    base_query = Ahoy::Visit.where.not(country: IGNORED_COUNTRIES)
+
+    filters = [
+      [ "platform", IGNORED_HOSTNAME_KEYWORDS ],
+      [ "utm_campaign", IGNORED_ORGANIZATION_KEYWORDS ],
+      [ "user_agent", IGNORED_USER_AGENT_KEYWORDS ]
+    ]
+
+    filters.each do |field, keywords|
+      clauses = keywords.map { |kw| "#{field} #{ilike_operator} ?" }.join(" OR ")
+      values = keywords.map { |kw| "%#{kw}%" }
+      sql = ActiveRecord::Base.send(:sanitize_sql_array, [ clauses, *values ])
+
+      base_query = base_query.where.not(Arel.sql(sql))
+    end
+
+    base_query.reject { |visit| Browser.new(visit.user_agent).bot? }
   end
 
   def filter_events
