@@ -30,21 +30,6 @@ module FilteredTraffic
 
     (visit_filtered_events + multiple_visit_events)
       .uniq { |event| event.id }
-      .sort_by { |event| -event.id }
-      .first(100)
-  end
-
-  def bot_visit?(visit)
-    user_agent = visit.user_agent.to_s.downcase
-    hostname = visit.platform.to_s.downcase
-    organization_name = visit.utm_campaign.to_s.downcase
-    country = visit.country.to_s
-
-    Browser.new(visit.user_agent).bot? ||
-    IGNORED_COUNTRIES.include?(country) ||
-    IGNORED_HOSTNAME_KEYWORDS.any? { |keyword| hostname.include?(keyword) } ||
-    IGNORED_ORGANIZATION_KEYWORDS.any? { |keyword| organization_name.include?(keyword) } ||
-    IGNORED_USER_AGENT_KEYWORDS.any? { |keyword| user_agent.include?(keyword) }
   end
 
   IGNORED_COUNTRIES = %w[

@@ -4,7 +4,7 @@ class AdminController < ApplicationController
 
   def db_check
     filtered_visit = filter_visits.sort_by { |visit| -visit.id }.first(100)
-    filtered_event = filter_events
+    filtered_event = filter_events.sort_by { |event| -event.id }.first(100)
 
     all_data = ActiveRecord::Base.descendants.each_with_object({}) do |model, hash|
       next if model.abstract_class? || !model.table_exists?
