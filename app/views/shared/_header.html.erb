@@ -16,12 +16,14 @@
         </div>
       </div>
     </div>
-    <div class="d-flex visitor-count">
-      <%= tag.span "#{t("header.visitor-count").capitalize}:",
-               class: "d-none d-sm-inline mx-1" %>
-      <%= tag.i(class: "bi bi-person-raised-hand") %>
-      <%= tag.span "#{@filtered_visits_count}" %>
-    </div>
+    <% if @filtered_visits_count.present? %>
+      <div class="d-flex visitor-count">
+        <%= tag.span "#{t("header.visitor-count").capitalize}:",
+                 class: "d-none d-sm-inline mx-1" %>
+        <%= tag.i(class: "bi bi-person-raised-hand") %>
+        <%= tag.span "#{@filtered_visits_count}" %>
+      </div>
+    <% end %>
     <div class="d-flex flex-row">
       <div class="px-3 border-2 border-end border-mid-1">
         <% if I18n.locale == :en %>

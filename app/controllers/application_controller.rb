@@ -19,15 +19,20 @@ class ApplicationController < ActionController::Base
   end
 
   def set_visit_count
-    filtered_visits_count = filter_visits.size
-
     base_count = ENV["VISIT_COUNT_BEFORE_RESET"].to_i
 
-    @filtered_visits_count = base_count + filtered_visits_count
+    begin
+      @filtered_visits_count = base_count + filter_visits.size
+    rescue *DB_ERRORS => e
+      Rails.logger.warn("Skipped Visit Count due to database error: #{e.class} - #{e.message}")
+      @filtered_visits_count = nil
+    end
   end
 
   def track_event
     ahoy.track "Viewed #{request.path}"
+  rescue *DB_ERRORS => e
+    Rails.logger.warn("Skipped Ahoy Tracking due to database error: #{e.class} - #{e.message}")
   end
 
   def notify(type, message)
