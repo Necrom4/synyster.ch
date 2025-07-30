@@ -6,9 +6,10 @@ module FilteredTraffic
   def filter_visits
     sql_filtered = Ahoy::Visit
       .where.not(country: IGNORED_COUNTRIES)
-      .where.not(
-        IGNORED_HOSTNAME_KEYWORDS.map { |keyword| "LOWER(platform) LIKE ?" }.join(" OR "),
-        *IGNORED_HOSTNAME_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
+      .where(
+        Ahoy::Visit.arel_table[:platform].matches_any(
+          IGNORED_HOSTNAME_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
+        ).not.or(Ahoy::Visit.arel_table[:platform].eq(nil))
       )
       .where.not(
         IGNORED_ORGANIZATION_KEYWORDS.map { |keyword| "LOWER(utm_campaign) LIKE ?" }.join(" OR "),
