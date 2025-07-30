@@ -4,14 +4,14 @@ class AdminController < ApplicationController
 
   def db_check
     begin
-      filtered_visit = filter_visits.sort_by { |visit| -visit.id }.first(100)
-      filtered_event = filter_events.sort_by { |event| -event.id }.first(100)
+      filtered_visit = filter_visits.sort_by { |visit| -visit.id }
+      filtered_event = filter_events.sort_by { |event| -event.id }
 
       all_data = ActiveRecord::Base.descendants.each_with_object({}) do |model, hash|
         next if model.abstract_class? || !model.table_exists?
 
         begin
-          hash[model.name] = model.order(id: :desc).limit(100)
+          hash[model.name] = model.order(id: :desc)
         rescue
           next
         end
