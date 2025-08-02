@@ -107,6 +107,7 @@ if Rails.env.production?
     ].freeze
 
     BLOCKED_HOSTNAME_KEYWORDS = %w[
+      qwant
       host
     ].freeze
 

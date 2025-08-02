@@ -5,19 +5,19 @@ module FilteredTraffic
 
   def filter_visits
     sql_filtered = Ahoy::Visit
-      .where.not(country: IGNORED_COUNTRIES)
+      .where.not(country: FILTERED_COUNTRIES)
       .where(
         Ahoy::Visit.arel_table[:platform].matches_any(
-          IGNORED_HOSTNAME_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
+          FILTERED_HOSTNAME_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
         ).not.or(Ahoy::Visit.arel_table[:platform].eq(nil))
       )
       .where.not(
-        IGNORED_ORGANIZATION_KEYWORDS.map { |keyword| "LOWER(utm_campaign) LIKE ?" }.join(" OR "),
-        *IGNORED_ORGANIZATION_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
+        FILTERED_ORGANIZATION_KEYWORDS.map { |keyword| "LOWER(utm_campaign) LIKE ?" }.join(" OR "),
+        *FILTERED_ORGANIZATION_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
       )
       .where.not(
-        IGNORED_USER_AGENT_KEYWORDS.map { |keyword| "LOWER(user_agent) LIKE ?" }.join(" OR "),
-        *IGNORED_USER_AGENT_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
+        FILTERED_USER_AGENT_KEYWORDS.map { |keyword| "LOWER(user_agent) LIKE ?" }.join(" OR "),
+        *FILTERED_USER_AGENT_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
       )
 
     sql_filtered.reject { |visit| Browser.new(visit.user_agent).bot? }
@@ -33,7 +33,7 @@ module FilteredTraffic
       .uniq { |event| event.id }
   end
 
-  IGNORED_COUNTRIES = %w[
+  FILTERED_COUNTRIES = %w[
     AU
     CA
     CN
@@ -50,8 +50,9 @@ module FilteredTraffic
     VN
   ].freeze
 
-  IGNORED_HOSTNAME_KEYWORDS = %w[
+  FILTERED_HOSTNAME_KEYWORDS = %w[
     amazonaws
+    qwant
     cloudwaysstagingapps
     compute
     ec2
@@ -65,8 +66,9 @@ module FilteredTraffic
     vps
   ].freeze
 
-  IGNORED_ORGANIZATION_KEYWORDS = [
+  FILTERED_ORGANIZATION_KEYWORDS = [
     "amazon",
+    "qwantbot",
     "bucklog",
     "cloud hosting solutions",
     "digitalocean",
@@ -95,7 +97,7 @@ module FilteredTraffic
     "wiit"
   ].freeze
 
-  IGNORED_USER_AGENT_KEYWORDS = [
+  FILTERED_USER_AGENT_KEYWORDS = [
     "chrome/105",
     "chrome/82",
     "chrome/91",
