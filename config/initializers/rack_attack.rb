@@ -1,3 +1,5 @@
+require "resolv"
+
 if Rails.env.production?
   class Rack::Attack
     ### Configure Cache ###
@@ -102,6 +104,7 @@ if Rails.env.production?
 
     BLOCKED_COUNTRIES = %w[
       CN
+      IN
       RU
       VN
     ].freeze
@@ -128,13 +131,35 @@ if Rails.env.production?
     ].freeze
 
     Rack::Attack.blocklist("block by match in suspicious lists") do |req|
+      path = req.path
       ip = req.ip
-      user_agent = req.user_agent.to_s.downcase
       hostname = req.host.to_s.downcase
-      BLOCKED_PATHS.any? { |path| req.path.start_with?(path) } ||
-      BLOCKED_IPS.any? { |bad| ip.include?(bad) } ||
-      BLOCKED_HOSTNAME_KEYWORDS.any? { |keyword| hostname.include?(keyword) } ||
-      BLOCKED_USER_AGENT_KEYWORDS.any? { |keyword| user_agent.include?(keyword) }
+      user_agent = req.user_agent.to_s.downcase
+
+      return true if BLOCKED_PATHS.any? { |p| path.start_with?(p) }
+      return true if BLOCKED_IPS.include?(ip)
+      return true if BLOCKED_HOSTNAME_KEYWORDS.any? { |kw| hostname.include?(kw) }
+      return true if BLOCKED_USER_AGENT_KEYWORDS.any? { |kw| user_agent.include?(kw) }
+
+      geo_info = Rails.cache.fetch("geo:#{ip}", expires_in: 1.day) do
+        results = Geocoder.search(ip)
+        result = results.first
+
+        {
+          country: result&.country,
+          organization: result&.data&.fetch("org", nil)&.downcase,
+          hostname: begin
+            Resolv.getname(ip).downcase
+          rescue Resolv::ResolvError, Resolv::ResolvTimeout
+            nil
+          end
+        }
+      end
+
+      return true if geo_info[:country] && BLOCKED_COUNTRIES.include?(geo_info[:country])
+      return true if geo_info[:organization] && BLOCKED_ORGANIZATION_KEYWORDS.any? { |kw| geo_info[:organization].include?(kw) }
+
+      false
     end
 
     ActiveSupport::Notifications.subscribe("rack.attack") do |name, start, finish, request_id, payload|
