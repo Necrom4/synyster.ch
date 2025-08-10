@@ -107,16 +107,25 @@ if Rails.env.production?
     ].freeze
 
     BLOCKED_HOSTNAME_KEYWORDS = %w[
-      qwant
+      akamaitechnologies
       host
+      qwant
     ].freeze
 
     BLOCKED_ORGANIZATION_KEYWORDS = [
+      "akamai",
       "cloud hosting solutions",
-      "host"
+      "bharti airtel",
+      "datacamp limited",
+      "host",
+      "railnet",
+      "space exploration technologies corporation",
+      "techoff srv limited"
     ].freeze
 
-    BLOCKED_USER_AGENT_KEYWORDS = [].freeze
+    BLOCKED_USER_AGENT_KEYWORDS = [
+      "chrome/125.0.6422.41" # Bot using multi IPs from different countries at second-intervals using Wifi providers; "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.41 Safari/537.36"
+    ].freeze
 
     Rack::Attack.blocklist("block by match in suspicious lists") do |req|
       ip = req.ip

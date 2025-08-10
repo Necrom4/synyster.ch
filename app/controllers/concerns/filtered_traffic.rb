@@ -34,55 +34,66 @@ module FilteredTraffic
   end
 
   FILTERED_COUNTRIES = %w[
-    AU
-    CA
     CN
     FI
     HK
     IN
-    NL
-    PL
     RO
     RU
     SE
     SG
-    US
     VN
   ].freeze
 
   FILTERED_HOSTNAME_KEYWORDS = %w[
     amazonaws
-    qwant
+    akamaitechnologies
     cloudwaysstagingapps
     compute
+    crawl
+    dataproviderbot
+    insidesign
     ec2
     fastwebserver
+    fbsv
     host
     megasrv
+    npsmanaged
     onyphe
+    qwant
     server
     speakwrightspeechpathology
+    starlinkisp
     startdedicated
+    tmdcloud
     vps
   ].freeze
 
   FILTERED_ORGANIZATION_KEYWORDS = [
+    "1337 services",
     "amazon",
+    "akamai",
     "qwantbot",
+    "bharti airtel",
     "bucklog",
     "cloud hosting solutions",
+    "da international group ltd.",
+    "datacamp limited",
     "digitalocean",
     "flyservers",
+    "facebook, inc.",
     "glesys",
     "globalconnect",
     "google",
     "hetzner",
     "host",
     "hydra communications",
+    "insidesign",
     "instra corporation",
     "internet vikings",
     "internetdienste",
     "ionos",
+    "level 3 parent",
     "m247",
     "mass response service",
     "medialink global mandiri",
@@ -90,15 +101,23 @@ module FilteredTraffic
     "microsoft",
     "musarubra",
     "netcup",
+    "nybula",
     "onyphe",
+    "ovh sas",
+    "quickpacket",
+    "railnet",
     "redheberg",
+    "space exploration technologies corporation",
+    "techoff srv limited",
     "ucloud",
+    "uhq services llc",
     "velia.net",
     "wiit"
   ].freeze
 
   FILTERED_USER_AGENT_KEYWORDS = [
     "chrome/105",
+    "chrome/125.0.6422.41",
     "chrome/82",
     "chrome/91",
     "headlesschrome",
