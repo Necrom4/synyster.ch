@@ -12,32 +12,23 @@ Small personal project intended to teach myself the structure of a simple websit
 
 ## TODO
 
-- [ ] Move Visitor Count to random notification
-- [ ] Movement Event tracking
-- [ ] Find out why `SolidQueue` is not creating with `queue_scheme` and then remove migration that creates table manually
-- [ ] Fix `sass` deprecated warning
 - [ ] Add contact form
 - [ ] Add mail list
 - [ ] Add web push notifications
 - [ ] Add files (logos, tech rider)
-- [ ] Add notifications
-  - [ ] Uppercase option
-  - [ ] Style
-  - [X] Stack notifications
-  - [X] Fade and move in/out
-  - [X] Server-side
-  - [X] Client-side
-    - [ ] Use t() dictionary for text in Javascript
-- [X] Add Hostname and Organization name to Ahoy visits and filter common bot host/org names
-- [X] Move filtering to count instead of Ahoy::Visit
-- [X] Add `geocoder` without `SolidQueue` (synchronous)
-- [X] Finish translation
-- [X] Use larger background picture with lateral gradient in `about/`
-- [X] Update hotwire and sass
-- [X] Add website visit count
-- [X] `Upcoming Shows` controller
-- [X] Cloud pictures
-- [X] Add videos
-- [X] Add dynamic picture grid
-- [X] Interactive background-foreground welcome picture
-- [X] Integrate with Bootstrap and Hotwire
+- [X] Add `.justfile`
+- [X] Add visit/event tracker using `ahoy`
+- [ ] Move Visitor Count to random notification
+  - [ ] Movement Event tracking (JS)
+  - [X] Add bot blocking using `rack-attack`
+  - [X] Add Hostname, Organization_name and Location to Ahoy::Visit using `resolv` and `geocoder` (without `SolidQueue`, synchronous)
+  - [X] Print DB tables as json in hidden path
+  - [X] Add front-end human visits counter
+- [X] Add static DB
+  - [X] Implement translation
+  - [X] Add controllers to sort media
+  - [X] Add pictures in CDN and add links to `data.yml`
+- [X] Use `Bootstrap` and `Hotwire`
+  - [ ] Fix `sass` deprecated warning
+  - [ ] Add notifications (server-side and client-side)
+  - [X] Implement galleries (dynamic picture grids)
