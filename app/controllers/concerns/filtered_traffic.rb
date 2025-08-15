@@ -46,17 +46,17 @@ module FilteredTraffic
   ].freeze
 
   FILTERED_HOSTNAME_KEYWORDS = %w[
-    amazonaws
     akamaitechnologies
+    amazonaws
     cloudwaysstagingapps
     compute
     crawl
     dataproviderbot
-    insidesign
     ec2
     fastwebserver
     fbsv
     host
+    insidesign
     megasrv
     npsmanaged
     onyphe
@@ -71,17 +71,16 @@ module FilteredTraffic
 
   FILTERED_ORGANIZATION_KEYWORDS = [
     "1337 services",
-    "amazon",
     "akamai",
-    "qwantbot",
+    "amazon",
     "bharti airtel",
     "bucklog",
     "cloud hosting solutions",
     "da international group ltd.",
     "datacamp limited",
     "digitalocean",
-    "flyservers",
     "facebook, inc.",
+    "flyservers",
     "glesys",
     "globalconnect",
     "google",
@@ -93,6 +92,7 @@ module FilteredTraffic
     "internet vikings",
     "internetdienste",
     "ionos",
+    "leaseweb",
     "level 3 parent",
     "m247",
     "mass response service",
@@ -105,6 +105,7 @@ module FilteredTraffic
     "onyphe",
     "ovh sas",
     "quickpacket",
+    "qwantbot",
     "railnet",
     "redheberg",
     "space exploration technologies corporation",
