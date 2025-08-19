@@ -111,15 +111,20 @@ if Rails.env.production?
 
     BLOCKED_HOSTNAME_KEYWORDS = %w[
       akamaitechnologies
+      milkywan
       qwant
     ].freeze
 
     BLOCKED_ORGANIZATION_KEYWORDS = [
       "akamai",
-      "cloud hosting solutions",
       "bharti airtel",
+      "cloud hosting solutions",
+      "detai prosperous technologies limited",
+      "milkywan association",
       "railnet",
+      "smartnet limited",
       "space exploration technologies corporation",
+      "sunucun bilgi iletisim teknolojileri ve ticaret limited sirketi",
       "techoff srv limited"
     ].freeze
 
