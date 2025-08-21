@@ -46,9 +46,11 @@ module FilteredTraffic
   ].freeze
 
   FILTERED_HOSTNAME_KEYWORDS = %w[
+    16clouds
     akamaitechnologies
     amazonaws
     cloudwaysstagingapps
+    comcast
     compute
     crawl
     dataproviderbot
@@ -76,6 +78,7 @@ module FilteredTraffic
     "bharti airtel",
     "bucklog",
     "cloud hosting solutions",
+    "comcast cable communications",
     "da international group ltd.",
     "datacamp limited",
     "detai prosperous technologies limited",
@@ -93,6 +96,7 @@ module FilteredTraffic
     "instra corporation",
     "internet vikings",
     "internetdienste",
+    "it7 networks inc",
     "ionos",
     "leaseweb",
     "level 3 parent",
@@ -106,7 +110,6 @@ module FilteredTraffic
     "netcup",
     "nybula",
     "onyphe",
-    "ovh sas",
     "quickpacket",
     "qwantbot",
     "railnet",
