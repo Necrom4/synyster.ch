@@ -15,12 +15,12 @@ dev:
   bin/dev -p 3000
 
 lint:
-  bundle exec rubocop
-  yarn eslint .
+  bundle exec rubocop --color
+  yarn eslint . --color
 
 lint-fix:
-  bundle exec rubocop -A
-  yarn eslint . --fix
+  bundle exec rubocop -A --color
+  yarn eslint . --fix --color
 
 server:
   bin/rails server
