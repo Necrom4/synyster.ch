@@ -4,7 +4,7 @@
     <%= content_tag :p,
     t("footer.copyright", year: Time.current.year).html_safe,
     class: "d-none d-sm-block text-center fw-normal fs-6 m-0" %>
-    <div>
+    <div class="user-select-none">
       <%= mail_to "synyster.theband@gmail.com",
       tag.i(class: "bi bi-envelope mx-2"),
       class: "fs-3 d-inline-block" %>
