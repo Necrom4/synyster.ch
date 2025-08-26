@@ -98,6 +98,7 @@ if Rails.env.production?
     ]
 
     BLOCKED_IPS = %w[
+      172.200.43.78
       45.252.251.4
       87.251.78.138
     ]
@@ -111,15 +112,19 @@ if Rails.env.production?
 
     BLOCKED_HOSTNAME_KEYWORDS = %w[
       akamaitechnologies
+      contaboserver
       milkywan
+      noc223
       qwant
     ].freeze
 
     BLOCKED_ORGANIZATION_KEYWORDS = [
       "akamai",
       "bharti airtel",
+      "contabo",
       "cloud hosting solutions",
       "detai prosperous technologies limited",
+      "frantech solutions",
       "milkywan association",
       "railnet",
       "smartnet limited",

@@ -52,6 +52,7 @@ module FilteredTraffic
     cloudwaysstagingapps
     comcast
     compute
+    contaboserver
     crawl
     dataproviderbot
     ec2
@@ -59,7 +60,9 @@ module FilteredTraffic
     fbsv
     host
     insidesign
+    instances.scw.cloud
     megasrv
+    noc223
     npsmanaged
     onyphe
     qwant
@@ -79,6 +82,7 @@ module FilteredTraffic
     "bucklog",
     "cloud hosting solutions",
     "comcast cable communications",
+    "contabo",
     "da international group ltd.",
     "datacamp limited",
     "detai prosperous technologies limited",
@@ -86,6 +90,7 @@ module FilteredTraffic
     "facebook, inc.",
     "flokinet ehf",
     "flyservers",
+    "frantech solutions",
     "glesys",
     "globalconnect",
     "google",
