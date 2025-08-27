@@ -8,7 +8,7 @@
        class: "header m-3 mt-sm-5 fs-1" %>
 <% if @upcoming_shows.any? %>
   <% if @upcoming_shows.one? %>
-    <div class="row row-cols-1 w-75 g-3 gallery masonry">
+    <div class="row row-cols-1 w-50 g-3 gallery masonry">
       <%= render partial: "upcoming_show", collection: @upcoming_shows, as: :show %>
     </div>
   <% else %>
@@ -33,7 +33,7 @@ aria: {
   expanded: "false",
   controls: "pastShows",
 } %>
-<div class="row row-cols-2 g-3 gallery masonry collapse" id="pastShows">
+<div class="row row-cols-4 g-3 gallery masonry collapse" id="pastShows">
   <%= render partial: "past_show", collection: @past_shows, as: :show %>
 </div>
 <%= tag.h2 t("home.header.videos").html_safe.upcase, class: "header m-4 fs-1" %>
@@ -42,8 +42,7 @@ aria: {
     <%= render partial: "video", collection: @videos, as: :video %>
   </div>
 </div>
-<%= tag.h2 t("home.header.pictures").html_safe.upcase,
-       class: "header m-3 mt-5 fs-1" %>
+<%= tag.h2 t("home.header.pictures").html_safe.upcase, class: "header m-3 mt-5 fs-1" %>
 <div class="row row-cols-2 row-cols-sm-3 g-3 mb-5 gallery masonry">
   <%= render partial: "picture", collection: @pictures, as: :picture %>
 </div>
