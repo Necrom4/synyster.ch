@@ -11,43 +11,74 @@
       gtag('config', 'G-SV5QDJMBXP');
     </script>
 
-		<title><%= content_for(:title) || "Synyster - Official" %></title>
-    <meta name="description" content="<%= content_for(:description) || "Discover the Swiss Metal band's story, music and upcoming shows" %>">
-    <meta name="keywords" content="Synyster, music, band, official, concert, metal, suisse">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="mobile-web-app-capable" content="yes">
+    <title><%= content_for(:title) || "Synyster - Official" %></title>
+    <meta
+      name="description"
+      content="<%= content_for(:description) || "Synyster is a Swiss Heavy Metal band founded in 2023 that tackles societal and emotional issues to the sound of heavy rhythms coupled with melodic solos." %>"
+    >
+    <meta
+      name="keywords"
+      content="Synyster, music, musique, band, groupe, official, concert, metal, swiss, suisse"
+    >
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="author" content="Diogo Pombeiro">
     <meta charset="UTF-8">
     <!-- Open Graph (used by Facebook, Discord, etc.) -->
-    <meta property="og:title" content="<%= content_for(:title) || 'Synyster - Official' %>">
-    <meta property="og:description" content="<%= content_for(:description) || "Synyster's official website" %>">
+    <meta
+      property="og:title"
+      content="<%= content_for(:title) || 'Synyster - Official' %>"
+    >
+    <meta
+      property="og:description"
+      content="<%= content_for(:description) || "Synyster's official website" %>"
+    >
     <meta property="og:type" content="website">
     <meta property="og:url" content="<%= request.original_url %>">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="<%= content_for(:title) || 'Synyster - Official' %>">
-    <meta name="twitter:description" content="<%= content_for(:description) || "Synyster's official website" %>">
-    <link rel="canonical" href="<%= request.original_url %>" />
-    <link rel="alternate" hreflang="en" href="https://synyster.ch/en" />
-    <link rel="alternate" hreflang="fr" href="https://synyster.ch/fr" />
-		<%= csrf_meta_tags %>
-		<%= csp_meta_tag %>
+    <meta
+      name="twitter:title"
+      content="<%= content_for(:title) || 'Synyster - Official' %>"
+    >
+    <meta
+      name="twitter:description"
+      content="<%= content_for(:description) || "Synyster's official website" %>"
+    >
+    <link rel="canonical" href="<%= request.original_url %>"/>
+    <link rel="alternate" hreflang="en" href="https://synyster.ch/en"/>
+    <link rel="alternate" hreflang="fr" href="https://synyster.ch/fr"/>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-		<%= yield :head %>
+    <%= yield :head %>
 
-		<%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-		<%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
-		<%# <link rel="icon" href="/icon.png" type="image/png"> %>
-		<%# <link rel="icon" href="/icon.svg" type="image/svg+xml"> %>
+    <%# <link rel="icon" href="/icon.png" type="image/png"> %>
+    <%# <link rel="icon" href="/icon.svg" type="image/svg+xml"> %>
     <%# <link rel="apple-touch-icon" href="/icon.png"> %>
 
-    <link rel="icon" type="image/png" href="<%= asset_path 'favicon/favicon-96x96.png' %>" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="<%= asset_path 'favicon/favicon.svg' %>" />
-    <link rel="shortcut icon" href="<%= asset_path 'favicon/favicon.ico' %>" />
-    <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path 'favicon/apple-touch-icon.png' %>" />
-    <meta name="apple-mobile-web-app-title" content="Synyster" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="<%= asset_path 'favicon/favicon-96x96.png' %>"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="<%= asset_path 'favicon/favicon.svg' %>"
+    />
+    <link rel="shortcut icon" href="<%= asset_path 'favicon/favicon.ico' %>"/>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="<%= asset_path 'favicon/apple-touch-icon.png' %>"
+    />
+    <meta name="apple-mobile-web-app-title" content="Synyster"/>
     <link rel="manifest" href="/site.webmanifest">
 
     <%# <%= favicon_link_tag 'favicon.ico' %1> %>
@@ -58,31 +89,46 @@
     <%# <%= favicon_link_tag 'android-chrome-512x512.png', type: 'image/png', rel: 'icon', sizes: '512x512' %1> %>
     <%# <link rel="manifest" href="/site.webmanifest"> %>
 
-		<%# Includes all stylesheet files in app/assets/stylesheets %>
-		<%# <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %1> %>
-		<%= javascript_importmap_tags %>
-		<%= stylesheet_link_tag "application", "data-turbo-track": Rails.env.production? ? "reload" : "" %>
-		<%= stylesheet_link_tag params[:controller], "data-turbo-track": Rails.env.production? ? "reload" : "" %>
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Electrolize">
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%# <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %1> %>
+    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "application",
+    "data-turbo-track": Rails.env.production? ? "reload" : "" %>
+    <%= stylesheet_link_tag params[:controller],
+    "data-turbo-track": Rails.env.production? ? "reload" : "" %>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Electrolize"
+    >
 
-		<%# <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> %>
-		<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+    <%# <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> %>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+      integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+      crossorigin="anonymous"
+      async
+    ></script>
 
-		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
-		<%# <%= javascript_include_tag("utils.js") %1> %>
-	</head>
-	<body>
-		<main class="wrapper">
-			<%= render 'shared/notification' %>
-			<%= render 'shared/header' %>
-			<div class="content">
-				<%= yield %>
-			</div>
-			<%= render 'shared/footer' %>
-		</main>
-		<script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+    />
+    <%# <%= javascript_include_tag("utils.js") %1> %>
+  </head>
+  <body>
+    <main class="wrapper">
+      <%= render "shared/notification" %>
+      <%= render "shared/header" %>
+      <div class="content">
+        <%= yield %>
+      </div>
+      <%= render "shared/footer" %>
+    </main>
+    <script>
 			Fancybox.bind("[data-fancybox]", {
 				Toolbar: {
 					display: {
@@ -92,6 +138,6 @@
 					},
 				},
 			});
-		</script>
-	</body>
+    </script>
+  </body>
 </html>

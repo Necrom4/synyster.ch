@@ -34,7 +34,7 @@ en:
       drums: "drums"
       guitar: "guitar"
       vocals: "vocals"
-    band_description: "Born in an era of overprocessed music and meaningless art, Synyster tackles societal issues and everyday struggles to the tune of heavy rhythms and melodic solos, bringing a breath of fresh air to the Swiss Metal scene.<br><br>The five friends first set foot on stage in June 2023 inside their home town's majestic Castle. Soon enough they'd start playing alongside iconic Swiss bands, on the stages they'd dreamed of, composing newer, more melodically complex and heavier music."
+    band_description: "Born in an era of overprocessed music and meaningless art, Synyster is a young Heavy Metal band from Switzerland tackling societal issues and everyday emotional struggles to the tune of heavy and out-of-the-norm rhythmic patterns coupled to melodic solos and high-pitched screams, bringing a breath of fresh air to the Swiss Metal scene.<br><br>The five friends first set foot on stage in June 2023 inside their home town's majestic Castle. Soon enough they'd start playing alongside iconic Swiss bands, on the stages they had previously dreamt of.<br>Wanting to keep their classic and beloved Heavy Metal sound while experiencing new musical horizons, they'd start composing fresher, heavier, proggier and more melodically complex music, tunning down their guitars to create harmonies, learning new more radical screaming techniques and only ever finishing a song when it finally told its whole story."
   footer:
     copyright: "© 2023-%{year} Synyster - Website by Diogo Pombeiro"
   header:
@@ -57,8 +57,8 @@ en:
       home: "official"
       music: "music"
     description:
-      about: "Learn more about us"
-      home: "Discover the Swiss Metal band's story, music and upcoming shows"
-      music: "Synyster music releases"
+      about: "Learn more about the founding and overcoming of a young Heavy Metal band from Switzerland."
+      home: "Synyster is a Swiss Heavy Metal band founded in 2023 that tackles societal and emotional issues to the sound of heavy rhythms coupled with melodic solos."
+      music: "Synyster's musical releases and discography over the years. Listen, buy or simple admire the album covers."
   music:
     work_in_progress: "work in progress"

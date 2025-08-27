@@ -1,6 +1,6 @@
 fr:
   about:
-    band_description: "Né dans une ère de musique surproduite et d'art dénué de sens, Synyster aborde les enjeux sociétaux et les luttes quotidiennes au rythme de riffs puissants et de solos mélodiques, insufflant un vent de fraîcheur à la scène Metal Suisse.<br><br>Les cinq amis ont fait leurs premiers pas sur scène en juin 2023, dans le cadre majestueux qu'est le château placé au centre de leur ville. Très vite suivirent des concerts aux côtés de groupes suisses emblématiques, sur les scènes dont ils avaient toujours rêvé, composant une musique nouvelle, plus lourde et mélodiquement complexe."
+    band_description: "Né dans une ère de musique surproduite et d'art dénué de sens, Synyster est un jeune groupe de Heavy Metal suisse qui aborde les enjeux sociétaux et les luttes émotionnelles du quotidien au rythme de riffs puissants et hors normes associés à des solos mélodiques et des cris surpuissants, apportant un vent de fraîcheur dans la scène Metal Suisse.<br><br>Les cinq amis ont fait leurs premiers pas sur scène en juin 2023 dans le cadre majestueux du château placé au centre de leur ville natale. Très vite suivirent des concerts aux côtés de groupes suisses emblématiques, sur les scènes dont ils avaient toujours rêvé.<br>Souhaitant conserver leur son Heavy Metal classique et adoré tout en explorant de nouveaux horizons musicaux, ils se mirent à composer une musique plus fraîche, lourde, prog et mélodiquement complexe, en baissant le son de leurs guitares pour créer des harmonies, et apprenant des techniques de chant plus radicales, tout en ne terminant les nouvelles chansons que quand elles auraient raconté toute leurs histoires."
     role:
       bass: "basse"
       drums: "batterie"
@@ -28,8 +28,8 @@ fr:
       home: "officiel"
       music: "musique"
     description:
-      about: "Apprends en plus sur nous"
-      home: "Découvre l'histoire, la musique et les prochains concerts du groupe de Metal Suisse"
-      music: "Musique de Synyster"
+      about: "Apprenez-en plus sur la création et le succès d'un jeune groupe de Heavy Metal suisse."
+      home: "Synyster est un groupe de Heavy Metal suisse fondé en 2023 qui aborde des enjeux sociétaux et émotionnels au son de rythmes lourds et de solos mélodiques."
+      music: "Discographie de Synyster au fil des années. Achetez, écoutez ou admirez simplement les pochettes d'albums."
   music:
     work_in_progress: "en cours"
