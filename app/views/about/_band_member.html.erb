@@ -3,9 +3,8 @@
     <%= image_tag member[:image_path], class: "w-100" %>
   <% end %>
   <%= link_to member[:web_url], class: "text-nowrap", target: "_blank" do %>
-    <%= first_name(member[:name]) %>
-    <%= tag.span last_name(member[:name]), class: "fw-bold d-none d-md-inline" %>
-    <%= tag.span shortened_last_name(member[:name]), class: "fw-bold d-inline d-md-none" %>
+    <%= member[:name].capitalize %>
   <% end %>
-  <%= tag.p t("about.role.#{member[:role].downcase}").html_safe.capitalize %>
+  <%= tag.span " • #{t("about.role.#{member[:role]}").capitalize}",
+           class: "role-class" %>
 </div>
