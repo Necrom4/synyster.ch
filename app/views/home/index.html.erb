@@ -34,7 +34,7 @@
     expanded: "false",
     controls: "pastShows",
   } %>
-  <div class="row row-cols-4 g-3 gallery masonry collapse" id="pastShows">
+  <div class="row row-cols-4 g-2 g-md-3 gallery masonry collapse" id="pastShows">
     <%= render partial: "past_show", collection: @past_shows, as: :show %>
   </div>
   <%= tag.h2 t("home.header.videos").html_safe.upcase, class: "header m-4 fs-1" %>
