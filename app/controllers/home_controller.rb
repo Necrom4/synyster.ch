@@ -11,7 +11,7 @@ class HomeController < ApplicationController
     @logo = @@data.dig(*%i[media home logo])
     @background = @@data.dig(*%i[media home background])
 
-    if @upcoming_shows.any? { |show| show[:date] <= Date.today + 7 }
+    if @upcoming_shows.any? { |show| show[:date].cweek == Date.today.cweek && show[:date].cwyear == Date.today.cwyear }
       notify(:info, t("notification.upcoming_show"))
     end
   end
