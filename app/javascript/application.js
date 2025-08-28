@@ -7,19 +7,19 @@ import * as bootstrap from "bootstrap"
 // import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 window.addEventListener('scroll', updateSplitImages);
 
 function updateSplitImages() {
-	let num = (window.scrollY/window.innerHeight)*16;
+  let num = (window.scrollY / window.innerHeight) * 16;
 
-	if (num < 10) {
-		document.getElementById('floating-logo').style.transform = 'scale(' + (1 - num / 100) + ')'
-		document.getElementById('bg_image').style.transform = 'translateX(-50%) scale(' + (1 - num / 100) + ')'
-		document.getElementById('bg_image').style.webkitFilter = 'blur(' + num + 'px) brightness(' + (1 - (num / 15)) + ')'
-	}
+  if (num < 10) {
+    document.getElementById('floating-logo').style.transform = 'scale(' + (1 - num / 100) + ')'
+    document.getElementById('bg_image').style.transform = 'translateX(-50%) scale(' + (1 - num / 100) + ')'
+    document.getElementById('bg_image').style.webkitFilter = 'blur(' + num + 'px) brightness(' + (1 - (num / 15)) + ')'
+  }
 }
 
 //document.addEventListener("turbo:load", updateSpacerHeight);
@@ -35,53 +35,53 @@ function updateSplitImages() {
 //}
 
 function getAverageColor(img) {
-	const canvas = document.createElement('canvas');
-	const context = canvas.getContext('2d');
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
 
-	canvas.width = img.width;
-	canvas.height = img.height;
-	context.drawImage(img, 0, 0, img.width, img.height);
+  canvas.width = img.width;
+  canvas.height = img.height;
+  context.drawImage(img, 0, 0, img.width, img.height);
 
-	const imageData = context.getImageData(0, 0, img.width, img.height);
-	const data = imageData.data;
-	let r = 0, g = 0, b = 0;
+  const imageData = context.getImageData(0, 0, img.width, img.height);
+  const data = imageData.data;
+  let r = 0, g = 0, b = 0;
 
-	for (let i = 0; i < data.length; i += 4) {
-		r += data[i];
-		g += data[i + 1];
-		b += data[i + 2];
-	}
+  for (let i = 0; i < data.length; i += 4) {
+    r += data[i];
+    g += data[i + 1];
+    b += data[i + 2];
+  }
 
-	const pixelCount = data.length / 4;
-	r = Math.floor(r / pixelCount);
-	g = Math.floor(g / pixelCount);
-	b = Math.floor(b / pixelCount);
+  const pixelCount = data.length / 4;
+  r = Math.floor(r / pixelCount);
+  g = Math.floor(g / pixelCount);
+  b = Math.floor(b / pixelCount);
 
-	return { r, g, b };
+  return { r, g, b };
 }
 
 document.addEventListener("turbo:load", () => {
-	const galleries = document.querySelectorAll('.masonry');
-	initMasonry(galleries);
-	const collapseGalleries = document.querySelectorAll('.masonry.collapse');
+  const galleries = document.querySelectorAll('.masonry');
+  initMasonry(galleries);
+  const collapseGalleries = document.querySelectorAll('.masonry.collapse');
 
-	collapseGalleries.forEach((gallery) => {
-		gallery.addEventListener('shown.bs.collapse', () => { initMasonry([gallery]); });
-	});
+  collapseGalleries.forEach((gallery) => {
+    gallery.addEventListener('shown.bs.collapse', () => { initMasonry([gallery]); });
+  });
 });
 
 function initMasonry(galleries) {
-	galleries.forEach((gallery) => {
-		imagesLoaded(gallery, () => {
-			new Masonry(gallery, {
-				itemSelector: '.col',
-				percentPosition: true
-			});
-		});
-	});
+  galleries.forEach((gallery) => {
+    imagesLoaded(gallery, () => {
+      new Masonry(gallery, {
+        itemSelector: '.col',
+        percentPosition: true
+      });
+    });
+  });
 };
 
-window.notify = function(type = "notice", message, duration = 5000) {
+window.notify = function(type, msg, duration = 5000) {
   let container = document.getElementById("notification-container");
   if (!container) {
     container = document.createElement("div");
@@ -94,27 +94,69 @@ window.notify = function(type = "notice", message, duration = 5000) {
     }
   }
 
-  const notification = document.createElement("div");
-  notification.className = `notification ${type}`;
-  notification.textContent = message;
+  const titles = {
+    notice: "Notice",
+    success: "Success",
+    alert: "Warning",
+    error: "Error"
+  };
+
+  const icons = {
+    notice: "bi-info-circle",
+    success: "bi-check-circle",
+    alert: "bi-exclamation-triangle",
+    error: "bi-x-circle"
+  };
+
+  let notification = document.createElement("div");
+
+  if (!type) {
+    notification.className = "notification notice";
+    notification.innerHTML = `<div class="notification-body">${msg}</div>`;
+  } else {
+    const isKnown = Object.keys(titles).includes(type);
+    let title, icon, styleClass;
+
+    if (isKnown) {
+      title = titles[type];
+      icon = icons[type];
+      styleClass = type;
+    } else {
+      title = type.charAt(0).toUpperCase() + type.slice(1);
+      icon = "bi-bell";
+      styleClass = "notice";
+    }
+
+    notification.className = `notification ${styleClass}`;
+
+    notification.innerHTML = `
+      <div class="notification-header">
+        <i class="bi ${icon}"></i>
+        <span class="notification-title">${title}</span>
+      </div>
+      <div class="notification-body">${msg}</div>
+    `;
+  }
+
   container.appendChild(notification);
 
-  // Trigger fade-in on next animation frame
   requestAnimationFrame(() => {
     notification.classList.add("visible");
   });
 
-  // After duration, fade out
   setTimeout(() => {
     notification.classList.remove("visible");
     notification.classList.add("fade-out");
 
-    // Wait for transition to finish before removing element
-    notification.addEventListener("transitionend", () => {
-      notification.remove();
-      if (container.children.length === 0) {
-        container.remove();
-      }
-    }, { once: true });
+    notification.addEventListener(
+      "transitionend",
+      () => {
+        notification.remove();
+        if (container.children.length === 0) {
+          container.remove();
+        }
+      },
+      { once: true }
+    );
   }, duration);
 };

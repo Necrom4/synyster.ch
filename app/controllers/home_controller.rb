@@ -10,5 +10,9 @@ class HomeController < ApplicationController
     @pictures = @@data.dig(*%i[media pictures])
     @logo = @@data.dig(*%i[media home logo])
     @background = @@data.dig(*%i[media home background])
+
+    if @upcoming_shows.any? { |show| show[:date] <= Date.today + 7 }
+      notify(:notice, "We have an upcoming show within the next week!")
+    end
   end
 end

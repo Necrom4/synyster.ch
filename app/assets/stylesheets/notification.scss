@@ -25,12 +25,16 @@
   border-color: #fff;
 }
 
-.notification.alert {
-  border-color: #f00;
-}
-
 .notification.success {
   border-color: #0f0;
+}
+
+.notification.alert {
+  border-color: #ff0;
+}
+
+.notification.error {
+  border-color: #f00;
 }
 
 .notification.visible {
