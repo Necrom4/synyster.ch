@@ -28,7 +28,7 @@
   resolved "https://registry.yarnpkg.com/@eslint/config-helpers/-/config-helpers-0.3.1.tgz#d316e47905bd0a1a931fa50e669b9af4104d1617"
   integrity sha512-xR93k9WhrDYpXHORXpxVL5oHj3Era7wo6k/Wd8/IsQNnZUTzkGS29lyn3nAT05v6ltUuTFVCCYDEGfy2Or/sPA==
 
-"@eslint/core@^0.15.1", "@eslint/core@^0.15.2":
+"@eslint/core@^0.15.2":
   version "0.15.2"
   resolved "https://registry.yarnpkg.com/@eslint/core/-/core-0.15.2.tgz#59386327d7862cc3603ebc7c78159d2dcc4a868f"
   integrity sha512-78Md3/Rrxh83gCxoUc0EiciuOHsIITzLy53m3d9UyiW8y9Dj2D29FeETqyKA+BRK76tnTp6RXWb3pCay8Oyomg==
@@ -56,13 +56,13 @@
   integrity sha512-EoyvqQnBNsV1CWaEJ559rxXL4c8V92gxirbawSmVUOWXlsRxxQXl6LmCpdUblgxgSkDIqKnhzba2SjRTI/A5Rw==
 
 "@eslint/json@^0.13.1":
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/@eslint/json/-/json-0.13.1.tgz#da7985d9f8610c39f3fc899c441064a86dac9460"
-  integrity sha512-AGzO7cR0QqSEfJdx9jT4SHQ6BJ5K0G8kN7WNGI1Hgy5AVbUhBKfFoN0gNo86j97aqkU57mqFUW9ytMPdEnVARA==
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/@eslint/json/-/json-0.13.2.tgz#4756dba4e646efb91a80be41dd790e61aea0fe12"
+  integrity sha512-yWLyRE18rHgHXhWigRpiyv1LDPkvWtC6oa7QHXW7YdP6gosJoq7BiLZW2yCs9U7zN7X4U3ZeOJjepA10XAOIMw==
   dependencies:
-    "@eslint/core" "^0.15.1"
-    "@eslint/plugin-kit" "^0.3.4"
-    "@humanwhocodes/momoa" "^3.3.8"
+    "@eslint/core" "^0.15.2"
+    "@eslint/plugin-kit" "^0.3.5"
+    "@humanwhocodes/momoa" "^3.3.9"
     natural-compare "^1.4.0"
 
 "@eslint/markdown@^7.1.0":
@@ -85,7 +85,7 @@
   resolved "https://registry.yarnpkg.com/@eslint/object-schema/-/object-schema-2.1.6.tgz#58369ab5b5b3ca117880c0f6c0b0f32f6950f24f"
   integrity sha512-RBMg5FRL0I0gs51M/guSAj5/e14VQ4tpZnQNWwuDT66P14I43ItmPfIZRhO9fUVIPOAQXU47atlywZ/czoqFPA==
 
-"@eslint/plugin-kit@^0.3.4", "@eslint/plugin-kit@^0.3.5":
+"@eslint/plugin-kit@^0.3.5":
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/@eslint/plugin-kit/-/plugin-kit-0.3.5.tgz#fd8764f0ee79c8ddab4da65460c641cefee017c5"
   integrity sha512-Z5kJ+wU3oA7MMIqVR9tyZRtjYPr4OC004Q4Rw7pgOKUOKkJfZ3O24nz3WYfGRpMDNmcOi3TwQOmgm7B7Tpii0w==
@@ -116,7 +116,7 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/module-importer/-/module-importer-1.0.1.tgz#af5b2691a22b44be847b0ca81641c5fb6ad0172c"
   integrity sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==
 
-"@humanwhocodes/momoa@^3.3.8":
+"@humanwhocodes/momoa@^3.3.9":
   version "3.3.9"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/momoa/-/momoa-3.3.9.tgz#513ff7fb5e3ce08fb5ddbd3a5730e195cab2dd36"
   integrity sha512-LHw6Op4bJb3/3KZgOgwflJx5zY9XOy0NU1NuyUFKGdTwHYmP+PbnQGCYQJ8NVNlulLfQish34b0VuUlLYP3AXA==
@@ -332,9 +332,9 @@ bootstrap-icons@^1.11.3:
   integrity sha512-ijombt4v6bv5CLeXvRWKy7CuM3TRTuPEuGaGKvTV5cz65rQSY8RQ2JcHt6b90cBBAC7s8fsf2EkQDldzCoXUjw==
 
 bootstrap@^5.3.7:
-  version "5.3.7"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.3.7.tgz#8640065036124d961d885d80b5945745e1154d90"
-  integrity sha512-7KgiD8UHjfcPBHEpDNg+zGz8L3LqR3GVwqZiBRFX04a1BCArZOz1r2kjly2HQ0WokqTO0v1nF+QAt8dsW4lKlw==
+  version "5.3.8"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.3.8.tgz#6401a10057a22752d21f4e19055508980656aeed"
+  integrity sha512-HP1SZDqaLDPwsNiqRqi5NcP0SSXciX2s9E+RyqJIIqGo+vJeN5AJVM98CXmW/Wux0nQ5L7jeWUdplCEf0Ee+tg==
 
 brace-expansion@^1.1.7:
   version "1.1.12"
@@ -488,9 +488,9 @@ devlop@^1.0.0, devlop@^1.1.0:
     dequal "^2.0.0"
 
 electron-to-chromium@^1.5.204:
-  version "1.5.209"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.209.tgz#403e7a84933b7206bb2e737d897042b2a6ef8d3e"
-  integrity sha512-Xoz0uMrim9ZETCQt8UgM5FxQF9+imA7PBpokoGcZloA1uw2LeHzTlip5cb5KOAsXZLjh/moN2vReN3ZjJmjI9A==
+  version "1.5.211"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.211.tgz#749317bf9cf894c06f67980940cf8074e5eb08ca"
+  integrity sha512-IGBvimJkotaLzFnwIVgW9/UD/AOJ2tByUmeOrtqBfACSbAw5b1G0XpvdaieKyc7ULmbwXVx+4e4Be8pOPBrYkw==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
