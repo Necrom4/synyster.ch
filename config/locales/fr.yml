@@ -33,3 +33,10 @@ fr:
       music: "Discographie de Synyster au fil des années. Achetez, écoutez ou admirez simplement les pochettes d'albums."
   music:
     work_in_progress: "en cours"
+  notification:
+    types:
+      alert: "Alerte"
+      error: "Erreur"
+      info: "Info"
+      success: "Succès"
+    upcoming_show: "On joue sur scène cette semaine et tu es invité!"

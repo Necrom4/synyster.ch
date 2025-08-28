@@ -21,7 +21,7 @@
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.notification.notice {
+.notification.info {
   border-color: #fff;
 }
 
@@ -44,7 +44,7 @@
 
 .notification.fade-out {
   opacity: 0;
-  transform: translateX(20px);
+  transform: translateY(-20px);
 }
 
 .hidden {

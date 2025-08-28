@@ -1,7 +1,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    <% flash.each do |type, message| %>
-      notify("<%= type %>", "<%= j message %>");
+    <% flash.each do |type, data| %>
+      notify("<%= type %>", "<%= j data[:message] %>", "<%= j data[:title] %>", "<%= j data[:duration] %>");
     <% end %>
   });
 </script>

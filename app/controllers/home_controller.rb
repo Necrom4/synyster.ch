@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     @background = @@data.dig(*%i[media home background])
 
     if @upcoming_shows.any? { |show| show[:date] <= Date.today + 7 }
-      notify(:notice, "We have an upcoming show within the next week!")
+      notify(:info, t("notification.upcoming_show"))
     end
   end
 end

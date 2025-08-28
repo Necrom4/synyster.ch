@@ -81,7 +81,7 @@ function initMasonry(galleries) {
   });
 };
 
-window.notify = function(type, msg, duration = 5000) {
+window.notify = function(type, msg, title, duration) {
   let container = document.getElementById("notification-container");
   if (!container) {
     container = document.createElement("div");
@@ -94,15 +94,10 @@ window.notify = function(type, msg, duration = 5000) {
     }
   }
 
-  const titles = {
-    notice: "Notice",
-    success: "Success",
-    alert: "Warning",
-    error: "Error"
-  };
+  const defaultType = 'info';
 
   const icons = {
-    notice: "bi-info-circle",
+    info: "bi-info-circle",
     success: "bi-check-circle",
     alert: "bi-exclamation-triangle",
     error: "bi-x-circle"
@@ -110,33 +105,24 @@ window.notify = function(type, msg, duration = 5000) {
 
   let notification = document.createElement("div");
 
-  if (!type) {
-    notification.className = "notification notice";
-    notification.innerHTML = `<div class="notification-body">${msg}</div>`;
-  } else {
-    const isKnown = Object.keys(titles).includes(type);
-    let title, icon, styleClass;
+  const isKnown = Object.keys(icons).includes(type);
+  const finalType = isKnown ? type : defaultType;
+  const finalTitle = title || (isKnown ? (type.charAt(0).toUpperCase() + type.slice(1)) : defaultType.charAt(0).toUpperCase() + defaultType.slice(1));
+  const finalIcon = isKnown ? icons[type] : "bi-bell";
 
-    if (isKnown) {
-      title = titles[type];
-      icon = icons[type];
-      styleClass = type;
-    } else {
-      title = type.charAt(0).toUpperCase() + type.slice(1);
-      icon = "bi-bell";
-      styleClass = "notice";
-    }
+  notification.className = `notification ${finalType}`;
 
-    notification.className = `notification ${styleClass}`;
+  const hasHeader = finalTitle || finalIcon;
 
-    notification.innerHTML = `
+  notification.innerHTML = `
+    ${hasHeader ? `
       <div class="notification-header">
-        <i class="bi ${icon}"></i>
-        <span class="notification-title">${title}</span>
+        ${finalIcon ? `<i class="bi ${finalIcon}"></i>` : ''}
+        ${finalTitle ? `<span class="notification-title">${finalTitle}</span>` : ''}
       </div>
-      <div class="notification-body">${msg}</div>
-    `;
-  }
+    ` : ''}
+    <div class="notification-body">${msg}</div>
+  `;
 
   container.appendChild(notification);
 
@@ -155,8 +141,9 @@ window.notify = function(type, msg, duration = 5000) {
         if (container.children.length === 0) {
           container.remove();
         }
-      },
-      { once: true }
+      }, {
+      once: true
+    }
     );
   }, duration);
 };

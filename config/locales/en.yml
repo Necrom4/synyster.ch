@@ -62,3 +62,10 @@ en:
       music: "Synyster's musical releases and discography over the years. Listen, buy or simple admire the album covers."
   music:
     work_in_progress: "work in progress"
+  notification:
+    types:
+      alert: "Alert"
+      error: "Error"
+      info: "Info"
+      success: "Success"
+    upcoming_show: "We're playing a show this week, and you're invited!"
