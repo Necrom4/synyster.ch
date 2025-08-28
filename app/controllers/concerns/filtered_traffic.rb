@@ -119,6 +119,7 @@ module FilteredTraffic
     "qwantbot",
     "railnet",
     "redheberg",
+    "serverio technologijos mb",
     "smartnet limited",
     "space exploration technologies corporation",
     "sunucun bilgi iletisim teknolojileri ve ticaret limited sirketi",
