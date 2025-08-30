@@ -113,6 +113,7 @@ if Rails.env.production?
 
     BLOCKED_HOSTNAME_KEYWORDS = %w[
       akamaitechnologies
+      cagcav.seruhah.com
       contaboserver
       milkywan
       noc223
@@ -121,11 +122,14 @@ if Rails.env.production?
 
     BLOCKED_ORGANIZATION_KEYWORDS = [
       "akamai",
+      "alibaba",
       "bharti airtel",
       "contabo",
       "cloud hosting solutions",
       "detai prosperous technologies limited",
       "frantech solutions",
+      "godaddy",
+      "internet vikings",
       "milkywan association",
       "railnet",
       "smartnet limited",

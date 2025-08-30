@@ -49,6 +49,7 @@ module FilteredTraffic
     16clouds
     akamaitechnologies
     amazonaws
+    cagcav.seruhah.com
     cloudwaysstagingapps
     comcast
     compute
@@ -77,6 +78,7 @@ module FilteredTraffic
   FILTERED_ORGANIZATION_KEYWORDS = [
     "1337 services",
     "akamai",
+    "alibaba",
     "amazon",
     "bharti airtel",
     "bucklog",
@@ -93,6 +95,7 @@ module FilteredTraffic
     "frantech solutions",
     "glesys",
     "globalconnect",
+    "godaddy",
     "google",
     "hetzner",
     "host",
