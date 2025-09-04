@@ -124,6 +124,7 @@ if Rails.env.production?
       "akamai",
       "alibaba",
       "bharti airtel",
+      "clouvider",
       "contabo",
       "cloud hosting solutions",
       "detai prosperous technologies limited",

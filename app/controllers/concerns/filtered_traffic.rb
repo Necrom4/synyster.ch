@@ -49,6 +49,7 @@ module FilteredTraffic
     16clouds
     akamaitechnologies
     amazonaws
+    cache.google.com
     cagcav.seruhah.com
     cloudwaysstagingapps
     comcast
@@ -83,6 +84,7 @@ module FilteredTraffic
     "bharti airtel",
     "bucklog",
     "cloud hosting solutions",
+    "clouvider",
     "comcast cable communications",
     "contabo",
     "da international group ltd.",
