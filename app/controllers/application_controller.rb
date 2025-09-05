@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   before_action :set_data
   before_action :set_visit_count
   before_action :track_event
+  before_action -> do
+    if @filtered_visits_count.present? && rand(4).zero?
+      notify(:info, "#{@filtered_visits_count} #{t("notification.total_visitors")}", t("header.visitor_count").capitalize)
+    end
+  end
 
   private
 

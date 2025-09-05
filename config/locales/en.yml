@@ -41,7 +41,7 @@ en:
     about: "about"
     home: "home"
     music: "music"
-    visitor-count: "visitor count"
+    visitor_count: "visitor count"
   home:
     header:
       announcing_soon: "announcing soon"
@@ -68,4 +68,5 @@ en:
       error: "Error"
       info: "Info"
       success: "Success"
+    total_visitors: "fans have already visited our website!"
     upcoming_show: "We're playing a show this week, and you're invited!"

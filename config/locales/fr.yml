@@ -12,7 +12,7 @@ fr:
     about: "à propos"
     home: "accueil"
     music: "musique"
-    visitor-count: "Nb de visiteurs"
+    visitor_count: "compteur de visites"
   home:
     header:
       announcing_soon: "annonce prochainement"
@@ -39,4 +39,5 @@ fr:
       error: "Erreur"
       info: "Info"
       success: "Succès"
+    total_visitors: "fans ont déjà visité notre site web!"
     upcoming_show: "On joue sur scène cette semaine et tu es invité!"

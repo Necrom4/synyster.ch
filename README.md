@@ -12,6 +12,7 @@ Small personal project intended to teach myself the structure of a simple websit
 
 ## TODO
 
+- [ ] Default language depending on IP location
 - [ ] Add contact form
 - [ ] Add mail list
 - [ ] Add web push notifications
@@ -31,6 +32,6 @@ Small personal project intended to teach myself the structure of a simple websit
 - [x] Use `Bootstrap` and `Hotwire`
   - [ ] Fix `sass` deprecated warning
   - [ ] Add notifications (server-side and client-side)
-    - [ ] Move `Visitor Count` to random notification
+    - [x] Move `Visitor Count` to random notification
     - [x] Add 'Show this week' notification
   - [x] Implement galleries (dynamic picture grids)
