@@ -100,6 +100,7 @@ if Rails.env.production?
     BLOCKED_IPS = %w[
       139.99.241.181
       172.200.43.78
+      178.197.198.222
       45.252.251.4
       87.251.78.138
     ]
@@ -118,6 +119,7 @@ if Rails.env.production?
       milkywan
       noc223
       qwant
+      startdedicated
     ].freeze
 
     BLOCKED_ORGANIZATION_KEYWORDS = [
@@ -131,6 +133,7 @@ if Rails.env.production?
       "frantech solutions",
       "godaddy",
       "internet vikings",
+      "internetdienste",
       "milkywan association",
       "railnet",
       "smartnet limited",

@@ -5,6 +5,7 @@ module FilteredTraffic
 
   def filter_visits
     sql_filtered = Ahoy::Visit
+      .where.not(ip: FILTERED_IPS)
       .where.not(country: FILTERED_COUNTRIES)
       .where(
         Ahoy::Visit.arel_table[:platform].matches_any(
@@ -32,6 +33,14 @@ module FilteredTraffic
     (visit_filtered_events + multiple_visit_events)
       .uniq { |event| event.id }
   end
+
+  FILTERED_IPS = %w[
+    139.99.241.181
+    172.200.43.78
+    178.197.198.222
+    45.252.251.4
+    87.251.78.138
+  ]
 
   FILTERED_COUNTRIES = %w[
     CN
