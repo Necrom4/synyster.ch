@@ -78,24 +78,33 @@ module FilteredTraffic
     onyphe
     qwant
     server
+    sokloud
     speakwrightspeechpathology
     starlinkisp
     startdedicated
+    thoughtlesscracker.ptr.network
     tmdcloud
+    unil.cloud.switch.ch
     vps
   ].freeze
 
   FILTERED_ORGANIZATION_KEYWORDS = [
     "1337 services",
+    "3xk tech",
+    "aeza international",
     "akamai",
     "alibaba",
     "amazon",
+    "atomic networks",
     "bharti airtel",
     "bucklog",
+    "centrilogic",
+    "cisco systems ironport division",
     "cloud hosting solutions",
     "clouvider",
     "comcast cable communications",
     "contabo",
+    "cv andhika pratama sanggoro",
     "da international group ltd.",
     "datacamp limited",
     "detai prosperous technologies limited",
@@ -115,8 +124,9 @@ module FilteredTraffic
     "instra corporation",
     "internet vikings",
     "internetdienste",
-    "it7 networks inc",
     "ionos",
+    "it7 networks inc",
+    "keminet shpk",
     "leaseweb",
     "level 3 parent",
     "m247",
@@ -132,12 +142,14 @@ module FilteredTraffic
     "quickpacket",
     "qwantbot",
     "railnet",
+    "rcn",
     "redheberg",
     "serverio technologijos mb",
     "smartnet limited",
     "space exploration technologies corporation",
     "sunucun bilgi iletisim teknolojileri ve ticaret limited sirketi",
     "techoff srv limited",
+    "the constant company",
     "ucloud",
     "uhq services llc",
     "velia.net",

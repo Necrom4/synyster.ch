@@ -119,16 +119,20 @@ if Rails.env.production?
       milkywan
       noc223
       qwant
+      sokloud
       startdedicated
     ].freeze
 
     BLOCKED_ORGANIZATION_KEYWORDS = [
       "akamai",
       "alibaba",
+      "atomic networks",
       "bharti airtel",
+      "cisco systems ironport division",
+      "cloud hosting solutions",
       "clouvider",
       "contabo",
-      "cloud hosting solutions",
+      "cv andhika pratama sanggoro",
       "detai prosperous technologies limited",
       "frantech solutions",
       "godaddy",
