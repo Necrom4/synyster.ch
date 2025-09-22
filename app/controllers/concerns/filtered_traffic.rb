@@ -7,6 +7,11 @@ module FilteredTraffic
     sql_filtered = Ahoy::Visit
       .where.not(ip: FILTERED_IPS)
       .where.not(country: FILTERED_COUNTRIES)
+      .where.not(
+        Ahoy::Visit.arel_table[:landing_page].matches_any(
+          FILTERED_URLS.map { |path| "%#{path}%" }
+        )
+      )
       .where(
         Ahoy::Visit.arel_table[:platform].matches_any(
           FILTERED_HOSTNAME_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
@@ -33,6 +38,10 @@ module FilteredTraffic
     (visit_filtered_events + multiple_visit_events)
       .uniq { |event| event.id }
   end
+
+  FILTERED_URLS = %w[
+    https://synyster-website.onrender.com/
+  ]
 
   FILTERED_IPS = %w[
     139.99.241.181
