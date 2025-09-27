@@ -4,7 +4,7 @@
 
 [<img src="https://img.shields.io/badge/website-link-blue">](https://synyster.ch)
 
-Small personal project intended to teach myself the structure of a simple website and train my front-end skills.
+Small personal project intended to teach myself the structure of a simple website and train my front end skills.
 
 </center>
 
@@ -12,11 +12,14 @@ Small personal project intended to teach myself the structure of a simple websit
 
 ## TODO
 
+- [ ] Add tests for CI
 - [ ] Default language depending on IP location
 - [ ] Add contact form
 - [ ] Add mail list
 - [ ] Add web push notifications
 - [ ] Add files (logos, tech rider)
+- [X] Use hybrid ActiveRecord-(Postgre)SQL_query for `FilteredTraffic`
+- [X] Use Postgres for Dev and Test environments
 - [x] Add `.justfile`
 - [x] Add visit/event tracker using `ahoy`
 - [ ] `Visitor Count`
