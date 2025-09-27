@@ -3,12 +3,12 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - 'bin/'
-      - '**.js'
-      - '**.erb'
-      - '**.rb'
+      - "bin/"
+      - "**.js"
+      - "**.erb"
+      - "**.rb"
 
 jobs:
   scan_ruby:
@@ -61,15 +61,24 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
-    # services:
-    #  redis:
-    #    image: redis
-    #    ports:
-    #      - 6379:6379
-    #    options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
+    services:
+      postgres:
+        image: postgres:14
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: synyster_website_test
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y google-chrome-stable curl libjemalloc2 libvips sqlite3
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y google-chrome-stable curl libjemalloc2 libvips
 
       - name: Checkout code
         uses: actions/checkout@v4
@@ -79,6 +88,13 @@ jobs:
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
+      - name: Set DATABASE_URL
+        run: echo "DATABASE_URL=postgres://postgres:postgres@localhost:5432/synyster_website_test" >> $GITHUB_ENV
+
+      - name: Setup DB
+        run: |
+          bin/rails db:create db:schema:load --trace
 
       - name: Run tests
         env:
