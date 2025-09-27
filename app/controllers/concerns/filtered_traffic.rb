@@ -4,29 +4,16 @@ module FilteredTraffic
   private
 
   def filter_visits
-    sql_filtered = Ahoy::Visit
-      .where.not(ip: FILTERED_IPS)
-      .where.not(country: FILTERED_COUNTRIES)
-      .where.not(
-        Ahoy::Visit.arel_table[:landing_page].matches_any(
-          FILTERED_URLS.map { |path| "%#{path}%" }
-        )
-      )
-      .where(
-        Ahoy::Visit.arel_table[:platform].matches_any(
-          FILTERED_HOSTNAME_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
-        ).not.or(Ahoy::Visit.arel_table[:platform].eq(nil))
-      )
-      .where.not(
-        FILTERED_ORGANIZATION_KEYWORDS.map { |keyword| "LOWER(utm_campaign) LIKE ?" }.join(" OR "),
-        *FILTERED_ORGANIZATION_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
-      )
-      .where.not(
-        FILTERED_USER_AGENT_KEYWORDS.map { |keyword| "LOWER(user_agent) LIKE ?" }.join(" OR "),
-        *FILTERED_USER_AGENT_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
-      )
+    visits = Ahoy::Visit.all
 
-    sql_filtered.reject { |visit| Browser.new(visit.user_agent).bot? }
+    visits = visits.where.not(ip: FILTERED_IPS)
+    visits = visits.where.not(country: FILTERED_COUNTRIES)
+    visits = visits.where.not("landing_page ILIKE ANY (ARRAY[?]::text[])", FILTERED_URLS.map { |s| "%#{s}%" })
+    visits = visits.where("(platform IS NULL OR NOT LOWER(platform) LIKE ANY (ARRAY[?]::text[]))", FILTERED_HOSTNAME_KEYWORDS.map { |s| "%#{s.downcase}%" })
+    visits = visits.where.not("LOWER(utm_campaign) LIKE ANY (ARRAY[?]::text[])", FILTERED_ORGANIZATION_KEYWORDS.map { |s| "%#{s.downcase}%" })
+    visits = visits.where.not("LOWER(user_agent) LIKE ANY (ARRAY[?]::text[])", FILTERED_USER_AGENT_KEYWORDS.map { |s| "%#{s.downcase}%" })
+
+    visits.reject { |v| Browser.new(v.user_agent).bot? }
   end
 
   def filter_events
