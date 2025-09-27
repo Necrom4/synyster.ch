@@ -28,35 +28,85 @@ module FilteredTraffic
                     WHERE
                         LOWER(ahoy_visits.platform)
                         LIKE '%' || LOWER(pk) || '%'))
-                AND NOT EXISTS (
-                    SELECT
-                        1
-                    FROM
-                        unnest(:org_keywords) AS ok
-                    WHERE
-                        LOWER(ahoy_visits.utm_campaign)
-                        LIKE '%' || LOWER(ok) || '%')
-                    AND NOT EXISTS (
-                        SELECT
-                            1
-                        FROM
-                            unnest(:ua_keywords) AS ua
-                        WHERE
-                            LOWER(ahoy_visits.user_agent)
-                            LIKE '%' || LOWER(ua) || '%')
+            AND NOT EXISTS (
+                SELECT
+                    1
+                FROM
+                    unnest(:org_keywords) AS ok
+                WHERE
+                    LOWER(ahoy_visits.utm_campaign)
+                    LIKE '%' || LOWER(ok) || '%')
+            AND NOT EXISTS (
+                SELECT
+                    1
+                FROM
+                    unnest(:ua_keywords) AS ua
+                WHERE
+                    LOWER(ahoy_visits.user_agent)
+                    LIKE '%' || LOWER(ua) || '%')
       SQL
             )
       .reject { |visit| Browser.new(visit.user_agent).bot? }
   end
 
   def filter_events
-    visit_filtered_events = Ahoy::Event.where(visit_id: filter_visits.map(&:id))
-    multiple_visit_events = Ahoy::Event.where(
-      visit_id: Ahoy::Event.group(:visit_id)
-                           .having("COUNT(*) > 1")
-                           .pluck(:visit_id)
-    )
-    (visit_filtered_events + multiple_visit_events).uniq(&:id)
+    Ahoy::Event.where(<<~SQL
+      landing_pages: FILTERED_URLS,
+      platform_keywords: FILTERED_HOSTNAME_KEYWORDS,
+      org_keywords: FILTERED_ORGANIZATION_KEYWORDS,
+      ua_keywords: FILTERED_USER_AGENT_KEYWORDS,
+      ips: FILTERED_IPS,
+      countries: FILTERED_COUNTRIES) (visit_id IN (
+              SELECT
+                  id
+              FROM
+                  ahoy_visits
+              WHERE
+                  ip NOT IN (:ips)
+                  AND country NOT IN (:countries)
+                  AND NOT EXISTS (
+                      SELECT
+                          1
+                      FROM
+                          unnest(:landing_pages) AS lp
+                      WHERE
+                          ahoy_visits.landing_page ILIKE '%' || lp || '%')
+                      AND (ahoy_visits.platform IS NULL
+                          OR NOT EXISTS (
+                              SELECT
+                                  1
+                              FROM
+                                  unnest(:platform_keywords) AS pk
+                              WHERE
+                                  LOWER(ahoy_visits.platform)
+                                  LIKE '%' || LOWER(pk) || '%'))
+                          AND NOT EXISTS (
+                              SELECT
+                                  1
+                              FROM
+                                  unnest(:org_keywords) AS ok
+                              WHERE
+                                  LOWER(ahoy_visits.utm_campaign)
+                                  LIKE '%' || LOWER(ok) || '%')
+                              AND NOT EXISTS (
+                                  SELECT
+                                      1
+                                  FROM
+                                      unnest(:ua_keywords) AS ua
+                                  WHERE
+                                      LOWER(ahoy_visits.user_agent)
+                                      LIKE '%' || LOWER(ua) || '%'))
+                              OR visit_id IN (
+                                  SELECT
+                                      visit_id
+                                  FROM
+                                      ahoy_events
+                                  GROUP BY
+                                      visit_id
+                                  HAVING
+                                      COUNT(*) > 1))
+    SQL
+                     ).distinct
   end
 
   FILTERED_URLS = %w[
