@@ -41,7 +41,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 # Use pg as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg"
 
 group :production do
   # or :staging or :beta or whatever environments you are using cloudflare in.
