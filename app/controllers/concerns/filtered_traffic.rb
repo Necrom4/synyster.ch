@@ -4,109 +4,80 @@ module FilteredTraffic
   private
 
   def filter_visits
-    Ahoy::Visit
-      .where.not(ip: FILTERED_IPS)
-      .where.not(country: FILTERED_COUNTRIES)
-      .where(<<~SQL
-        landing_pages: FILTERED_URLS,
-        platform_keywords: FILTERED_HOSTNAME_KEYWORDS,
-        org_keywords: FILTERED_ORGANIZATION_KEYWORDS,
-        ua_keywords: FILTERED_USER_AGENT_KEYWORDS)
-        NOT EXISTS (
-            SELECT
-                1
-            FROM
-                unnest(:landing_pages) AS lp
-            WHERE
-                ahoy_visits.landing_page ILIKE '%' || lp || '%')
-            AND (ahoy_visits.platform IS NULL
-                OR NOT EXISTS (
-                    SELECT
-                        1
-                    FROM
-                        unnest(:platform_keywords) AS pk
-                    WHERE
-                        LOWER(ahoy_visits.platform)
-                        LIKE '%' || LOWER(pk) || '%'))
-            AND NOT EXISTS (
-                SELECT
-                    1
-                FROM
-                    unnest(:org_keywords) AS ok
-                WHERE
-                    LOWER(ahoy_visits.utm_campaign)
-                    LIKE '%' || LOWER(ok) || '%')
-            AND NOT EXISTS (
-                SELECT
-                    1
-                FROM
-                    unnest(:ua_keywords) AS ua
-                WHERE
-                    LOWER(ahoy_visits.user_agent)
-                    LIKE '%' || LOWER(ua) || '%')
-      SQL
-            )
-      .reject { |visit| Browser.new(visit.user_agent).bot? }
+    sql = <<~SQL
+      WITH filters AS (
+        SELECT
+          ARRAY[#{FILTERED_IPS.map { |ip| "'#{ip}'" }.join(", ")}] AS ips,
+          ARRAY[#{FILTERED_COUNTRIES.map { |c| "'#{c}'" }.join(", ")}] AS countries,
+          ARRAY[#{FILTERED_URLS.map { |u| "'#{u}'" }.join(", ")}] AS landing_pages,
+          ARRAY[#{FILTERED_HOSTNAME_KEYWORDS.map { |k| "'#{k}'" }.join(", ")}] AS platform_keywords,
+          ARRAY[#{FILTERED_ORGANIZATION_KEYWORDS.map { |k| "'#{k}'" }.join(", ")}] AS organization_keywords,
+          ARRAY[#{FILTERED_USER_AGENT_KEYWORDS.map { |k| "'#{k}'" }.join(", ")}] AS user_agent_keywords
+      )
+      SELECT *
+      FROM ahoy_visits, filters
+      WHERE ip NOT IN (SELECT unnest(filters.ips))
+        AND country NOT IN (SELECT unnest(filters.countries))
+        AND NOT EXISTS (
+          SELECT 1 FROM unnest(filters.landing_pages) AS lp
+          WHERE landing_page ILIKE '%' || lp || '%')
+        AND (platform IS NULL
+          OR NOT EXISTS (
+            SELECT 1 FROM unnest(filters.platform_keywords) AS pk
+            WHERE LOWER(platform) LIKE '%' || LOWER(pk) || '%'))
+        AND NOT EXISTS (
+          SELECT 1 FROM unnest(filters.organization_keywords) AS ok
+          WHERE LOWER(utm_campaign) LIKE '%' || LOWER(ok) || '%')
+        AND NOT EXISTS (
+          SELECT 1 FROM unnest(filters.user_agent_keywords) AS ua
+          WHERE LOWER(user_agent) LIKE '%' || LOWER(ua) || '%');
+    SQL
+
+    visits = Ahoy::Visit.find_by_sql(sql)
+    visits.reject { |visit| Browser.new(visit.user_agent).bot? }
   end
 
   def filter_events
-    Ahoy::Event.where(<<~SQL
-      landing_pages: FILTERED_URLS,
-      platform_keywords: FILTERED_HOSTNAME_KEYWORDS,
-      org_keywords: FILTERED_ORGANIZATION_KEYWORDS,
-      ua_keywords: FILTERED_USER_AGENT_KEYWORDS,
-      ips: FILTERED_IPS,
-      countries: FILTERED_COUNTRIES) (visit_id IN (
-              SELECT
-                  id
-              FROM
-                  ahoy_visits
-              WHERE
-                  ip NOT IN (:ips)
-                  AND country NOT IN (:countries)
-                  AND NOT EXISTS (
-                      SELECT
-                          1
-                      FROM
-                          unnest(:landing_pages) AS lp
-                      WHERE
-                          ahoy_visits.landing_page ILIKE '%' || lp || '%')
-                      AND (ahoy_visits.platform IS NULL
-                          OR NOT EXISTS (
-                              SELECT
-                                  1
-                              FROM
-                                  unnest(:platform_keywords) AS pk
-                              WHERE
-                                  LOWER(ahoy_visits.platform)
-                                  LIKE '%' || LOWER(pk) || '%'))
-                          AND NOT EXISTS (
-                              SELECT
-                                  1
-                              FROM
-                                  unnest(:org_keywords) AS ok
-                              WHERE
-                                  LOWER(ahoy_visits.utm_campaign)
-                                  LIKE '%' || LOWER(ok) || '%')
-                              AND NOT EXISTS (
-                                  SELECT
-                                      1
-                                  FROM
-                                      unnest(:ua_keywords) AS ua
-                                  WHERE
-                                      LOWER(ahoy_visits.user_agent)
-                                      LIKE '%' || LOWER(ua) || '%'))
-                              OR visit_id IN (
-                                  SELECT
-                                      visit_id
-                                  FROM
-                                      ahoy_events
-                                  GROUP BY
-                                      visit_id
-                                  HAVING
-                                      COUNT(*) > 1))
+    sql = <<~SQL
+      WITH filters AS (
+        SELECT
+          ARRAY[#{FILTERED_IPS.map { |ip| "'#{ip}'" }.join(", ")}] AS ips,
+          ARRAY[#{FILTERED_COUNTRIES.map { |c| "'#{c}'" }.join(", ")}] AS countries,
+          ARRAY[#{FILTERED_URLS.map { |u| "'#{u}'" }.join(", ")}] AS landing_pages,
+          ARRAY[#{FILTERED_HOSTNAME_KEYWORDS.map { |k| "'#{k}'" }.join(", ")}] AS platform_keywords,
+          ARRAY[#{FILTERED_ORGANIZATION_KEYWORDS.map { |k| "'#{k}'" }.join(", ")}] AS organization_keywords,
+          ARRAY[#{FILTERED_USER_AGENT_KEYWORDS.map { |k| "'#{k}'" }.join(", ")}] AS user_agent_keywords
+      )
+      SELECT *
+      FROM ahoy_events e
+      WHERE e.visit_id IN (
+        SELECT v.id
+        FROM ahoy_visits v, filters
+        WHERE v.ip NOT IN (SELECT unnest(filters.ips))
+          AND v.country NOT IN (SELECT unnest(filters.countries))
+          AND NOT EXISTS (
+            SELECT 1 FROM unnest(filters.landing_pages) AS lp
+            WHERE v.landing_page ILIKE '%' || lp || '%')
+          AND (v.platform IS NULL
+            OR NOT EXISTS (
+              SELECT 1 FROM unnest(filters.platform_keywords) AS pk
+              WHERE LOWER(v.platform) LIKE '%' || LOWER(pk) || '%'))
+          AND NOT EXISTS (
+            SELECT 1 FROM unnest(filters.organization_keywords) AS ok
+            WHERE LOWER(v.utm_campaign) LIKE '%' || LOWER(ok) || '%')
+          AND NOT EXISTS (
+            SELECT 1 FROM unnest(filters.user_agent_keywords) AS ua
+            WHERE LOWER(v.user_agent) LIKE '%' || LOWER(ua) || '%')
+      )
+      OR e.visit_id IN (
+        SELECT visit_id
+        FROM ahoy_events
+        GROUP BY visit_id
+        HAVING COUNT(*) > 1
+      )
     SQL
-                     ).distinct
+
+    Ahoy::Event.find_by_sql(sql).distinct
   end
 
   FILTERED_URLS = %w[
