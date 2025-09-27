@@ -16,12 +16,10 @@ module FilteredTraffic
 
   def filter_events
     Ahoy::Event
-      .where(visit_id: filter_visits.map(&:id))
-      .or(
-        Ahoy::Event.where(
+      .where(visit_id: filter_visits)
+      .or(Ahoy::Event.where(
           visit_id: Ahoy::Event.group(:visit_id).having("COUNT(*) > 1").select(:visit_id)
-        )
-      )
+        ))
   end
 
   FILTERED_URLS = %w[
