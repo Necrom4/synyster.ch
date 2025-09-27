@@ -4,16 +4,14 @@ module FilteredTraffic
   private
 
   def filter_visits
-    visits = Ahoy::Visit.all
-
-    visits = visits.where.not(ip: FILTERED_IPS)
-    visits = visits.where.not(country: FILTERED_COUNTRIES)
-    visits = visits.where.not("landing_page ILIKE ANY (ARRAY[?]::text[])", FILTERED_URLS.map { |s| "%#{s}%" })
-    visits = visits.where("(platform IS NULL OR NOT LOWER(platform) LIKE ANY (ARRAY[?]::text[]))", FILTERED_HOSTNAME_KEYWORDS.map { |s| "%#{s.downcase}%" })
-    visits = visits.where.not("LOWER(utm_campaign) LIKE ANY (ARRAY[?]::text[])", FILTERED_ORGANIZATION_KEYWORDS.map { |s| "%#{s.downcase}%" })
-    visits = visits.where.not("LOWER(user_agent) LIKE ANY (ARRAY[?]::text[])", FILTERED_USER_AGENT_KEYWORDS.map { |s| "%#{s.downcase}%" })
-
-    visits.reject { |v| Browser.new(v.user_agent).bot? }
+    Ahoy::Visit
+      .where.not(ip: FILTERED_IPS)
+      .where.not(country: FILTERED_COUNTRIES)
+      .where.not("landing_page ILIKE ANY (ARRAY[?]::text[])", FILTERED_URLS.map { |s| "%#{s}%" })
+      .where("(platform IS NULL OR NOT LOWER(platform) LIKE ANY (ARRAY[?]::text[]))", FILTERED_HOSTNAME_KEYWORDS.map { |s| "%#{s.downcase}%" })
+      .where.not("LOWER(utm_campaign) LIKE ANY (ARRAY[?]::text[])", FILTERED_ORGANIZATION_KEYWORDS.map { |s| "%#{s.downcase}%" })
+      .where.not("LOWER(user_agent) LIKE ANY (ARRAY[?]::text[])", FILTERED_USER_AGENT_KEYWORDS.map { |s| "%#{s.downcase}%" })
+      .reject { |v| Browser.new(v.user_agent).bot? }
   end
 
   def filter_events
