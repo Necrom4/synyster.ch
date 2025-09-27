@@ -4,42 +4,34 @@ module FilteredTraffic
   private
 
   def filter_visits
-    sql = <<~SQL
-      WITH filters AS (
-        SELECT
-          ARRAY[#{FILTERED_IPS.map { |ip| "'#{ip}'" }.join(", ")}] AS ips,
-          ARRAY[#{FILTERED_COUNTRIES.map { |c| "'#{c}'" }.join(", ")}] AS countries,
-          ARRAY[#{FILTERED_URLS.map { |u| "'#{u}'" }.join(", ")}] AS landing_pages,
-          ARRAY[#{FILTERED_HOSTNAME_KEYWORDS.map { |k| "'#{k}'" }.join(", ")}] AS platform_keywords,
-          ARRAY[#{FILTERED_ORGANIZATION_KEYWORDS.map { |k| "'#{k}'" }.join(", ")}] AS organization_keywords,
-          ARRAY[#{FILTERED_USER_AGENT_KEYWORDS.map { |k| "'#{k}'" }.join(", ")}] AS user_agent_keywords
+    sql_filtered = Ahoy::Visit
+      .where.not(ip: FILTERED_IPS)
+      .where.not(country: FILTERED_COUNTRIES)
+      .where.not(
+        Ahoy::Visit.arel_table[:landing_page].matches_any(
+          FILTERED_URLS.map { |path| "%#{path}%" }
+        )
       )
-      SELECT *
-      FROM ahoy_visits v, filters
-      WHERE v.ip NOT IN (SELECT unnest(filters.ips))
-        AND v.country NOT IN (SELECT unnest(filters.countries))
-        AND NOT EXISTS (
-          SELECT 1 FROM unnest(filters.landing_pages) AS lp
-          WHERE v.landing_page ILIKE '%' || lp || '%')
-        AND (v.platform IS NULL
-          OR NOT EXISTS (
-            SELECT 1 FROM unnest(filters.platform_keywords) AS pk
-            WHERE LOWER(v.platform) LIKE '%' || LOWER(pk) || '%'))
-        AND NOT EXISTS (
-          SELECT 1 FROM unnest(filters.organization_keywords) AS ok
-          WHERE LOWER(v.utm_campaign) LIKE '%' || LOWER(ok) || '%')
-        AND NOT EXISTS (
-          SELECT 1 FROM unnest(filters.user_agent_keywords) AS ua
-          WHERE LOWER(v.user_agent) LIKE '%' || LOWER(ua) || '%');
-    SQL
+      .where(
+        Ahoy::Visit.arel_table[:platform].matches_any(
+          FILTERED_HOSTNAME_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
+        ).not.or(Ahoy::Visit.arel_table[:platform].eq(nil))
+      )
+      .where.not(
+        FILTERED_ORGANIZATION_KEYWORDS.map { |keyword| "LOWER(utm_campaign) LIKE ?" }.join(" OR "),
+        *FILTERED_ORGANIZATION_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
+      )
+      .where.not(
+        FILTERED_USER_AGENT_KEYWORDS.map { |keyword| "LOWER(user_agent) LIKE ?" }.join(" OR "),
+        *FILTERED_USER_AGENT_KEYWORDS.map { |keyword| "%#{keyword.downcase}%" }
+      )
 
-    visits = Ahoy::Visit.find_by_sql(sql)
-    visits.reject { |visit| Browser.new(visit.user_agent).bot? }
+    sql_filtered.reject { |visit| Browser.new(visit.user_agent).bot? }
   end
 
   def filter_events
     Ahoy::Event
-      .where(visit_id: filter_visits.select(:id))
+      .where(visit_id: filter_visits.map(&:id))
       .or(
         Ahoy::Event.where(
           visit_id: Ahoy::Event.group(:visit_id).having("COUNT(*) > 1").select(:visit_id)
