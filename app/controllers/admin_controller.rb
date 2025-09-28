@@ -1,11 +1,10 @@
 class AdminController < ApplicationController
-  include FilteredTraffic
   before_action :require_secret_key
 
   def db_check
     begin
-      filtered_visit = filter_visits.sort_by { |visit| -visit.id }
-      filtered_event = filter_events.sort_by { |event| -event.id }
+      filtered_visit = Ahoy::Visit.filtered.sort_by { |visit| -visit.id }
+      filtered_event = Ahoy::Event.filtered.sort_by { |event| -event.id }
 
       all_data = ActiveRecord::Base.descendants.each_with_object({}) do |model, hash|
         next if model.abstract_class? || !model.table_exists?

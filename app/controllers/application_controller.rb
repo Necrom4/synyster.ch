@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  include FilteredTraffic
-
   before_action :set_locale
   before_action :set_data
   before_action :set_visit_count
@@ -27,7 +25,7 @@ class ApplicationController < ActionController::Base
     base_count = ENV["VISIT_COUNT_BEFORE_RESET"].to_i
 
     begin
-      @filtered_visits_count = base_count + filter_visits.size
+      @filtered_visits_count = base_count + Ahoy::Visit.filtered.size
     rescue *DB_ERRORS => e
       Rails.logger.warn("Skipped Visit Count due to database error: #{e.class} - #{e.message}")
       @filtered_visits_count = nil
