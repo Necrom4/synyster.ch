@@ -16,7 +16,7 @@ class Ahoy::Visit < ApplicationRecord
 
   FILTERED_URLS = %w[
     https://synyster-website.onrender.com/
-  ]
+  ].freeze
 
   FILTERED_IPS = %w[
     139.99.241.181
@@ -24,7 +24,7 @@ class Ahoy::Visit < ApplicationRecord
     178.197.198.222
     45.252.251.4
     87.251.78.138
-  ]
+  ].freeze
 
   FILTERED_COUNTRIES = %w[
     CN
