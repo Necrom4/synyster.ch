@@ -63,6 +63,9 @@ group :development, :test do
   # rspec-rails integrates the Rails testing helpers into RSpec.
   gem "rspec-rails"
 
+  # factory_bot_rails provides integration between factory_bot and Rails 6.1 or newer
+  gem "factory_bot_rails"
+
   # Autoload dotenv in Rails.
   gem "dotenv-rails"
 end
