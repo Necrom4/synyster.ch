@@ -5,8 +5,8 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
     ENV["ADMIN_KEY"] = "test_secret_key"
   end
 
-  test "should get db_check" do
-    get admin_db_check_url(key: "test_secret_key")
+  test "should get db_tables_snapshot" do
+    get admin_db_tables_snapshot_url(key: "test_secret_key")
     assert_response :success
   end
 end
