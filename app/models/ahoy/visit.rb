@@ -80,9 +80,11 @@ class Ahoy::Visit < ApplicationRecord
     "alibaba",
     "amazon",
     "atomic networks",
+    "bell canada",
     "bharti airtel",
     "bucklog",
     "centrilogic",
+    "cheapy.host",
     "cisco systems ironport division",
     "cloud hosting solutions",
     "clouvider",
@@ -93,6 +95,7 @@ class Ahoy::Visit < ApplicationRecord
     "datacamp limited",
     "detai prosperous technologies limited",
     "digitalocean",
+    "estnoc oy",
     "facebook, inc.",
     "flokinet ehf",
     "flyservers",
@@ -101,6 +104,7 @@ class Ahoy::Visit < ApplicationRecord
     "globalconnect",
     "godaddy",
     "google",
+    "h4y technologies",
     "hetzner",
     "host",
     "hydra communications",
@@ -137,7 +141,8 @@ class Ahoy::Visit < ApplicationRecord
     "ucloud",
     "uhq services llc",
     "velia.net",
-    "wiit"
+    "wiit",
+    "windstream communications"
   ].freeze
 
   FILTERED_USER_AGENT_KEYWORDS = [
