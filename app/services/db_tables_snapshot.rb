@@ -18,6 +18,6 @@ class DbTablesSnapshot
       "Filtered Events" => filtered_events
     }.merge(all_tables)
   rescue *DB_ERRORS => e
-    {"error" => "Skipped DbTablesSnapshot.call due to database error: #{e.class} - #{e.message}"}
+    { "error" => "Skipped DbTablesSnapshot.call due to database error: #{e.class} - #{e.message}" }
   end
 end

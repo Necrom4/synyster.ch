@@ -8,7 +8,7 @@ RSpec.describe "AdminController", type: :request do
 
   context "with correct key" do
     it "renders JSON snapshot" do
-      get path, params: {key: "1234"}
+      get path, params: { key: "1234" }
 
       expect(response).to have_http_status(:ok)
       expect(json.keys).to include("Filtered Visits", "Filtered Events")
@@ -17,7 +17,7 @@ RSpec.describe "AdminController", type: :request do
 
   context "with wrong key" do
     it "denies access" do
-      get path, params: {key: "wrong"}
+      get path, params: { key: "wrong" }
 
       expect(response).to have_http_status(:unauthorized)
       expect(response.body).to eq("Access denied")
