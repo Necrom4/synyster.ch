@@ -6,7 +6,7 @@ assets-reset:
     bin/rails assets:precompile
 
 db-snapshot:
-    @read -p "Enter the access key: " KEY && curl https://synyster.ch/admin/db-tables-snapshot?key=${KEY} | jless
+    @read -p "Enter the access key: " KEY && curl https://synyster.ch/admin/db_tables_snapshot?key=${KEY} | jless
 
 db-reset:
     bin/rails db:drop db:create db:migrate db:seed
