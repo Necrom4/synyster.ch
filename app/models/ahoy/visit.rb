@@ -75,6 +75,7 @@ class Ahoy::Visit < ApplicationRecord
   FILTERED_ORGANIZATION_KEYWORDS = [
     "1337 services",
     "3xk tech",
+    "advin services",
     "aeza international",
     "akamai",
     "alibaba",
@@ -132,6 +133,7 @@ class Ahoy::Visit < ApplicationRecord
     "railnet",
     "rcn",
     "redheberg",
+    "scloud pte",
     "serverio technologijos mb",
     "smartnet limited",
     "space exploration technologies corporation",

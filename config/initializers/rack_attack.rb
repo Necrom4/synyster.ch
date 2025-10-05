@@ -124,11 +124,13 @@ if Rails.env.production?
     ].freeze
 
     BLOCKED_ORGANIZATION_KEYWORDS = [
+      "advin services",
       "akamai",
       "alibaba",
       "atomic networks",
       "bell canada",
       "bharti airtel",
+      "cheapy.host",
       "cisco systems ironport division",
       "cloud hosting solutions",
       "clouvider",
@@ -143,6 +145,7 @@ if Rails.env.production?
       "internetdienste",
       "milkywan association",
       "railnet",
+      "scloud pte",
       "smartnet limited",
       "space exploration technologies corporation",
       "sunucun bilgi iletisim teknolojileri ve ticaret limited sirketi",
