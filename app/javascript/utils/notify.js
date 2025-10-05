@@ -1,4 +1,4 @@
-window.notify = function(type, msg, title, duration) {
+export function notify(type, msg, title, duration) {
   let container = document.getElementById("notification-container");
   if (!container) {
     container = document.createElement("div");

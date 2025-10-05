@@ -1,7 +1,7 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import "controllers"
-import "./utils/notify"
+import { notify } from "utils/notify"
 import * as bootstrap from "bootstrap"
 
 // import { Fancybox } from "@fancyapps/ui";
@@ -81,3 +81,5 @@ function initMasonry(galleries) {
     });
   });
 };
+
+window.notify = notify
