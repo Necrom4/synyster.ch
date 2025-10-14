@@ -125,7 +125,7 @@ GEM
       railties (>= 6.1)
     drb (2.2.3)
     ed25519 (1.4.0)
-    erb (5.0.3)
+    erb (5.1.1)
     erubi (1.13.1)
     et-orbi (1.4.0)
       tzinfo
@@ -167,7 +167,7 @@ GEM
     google-protobuf (4.32.1-x86_64-linux-musl)
       bigdecimal
       rake (>= 13)
-    hotwire-livereload (2.0.0)
+    hotwire-livereload (2.1.1)
       actioncable (>= 7.0.0)
       listen (>= 3.0.0)
       railties (>= 7.0.0)
