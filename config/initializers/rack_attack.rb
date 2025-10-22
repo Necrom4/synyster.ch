@@ -148,6 +148,7 @@ if Rails.env.production?
       "internetdienste",
       "milkywan association",
       "oracle corporation",
+      "ovh sas",
       "railnet",
       "scloud pte",
       "smartnet limited",
