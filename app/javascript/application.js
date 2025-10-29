@@ -3,6 +3,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import { notify } from "utils/notify"
 import * as bootstrap from "bootstrap"
+import "ahoy";
+import "ahoy/tracking";
 
 // import { Fancybox } from "@fancyapps/ui";
 // import "@fancyapps/ui/dist/fancybox/fancybox.css";
