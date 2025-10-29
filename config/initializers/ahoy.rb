@@ -22,7 +22,6 @@ class Ahoy::Store < Ahoy::DatabaseStore
       data[:platform] = nil
     end
 
-
     super(data) # call the original DatabaseStore method to save
   end
 end
@@ -30,7 +29,7 @@ end
 Ahoy.server_side_visits = :immediate
 
 # set to true for JavaScript tracking
-Ahoy.api = false
+Ahoy.api = true
 
 # set to true for geocoding (and add the geocoder gem to your Gemfile)
 # we recommend configuring local geocoding as well
