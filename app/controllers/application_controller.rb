@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
 
   def track_event
-    ahoy.track "Viewed #{request.path}"
+    ahoy.track "$controller", path: request.path
   rescue *DB_ERRORS => e
     Rails.logger.warn("Skipped Ahoy Tracking due to database error: #{e.class} - #{e.message}")
   end
