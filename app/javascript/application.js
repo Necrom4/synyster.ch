@@ -4,6 +4,7 @@ import "controllers";
 import "ahoy";
 import "ahoy/tracking";
 import { notify } from "utils/notify";
+import * as bootstrap from "bootstrap";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
