@@ -6,11 +6,13 @@ import "ahoy/tracking";
 import { notify } from "utils/notify";
 import * as bootstrap from "bootstrap";
 
-let scrollTimeout;
+// Transform logo and background on scroll
+let ticking = false;
 window.addEventListener("scroll", () => {
-  if (scrollTimeout) return;
+  if (ticking) return;
 
-  scrollTimeout = setTimeout(() => {
+  ticking = true;
+  requestAnimationFrame(() => {
     const num = (window.scrollY / window.innerHeight) * 16;
 
     if (num < 10) {
@@ -24,10 +26,11 @@ window.addEventListener("scroll", () => {
       }
     }
 
-    scrollTimeout = null;
-  }, 10);
+    ticking = false;
+  });
 });
 
+// Collapse gallery
 document.addEventListener("turbo:load", () => {
   const galleries = document.querySelectorAll(".masonry");
   initMasonry(galleries);
