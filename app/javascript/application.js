@@ -6,30 +6,33 @@ import "ahoy/tracking";
 import { notify } from "utils/notify";
 import * as bootstrap from "bootstrap";
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
+let scrollTimeout;
 window.addEventListener("scroll", () => {
-  const num = (window.scrollY / window.innerHeight) * 16;
+  if (scrollTimeout) return;
 
-  if (num < 10) {
-    const logo = document.getElementById("floating-logo");
-    const bg = document.getElementById("bg_image");
+  scrollTimeout = setTimeout(() => {
+    const num = (window.scrollY / window.innerHeight) * 16;
 
-    if (!logo || !bg) return;
+    if (num < 10) {
+      const logo = document.getElementById("floating-logo");
+      const bg = document.getElementById("bg_image");
 
-    logo.style.transform = `scale(${1 - num / 100})`;
-    bg.style.transform = `translateX(-50%) scale(${1 - num / 100})`;
-    bg.style.filter = `blur(${num}px) brightness(${1 - num / 15})`;
-  }
+      if (logo && bg) {
+        logo.style.transform = `scale(${1 - num / 100})`;
+        bg.style.transform = `translateX(-50%) scale(${1 - num / 100})`;
+        bg.style.filter = `blur(${num}px) brightness(${1 - num / 15})`;
+      }
+    }
+
+    scrollTimeout = null;
+  }, 10);
 });
 
 document.addEventListener("turbo:load", () => {
   const galleries = document.querySelectorAll(".masonry");
   initMasonry(galleries);
-  const collapseGalleries = document.querySelectorAll(".masonry.collapse");
 
+  const collapseGalleries = document.querySelectorAll(".masonry.collapse");
   collapseGalleries.forEach((gallery) => {
     gallery.addEventListener("shown.bs.collapse", () => {
       initMasonry([gallery]);
@@ -38,6 +41,11 @@ document.addEventListener("turbo:load", () => {
 });
 
 function initMasonry(galleries) {
+  if (typeof imagesLoaded === "undefined" || typeof Masonry === "undefined") {
+    console.warn("Masonry or imagesLoaded not loaded");
+    return;
+  }
+
   galleries.forEach((gallery) => {
     imagesLoaded(gallery, () => {
       new Masonry(gallery, {
