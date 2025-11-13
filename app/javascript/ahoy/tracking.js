@@ -1,3 +1,4 @@
+import ahoy from "ahoy.js";
 /* global ahoy */
 
 document.addEventListener("turbo:load", () => {

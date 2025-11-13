@@ -91,3 +91,5 @@ gem "ahoy_matey"
 gem "browser"
 
 gem "geocoder"
+
+gem "openssl", "~> 3.3"
