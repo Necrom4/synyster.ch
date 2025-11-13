@@ -19,6 +19,11 @@ db-reset:
 dev:
     bin/dev -p 3000
 
+install:
+    bundle install
+    bin/importmap pristine
+    yarn install
+
 lint:
     bundle exec rubocop --color
     yarn eslint . --color
@@ -36,4 +41,5 @@ setup:
 
 update:
     bundle update
+    bin/importmap update
     yarn upgrade
