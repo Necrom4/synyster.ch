@@ -36,5 +36,6 @@
 /app/assets/builds/*
 !/app/assets/builds/.keep
 
+/vendor
 /node_modules
 config/environments/development/ssl

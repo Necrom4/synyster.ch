@@ -1,7 +1,7 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails";
 import "controllers";
-import "ahoy";
+import ahoy from "ahoy.js";
 import "ahoy/tracking";
 import { notify } from "utils/notify";
 import * as bootstrap from "bootstrap";
