@@ -116,11 +116,13 @@ if Rails.env.production?
       akamaitechnologies
       cagcav.seruhah.com
       contaboserver
+      hawsabah.sa
       milkywan
       noc223
       qwant
       sokloud
       startdedicated
+      totalplay.net
     ].freeze
 
     BLOCKED_ORGANIZATION_KEYWORDS = [
@@ -134,6 +136,7 @@ if Rails.env.production?
       "cisco systems ironport division",
       "cloud hosting solutions",
       "clouvider",
+      "cogent communications",
       "contabo",
       "cv andhika pratama sanggoro",
       "detai prosperous technologies limited",
@@ -146,6 +149,7 @@ if Rails.env.production?
       "h4y technologies",
       "internet vikings",
       "internetdienste",
+      "ip-eend bv",
       "milkywan association",
       "oracle corporation",
       "ovh sas",
@@ -153,8 +157,13 @@ if Rails.env.production?
       "scloud pte",
       "smartnet limited",
       "space exploration technologies corporation",
+      "square net",
       "sunucun bilgi iletisim teknolojileri ve ticaret limited sirketi",
-      "techoff srv limited"
+      "techoff srv limited",
+      "total play telecomunicaciones sa de cv",
+      "truenet communication co",
+      "xneelo",
+      "xstream srl"
     ].freeze
 
     BLOCKED_USER_AGENT_KEYWORDS = [

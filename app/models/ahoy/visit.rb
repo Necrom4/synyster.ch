@@ -53,6 +53,7 @@ class Ahoy::Visit < ApplicationRecord
     ec2
     fastwebserver
     fbsv
+    hawsabah.sa
     host
     insidesign
     instances.scw.cloud
@@ -61,6 +62,7 @@ class Ahoy::Visit < ApplicationRecord
     npsmanaged
     onyphe
     qwant
+    registerdomain.net.za
     server
     sokloud
     speakwrightspeechpathology
@@ -68,6 +70,7 @@ class Ahoy::Visit < ApplicationRecord
     startdedicated
     thoughtlesscracker.ptr.network
     tmdcloud
+    totalplay.net
     unil.cloud.switch.ch
     vps
   ].freeze
@@ -89,6 +92,7 @@ class Ahoy::Visit < ApplicationRecord
     "cisco systems ironport division",
     "cloud hosting solutions",
     "clouvider",
+    "cogent communications",
     "comcast cable communications",
     "contabo",
     "cv andhika pratama sanggoro",
@@ -96,6 +100,7 @@ class Ahoy::Visit < ApplicationRecord
     "datacamp limited",
     "detai prosperous technologies limited",
     "digitalocean",
+    "edgoo networks",
     "estnoc oy",
     "facebook, inc.",
     "feo prest srl",
@@ -117,6 +122,7 @@ class Ahoy::Visit < ApplicationRecord
     "internet vikings",
     "internetdienste",
     "ionos",
+    "ip-eend bv",
     "it7 networks inc",
     "keminet shpk",
     "leaseweb",
@@ -124,6 +130,8 @@ class Ahoy::Visit < ApplicationRecord
     "m247",
     "mass response service",
     "medialink global mandiri",
+    "total play telecomunicaciones sa de cv",
+    "truenet communication co",
     "mevspace",
     "microsoft",
     "milkywan association",
@@ -144,6 +152,7 @@ class Ahoy::Visit < ApplicationRecord
     "smartnet limited",
     "space exploration technologies corporation",
     "sunucun bilgi iletisim teknolojileri ve ticaret limited sirketi",
+    "square net",
     "techoff srv limited",
     "the constant company",
     "ucloud",
@@ -151,7 +160,9 @@ class Ahoy::Visit < ApplicationRecord
     "velia.net",
     "widya intersat nusantara",
     "wiit",
-    "windstream communications"
+    "windstream communications",
+    "xneelo",
+    "xstream srl"
   ].freeze
 
   FILTERED_USER_AGENT_KEYWORDS = [
