@@ -12,7 +12,7 @@ What first started as a simple website to present my Heavy Metal band has now ev
   - [ ] Mail list
   - [ ] Web push notifications
 - [x] User tracking (`ahoy`, `geocode`), human filtering and bot blocking (`rack_attack`)
-  - [ ] Track movement events using JS
+  - [x] Track movement events using JS
 - [x] Automated ci-test using RSpec
 - [x] PostgreSQL database along with Active Record
 - [x] Dynamic visuals using JavaScript
