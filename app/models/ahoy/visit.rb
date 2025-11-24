@@ -76,6 +76,7 @@ class Ahoy::Visit < ApplicationRecord
   ].freeze
 
   FILTERED_ORGANIZATION_KEYWORDS = [
+    "31173 services ab",
     "1337 services",
     "3xk tech",
     "advin services",

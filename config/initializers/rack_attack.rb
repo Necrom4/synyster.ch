@@ -126,6 +126,7 @@ if Rails.env.production?
     ].freeze
 
     BLOCKED_ORGANIZATION_KEYWORDS = [
+      "31173 services ab",
       "advin services",
       "akamai",
       "alibaba",
