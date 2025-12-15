@@ -92,4 +92,4 @@ gem "browser"
 
 gem "geocoder"
 
-gem "openssl", "~> 3.3"
+gem "openssl", "~> 4.0"
