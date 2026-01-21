@@ -40,6 +40,6 @@ setup:
     yarn install
 
 update:
-    bundle update
+    bundle update --all
     bin/importmap update
     yarn upgrade
