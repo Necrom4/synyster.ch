@@ -1,3 +1,52 @@
 [tools]
 node = "25.8.0"
 ruby = "4.0.1"
+
+
+[tasks.assets-reset]
+run = ["bin/rails assets:clobber", "bin/rails assets:precompile"]
+
+[tasks.db-snapshot]
+description = "Fetch DB snapshot and open in the best available viewer"
+quiet = true
+shell = "zsh -c"
+run = """
+read -s "KEY?Enter the access key: "
+echo ""
+
+curl -s "https://synyster.ch/admin/db_tables_snapshot?key=$KEY" | {
+  if command -v vd >/dev/null 2>&1; then
+    vd
+  elif command -v jless >/dev/null 2>&1; then
+    jless
+  elif command -v jq >/dev/null 2>&1; then
+    jq . | less
+  else
+    cat
+  fi
+}
+"""
+
+[tasks.db-reset]
+run = "bin/rails db:drop db:create db:migrate db:seed"
+
+[tasks.dev]
+run = "bin/dev -p 3000"
+
+[tasks.install]
+run = ["bundle install", "bin/importmap pristine", "yarn install"]
+
+[tasks.lint]
+run = ["bundle exec rubocop --color", "yarn eslint . --color"]
+
+[tasks.lint-fix]
+run = ["bundle exec rubocop -A --color", "yarn eslint . --fix --color"]
+
+[tasks.server]
+run = "bin/rails server"
+
+[tasks.setup]
+run = ["bundle install", "yarn install"]
+
+[tasks.update]
+run = ["bundle update --all", "bin/importmap update", "yarn upgrade"]
